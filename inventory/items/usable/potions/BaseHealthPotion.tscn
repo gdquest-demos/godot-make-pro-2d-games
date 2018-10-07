@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://inventory/items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://inventory/items/usable/potions/HealthPotion.gd" type="Script" id=2]
+
+
+
+[node name="HealthPotion" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+icon = null
+price = 20
+HEAL_AMOUNT = 20
+
+

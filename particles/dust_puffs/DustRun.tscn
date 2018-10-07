@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://dust_puffs/dust_puffs_particle.tres" type="Material" id=1]
+[ext_resource path="res://dust_puffs/puff_stylized.png" type="Texture" id=2]
+
+
+
+
+[node name="DustRun" type="Particles2D" index="0"]
+
+position = Vector2( 1, 0 )
+rotation = -1.5708
+emitting = true
+amount = 8
+lifetime = 1.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.95
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -400, -400, 800, 800 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Material", "Process Material", "Textures", "Time", "Transform", "Visibility" ]
+
+

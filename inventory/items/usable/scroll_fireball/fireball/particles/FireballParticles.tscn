@@ -1,0 +1,196 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/fireball/fireball.material" type="Material" id=1]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/sprites/smoke_clouds.png" type="Texture" id=2]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/ParticlesToggle.gd" type="Script" id=3]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/assets/gradient_ramps/sparkles_small.tres" type="Gradient" id=4]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/sprites/circle.png" type="Texture" id=5]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/assets/gradient_ramps/sparkles.tres" type="Gradient" id=6]
+
+
+
+
+
+
+
+
+
+
+[sub_resource type="GradientTexture" id=1]
+
+flags = 4
+gradient = ExtResource( 4 )
+width = 2048
+
+[sub_resource type="Curve" id=2]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.399763 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+
+flags = 4
+width = 2048
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 24.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 120.0
+flatness = 0.0
+gravity = Vector3( 0, 500, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.6
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 100.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.06
+scale_random = 0.0
+scale_curve = SubResource( 3 )
+color_ramp = SubResource( 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity", "Scale", "Tangential Accel" ]
+
+[sub_resource type="GradientTexture" id=5]
+
+flags = 4
+gradient = ExtResource( 6 )
+width = 2048
+
+[sub_resource type="ParticlesMaterial" id=6]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 24.0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 120.0
+flatness = 0.0
+gravity = Vector3( 0, 450, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.6
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 100.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 0.08
+scale_random = 0.0
+scale_curve = SubResource( 3 )
+color_ramp = SubResource( 5 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Gravity", "Scale" ]
+
+[node name="FireballParticles" type="Particles2D" index="0"]
+
+emitting = true
+amount = 300
+lifetime = 0.4
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -400, -400, 800, 800 )
+local_coords = false
+draw_order = 1
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 2
+v_frames = 1
+script = ExtResource( 3 )
+_sections_unfolded = [ "Process Material", "Time", "Transform" ]
+active = true
+
+[node name="SmallSparkles" type="Particles2D" parent="." index="0"]
+
+rotation = -1.61079
+emitting = true
+amount = 40
+lifetime = 0.6
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.2
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -400, -400, 800, 800 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 5 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="TinySparkles" type="Particles2D" parent="." index="1"]
+
+rotation = -1.61079
+emitting = true
+amount = 60
+lifetime = 0.6
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.2
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -400, -400, 800, 800 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 6 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 2
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+

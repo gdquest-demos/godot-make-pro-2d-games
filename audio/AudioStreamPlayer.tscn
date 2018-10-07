@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://audio/AudioShuffleStepSounds.gd" type="Script" id=1]
+
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+script = ExtResource( 1 )
+
+

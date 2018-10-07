@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
+[ext_resource path="res://interface/menus/Menu.gd" type="Script" id=2]
+[ext_resource path="res://audio/sfx/menu_confirm.wav" type="AudioStream" id=3]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends AudioStreamPlayer
+
+var navigate = preload(\"res://audio/sfx/menu_navigate_01.wav\")
+var popup_open = preload(\"res://audio/sfx/menu_popup_open.wav\")
+var confirm = preload(\"res://audio/sfx/menu_confirm.wav\")
+
+func play_navigate():
+	stream = navigate
+	play()
+
+func play_popup_open():
+	stream = popup_open
+	play()
+
+func play_confirm():
+	stream = confirm
+	play()
+"
+
+[node name="Menu" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme" ]
+SUB_MENU_PATH = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+script = SubResource( 1 )
+
+

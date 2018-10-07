@@ -1,0 +1,94 @@
+[gd_resource type="ParticlesMaterial" load_steps=9 format=2]
+
+[sub_resource type="Curve" id=1]
+
+min_value = 0.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0 ), 0.0, 53.531, 0, 0, Vector2( 0.249193, 0 ), -8.39704, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+
+flags = 4
+width = 2048
+curve = SubResource( 1 )
+
+[sub_resource type="Gradient" id=3]
+
+offsets = PoolRealArray( 0.881657, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+
+flags = 4
+gradient = SubResource( 3 )
+width = 2048
+
+[sub_resource type="Curve" id=5]
+
+min_value = -200.0
+max_value = 200.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, -55.8594 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+
+flags = 4
+width = 2048
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=7]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.446289 ), 0.0, 8.58244, 0, 0, Vector2( 0.410727, 1 ), -1.18141, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+
+flags = 4
+width = 32
+curve = SubResource( 7 )
+
+[resource]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 30.0
+flatness = 0.0
+gravity = Vector3( 0, 500, 0 )
+initial_velocity = 500.0
+initial_velocity_random = 0.5
+angular_velocity = 360.0
+angular_velocity_random = 0.53
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+linear_accel_curve = SubResource( 6 )
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 100.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 1.0
+scale = 0.1
+scale_random = 0.7
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 4 )
+hue_variation = 1.0
+hue_variation_random = 0.02
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_speed_curve = SubResource( 2 )
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Scale" ]
+

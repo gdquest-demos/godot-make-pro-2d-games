@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://utils/Pause.gd" type="Script" id=1]
+[ext_resource path="res://interface/theme/pause_menu.theme" type="Theme" id=2]
+[ext_resource path="res://interface/menus/shared/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/menus/pause/ContinueButton.gd" type="Script" id=4]
+[ext_resource path="res://interface/menus/pause/UnpauseButton.gd" type="Script" id=5]
+
+
+
+
+
+
+[node name="PauseMenu" type="Control" index="0"]
+
+pause_mode = 2
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="DarkOverlay" type="ColorRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0.313726 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Background" type="ColorRect" parent="." index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -280.0
+margin_right = 300.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 600, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0.136719, 0.136719, 0.136719, 1 )
+_sections_unfolded = [ "Rect", "custom_constants" ]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 600, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+alignment = 1
+_sections_unfolded = [ "Margin", "Rect", "Theme" ]
+
+[node name="Label" type="Label" parent="Background/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 94.0
+margin_right = 600.0
+margin_bottom = 129.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = ExtResource( 2 )
+text = "Pause Menu"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Theme" ]
+
+[node name="ContinueButton" parent="Background/VBoxContainer" index="1" instance=ExtResource( 3 )]
+
+margin_left = 100.0
+margin_top = 149.0
+margin_right = 500.0
+margin_bottom = 213.0
+text = "Continue"
+script = ExtResource( 4 )
+
+[node name="ItemsButton" parent="Background/VBoxContainer" index="2" instance=ExtResource( 3 )]
+
+margin_left = 100.0
+margin_top = 233.0
+margin_right = 500.0
+margin_bottom = 297.0
+text = "Items"
+script = ExtResource( 5 )
+
+[node name="OptionsButton" parent="Background/VBoxContainer" index="3" instance=ExtResource( 3 )]
+
+margin_left = 100.0
+margin_top = 317.0
+margin_right = 500.0
+margin_bottom = 381.0
+text = "Options"
+script = ExtResource( 5 )
+
+[node name="TitleScreenButton" parent="Background/VBoxContainer" index="4" instance=ExtResource( 3 )]
+
+margin_left = 100.0
+margin_top = 401.0
+margin_right = 500.0
+margin_bottom = 465.0
+text = "Title Screen"
+script = ExtResource( 5 )
+
+[connection signal="pause_toggled" from="." to="Background/VBoxContainer/ContinueButton" method="_on_PauseMenu_pause_toggled"]
+
+

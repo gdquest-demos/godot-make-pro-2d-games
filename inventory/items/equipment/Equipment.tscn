@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://inventory/items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://inventory/items/equipment/Equipment.gd" type="Script" id=2]
+
+[node name="Equipment" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+icon = null
+display_name = ""
+description = ""
+amount = 1
+usable = true
+STRENGTH = 0
+MAGIC = 0
+ARMOR = 0
+SPEED = 0
+
+

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://actors/health/Stats.gd" type="Script" id=1]
+
+[node name="Stats" type="Node" index="0"]
+
+script = ExtResource( 1 )
+health = 0
+max_health = 9
+strength = 2
+defense = 0
+
+

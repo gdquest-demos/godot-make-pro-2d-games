@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/Fireball.gd" type="Script" id=1]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/explosions/Explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/FireballParticles.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 31.9831
+
+[node name="Fireball" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 8
+collision_mask = 6
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+Explosion = ExtResource( 2 )
+SPEED = 1400.0
+
+[node name="Fireball" parent="." index="0" instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+
