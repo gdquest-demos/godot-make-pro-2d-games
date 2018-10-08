@@ -130,12 +130,7 @@ func _physics_process(delta):
 			velocity = charge_direction * MAX_CHARGE_SPEED
 			charge_distance += velocity.length() * delta
 			move_and_slide(velocity)
-
-			# TODO: Replace with a HitBox
 			if get_slide_count() > 0:
-				var body = get_slide_collision(0).collider
-				if body.get_name() == "Player":
-					body.take_damage(self, 3)
 				_change_state(BUMP)
 
 func _on_animation_finished(name):

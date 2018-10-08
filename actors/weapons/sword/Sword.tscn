@@ -3,8 +3,6 @@
 [ext_resource path="res://actors/weapons/sword/Sword.gd" type="Script" id=1]
 [ext_resource path="res://actors/weapons/sword/sword.png" type="Texture" id=2]
 
-
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "SETUP"
@@ -244,7 +242,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 monitorable = false
 collision_layer = 16
-collision_mask = 3
+collision_mask = 8
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )

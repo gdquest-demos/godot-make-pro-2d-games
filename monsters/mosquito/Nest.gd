@@ -4,11 +4,11 @@ export(int) var MAX_MOSQUITO_COUNT = 2
 
 var Mosquito = preload("Mosquito.tscn")
 
-var target
-
 onready var timer = $SpawnTimer
 onready var collider = $SpawnArea/CollisionShape2D
 onready var mosquitos = $Mosquitos
+
+var target
 
 func initialize(actor):
 	target = actor

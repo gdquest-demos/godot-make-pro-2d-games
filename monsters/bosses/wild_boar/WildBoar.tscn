@@ -6,7 +6,7 @@
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/wild_boar_stomp_2.png" type="Texture" id=4]
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/wild_boar_stomp_1.png" type="Texture" id=5]
 [ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/DamageSource.gd" type="Script" id=7]
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=7]
 [ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=8]
 [ext_resource path="res://monsters/bosses/wild_boar/states/Spawn.gd" type="Script" id=9]
 [ext_resource path="res://monsters/bosses/wild_boar/states/roam/RoamSequence.tscn" type="PackedScene" id=10]
@@ -15,8 +15,6 @@
 [ext_resource path="res://monsters/bosses/wild_boar/states/Die.gd" type="Script" id=13]
 [ext_resource path="res://particles/explosions/Explosion.tscn" type="PackedScene" id=14]
 [ext_resource path="res://utils/state/State.gd" type="Script" id=15]
-
-
 
 [sub_resource type="Animation" id=1]
 
@@ -373,7 +371,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" groups=[
+[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
 "character",
 "monster",
 ]]
@@ -440,26 +438,14 @@ texture = ExtResource( 3 )
 offset = Vector2( -1.98642, -55.6066 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="CharacterDamager" type="Area2D" parent="." index="5"]
+[node name="CharacterDamager" parent="." index="5" instance=ExtResource( 7 )]
 
-editor/display_folded = true
 position = Vector2( 0, -27.075 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 16
-collision_mask = 32
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 7 )
-_sections_unfolded = [ "Collision" ]
-damage = 2
+damage = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDamager" index="0"]
 
-position = Vector2( 0, 10 )
+position = Vector2( 0, -17.075 )
 shape = SubResource( 12 )
 
 [node name="HitBox" parent="." index="6" instance=ExtResource( 8 )]

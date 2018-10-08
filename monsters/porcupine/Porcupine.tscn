@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://monsters/porcupine/Porcupine.gd" type="Script" id=1]
-[ext_resource path="res://monsters/porcupine/porcupine.png" type="Texture" id=2]
-[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=3]
-[ext_resource path="res://particles/dust_puffs/DustPuffs.tscn" type="PackedScene" id=4]
+[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=3]
+[ext_resource path="res://monsters/porcupine/porcupine.png" type="Texture" id=4]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=5]
+[ext_resource path="res://particles/dust_puffs/DustPuffs.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 
@@ -249,7 +251,12 @@ tracks/0/keys = {
 "values": [ Vector2( 3.57628e-007, 17.6051 ), Vector2( 0, 0.113144 ) ]
 }
 
-[node name="Porcupine" type="KinematicBody2D" index="0" groups=[
+[sub_resource type="CircleShape2D" id=7]
+
+custom_solver_bias = 0.0
+radius = 35.906
+
+[node name="Porcupine" type="KinematicBody2D" groups=[
 "monster",
 ]]
 
@@ -291,7 +298,16 @@ position = Vector2( 0, 48.6492 )
 build_mode = 0
 polygon = PoolVector2Array( -36, -96, 36, -96, 36, -24, -36, -24 )
 
-[node name="BodyPivot" type="Position2D" parent="." index="3"]
+[node name="HitBox" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="DamageSource" parent="." index="4" instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
+
+position = Vector2( -1.19209e-007, -14 )
+shape = SubResource( 7 )
+
+[node name="BodyPivot" type="Position2D" parent="." index="5"]
 
 z_index = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -299,7 +315,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 [node name="Body" type="Sprite" parent="BodyPivot" index="0"]
 
 position = Vector2( 3.57628e-007, 17.6051 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 offset = Vector2( 0.0850579, -32.8777 )
 _sections_unfolded = [ "Visibility" ]
 
@@ -308,10 +324,10 @@ _sections_unfolded = [ "Visibility" ]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 74.8139, -90 )
 rotation = 0.253141
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
 
 visible = false
 enabled = false
@@ -319,14 +335,14 @@ exclude_parent = true
 cast_to = Vector2( 0, 50 )
 collision_mask = 4
 
-[node name="Timer" type="Timer" parent="." index="5"]
+[node name="Timer" type="Timer" parent="." index="7"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="DustPuffs" parent="." index="6" instance=ExtResource( 4 )]
+[node name="DustPuffs" parent="." index="8" instance=ExtResource( 6 )]
 
 emitting = false
 

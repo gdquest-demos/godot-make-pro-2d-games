@@ -1,6 +1,7 @@
 extends Node
 
 signal health_changed(new_health)
+signal damage_taken(new_health)
 signal health_depleted()
 
 var modifiers = {}
@@ -17,6 +18,7 @@ func take_damage(amount):
 	health -= amount
 	health = max(0, health)
 	emit_signal("health_changed", health)
+	emit_signal("damage_taken", health)
 	if health == 0:
 		emit_signal("health_depleted")
 
