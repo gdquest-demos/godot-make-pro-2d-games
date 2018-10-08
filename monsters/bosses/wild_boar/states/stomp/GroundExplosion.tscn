@@ -1,13 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://monsters/bosses/wild_boar/states/stomp/GroundExplosion.gd" type="Script" id=1]
-[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/explosions/Explosion.tscn" type="PackedScene" id=2]
-
-
-
-
-
-
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=1]
+[ext_resource path="res://monsters/bosses/wild_boar/states/stomp/GroundExplosion.gd" type="Script" id=2]
+[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/explosions/Explosion.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -21,7 +16,7 @@ length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/path = NodePath("../CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -33,7 +28,7 @@ tracks/0/keys = {
 "values": [ false, true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Explosion:emitting")
+tracks/1/path = NodePath("../Explosion:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -59,30 +54,17 @@ tracks/2/keys = {
 } ]
 }
 
-[node name="GroundExplosion" type="Area2D" index="0"]
+[node name="GroundExplosion" index="0" instance=ExtResource( 1 )]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 16
-collision_mask = 32
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
-damage = 2
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Explosion" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Explosion" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 0, 0 )
-rotation = 0.0
 emitting = false
 one_shot = true
 

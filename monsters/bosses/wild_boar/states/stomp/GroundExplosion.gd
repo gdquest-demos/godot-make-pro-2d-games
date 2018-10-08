@@ -1,4 +1,4 @@
-extends "res://actors/damage_source.gd"
+extends "res://actors/DamageSource.gd"
 
 func _ready():
 	$AnimationPlayer.play('explode')

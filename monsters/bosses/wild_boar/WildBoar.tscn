@@ -1,20 +1,27 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://monsters/bosses/wild_boar/WildBoarFSM.gd" type="Script" id=1]
+[ext_resource path="res://monsters/bosses/wild_boar/WildBoar.gd" type="Script" id=1]
 [ext_resource path="res://particles/dust_puffs/DustPuffsLarge.tscn" type="PackedScene" id=2]
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/front.png" type="Texture" id=3]
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/wild_boar_stomp_2.png" type="Texture" id=4]
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/wild_boar_stomp_1.png" type="Texture" id=5]
 [ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=6]
-[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=7]
-[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://monsters/bosses/wild_boar/states/Spawn.gd" type="Script" id=9]
-[ext_resource path="res://monsters/bosses/wild_boar/states/roam/RoamSequence.tscn" type="PackedScene" id=10]
-[ext_resource path="res://monsters/bosses/wild_boar/states/charge/ChargeSequence.tscn" type="PackedScene" id=11]
-[ext_resource path="res://monsters/bosses/wild_boar/states/stomp/Stomp.tscn" type="PackedScene" id=12]
-[ext_resource path="res://monsters/bosses/wild_boar/states/Die.gd" type="Script" id=13]
-[ext_resource path="res://particles/explosions/Explosion.tscn" type="PackedScene" id=14]
-[ext_resource path="res://utils/state/State.gd" type="Script" id=15]
+[ext_resource path="res://monsters/bosses/wild_boar/WildBoarFSM.gd" type="Script" id=7]
+[ext_resource path="res://monsters/bosses/wild_boar/states/Spawn.gd" type="Script" id=8]
+[ext_resource path="res://monsters/bosses/wild_boar/states/roam/RoamSequence.gd" type="Script" id=9]
+[ext_resource path="res://monsters/bosses/wild_boar/states/roam/Wait.gd" type="Script" id=10]
+[ext_resource path="res://monsters/bosses/wild_boar/states/roam/MoveToRandomPosition.gd" type="Script" id=11]
+[ext_resource path="res://utils/state/Sequence.gd" type="Script" id=12]
+[ext_resource path="res://monsters/bosses/wild_boar/states/charge/Prepare.gd" type="Script" id=13]
+[ext_resource path="res://monsters/bosses/wild_boar/states/charge/Sprint.gd" type="Script" id=14]
+[ext_resource path="res://monsters/bosses/wild_boar/states/charge/Bump.gd" type="Script" id=15]
+[ext_resource path="res://monsters/bosses/wild_boar/states/ReturnToCenter.gd" type="Script" id=16]
+[ext_resource path="res://monsters/bosses/wild_boar/states/stomp/Stomp.gd" type="Script" id=17]
+[ext_resource path="res://monsters/bosses/wild_boar/states/Die.gd" type="Script" id=18]
+[ext_resource path="res://particles/explosions/Explosion.tscn" type="PackedScene" id=19]
+[ext_resource path="res://utils/state/State.gd" type="Script" id=20]
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=21]
+[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Animation" id=1]
 
@@ -352,7 +359,7 @@ tracks/3/keys = {
 "values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ]
 }
 tracks/4/type = "method"
-tracks/4/path = NodePath("States/Stomp")
+tracks/4/path = NodePath("StateMachine/Stomp")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -386,7 +393,6 @@ __meta__ = {
 "_edit_group_": true
 }
 MASS = 1.4
-_phase = 0
 
 [node name="DustPuffsLarge" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -425,7 +431,96 @@ playback/speed = 1.0
 
 max_health = 120
 
-[node name="Pivot" type="Position2D" parent="." index="4"]
+[node name="StateMachine" type="Node" parent="." index="4"]
+
+script = ExtResource( 7 )
+_phase = 1
+
+[node name="Spawn" type="Node" parent="StateMachine" index="0"]
+
+script = ExtResource( 8 )
+
+[node name="RoamSequence" type="Node" parent="StateMachine" index="1"]
+
+script = ExtResource( 9 )
+
+[node name="Wait" type="Node" parent="StateMachine/RoamSequence" index="0"]
+
+editor/display_folded = true
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="StateMachine/RoamSequence/Wait" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="MoveTo" type="Node" parent="StateMachine/RoamSequence" index="1"]
+
+script = ExtResource( 11 )
+ARRIVE_DISTANCE = 6.0
+SLOW_RADIUS = 200.0
+MASS = 4.0
+MAX_SPEED = 300.0
+ROAM_RADIUS = 150.0
+
+[node name="ChargeSequence" type="Node" parent="StateMachine" index="2"]
+
+script = ExtResource( 12 )
+
+[node name="Prepare" type="Node" parent="StateMachine/ChargeSequence" index="0"]
+
+script = ExtResource( 13 )
+
+[node name="Sprint" type="Node" parent="StateMachine/ChargeSequence" index="1"]
+
+script = ExtResource( 14 )
+SPEED = 1000.0
+MAX_DISTANCE = 1200.0
+
+[node name="Bump" type="Node" parent="StateMachine/ChargeSequence" index="2"]
+
+script = ExtResource( 15 )
+SPEED = 100.0
+
+[node name="ReturnToCenter" type="Node" parent="StateMachine/ChargeSequence" index="3"]
+
+script = ExtResource( 16 )
+MASS = 4.0
+SLOW_RADIUS = 200.0
+MAX_SPEED = 300.0
+ARRIVE_DISTANCE = 6.0
+
+[node name="Stomp" type="Node" parent="StateMachine" index="3"]
+
+script = ExtResource( 17 )
+
+[node name="ExplodeTimer" type="Timer" parent="StateMachine/Stomp" index="0"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+[node name="Die" type="Node" parent="StateMachine" index="4"]
+
+script = ExtResource( 18 )
+MAX_RADIUS = 300.0
+Explosion = ExtResource( 19 )
+
+[node name="ExplodeTimer" type="Timer" parent="StateMachine/Die" index="0"]
+
+process_mode = 1
+wait_time = 0.15
+one_shot = false
+autostart = false
+
+[node name="Dead" type="Node" parent="StateMachine" index="5"]
+
+script = ExtResource( 20 )
+
+[node name="Pivot" type="Position2D" parent="." index="5"]
 
 position = Vector2( 0, -27.075 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -438,7 +533,7 @@ texture = ExtResource( 3 )
 offset = Vector2( -1.98642, -55.6066 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="CharacterDamager" parent="." index="5" instance=ExtResource( 7 )]
+[node name="CharacterDamager" parent="." index="6" instance=ExtResource( 21 )]
 
 position = Vector2( 0, -27.075 )
 damage = 4
@@ -448,45 +543,16 @@ damage = 4
 position = Vector2( 0, -17.075 )
 shape = SubResource( 12 )
 
-[node name="HitBox" parent="." index="6" instance=ExtResource( 8 )]
+[node name="HitBox" parent="." index="7" instance=ExtResource( 22 )]
 
 position = Vector2( 0, -32 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="8"]
 
 position = Vector2( 0, 21.5742 )
 build_mode = 0
 polygon = PoolVector2Array( -36, -96, 36, -96, 36, -24, -36, -24 )
 _sections_unfolded = [ "Visibility" ]
-
-[node name="States" type="Node" parent="." index="8"]
-
-[node name="Spawn" type="Node" parent="States" index="0"]
-
-script = ExtResource( 9 )
-
-[node name="RoamSequence" parent="States" index="1" instance=ExtResource( 10 )]
-
-[node name="ChargeSequence" parent="States" index="2" instance=ExtResource( 11 )]
-
-[node name="Stomp" parent="States" index="3" instance=ExtResource( 12 )]
-
-[node name="Die" type="Node" parent="States" index="4"]
-
-script = ExtResource( 13 )
-MAX_RADIUS = 300.0
-Explosion = ExtResource( 14 )
-
-[node name="ExplodeTimer" type="Timer" parent="States/Die" index="0"]
-
-process_mode = 1
-wait_time = 0.15
-one_shot = false
-autostart = false
-
-[node name="Dead" type="Node" parent="States" index="5"]
-
-script = ExtResource( 15 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 
@@ -494,6 +560,8 @@ script = ExtResource( 15 )
 
 [connection signal="health_depleted" from="Health" to="." method="_on_Health_health_depleted"]
 
-[connection signal="timeout" from="States/Die/ExplodeTimer" to="States/Die" method="_on_ExplodeTimer_timeout"]
+[connection signal="charge_direction_set" from="StateMachine/ChargeSequence/Sprint" to="StateMachine/ChargeSequence/Bump" method="_on_Sprint_charge_direction_set"]
+
+[connection signal="timeout" from="StateMachine/Die/ExplodeTimer" to="StateMachine/Die" method="_on_ExplodeTimer_timeout"]
 
 
