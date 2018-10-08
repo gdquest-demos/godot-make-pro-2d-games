@@ -10,3 +10,4 @@ func reset(target_global_position):
 func take_damage_from(damage_source):
 	.take_damage_from(damage_source)
 	$StateMachine/Stagger.knockback_direction = (damage_source.global_position - global_position).normalized()
+	camera.start_shake()

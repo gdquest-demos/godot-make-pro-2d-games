@@ -1,7 +1,9 @@
 extends Camera2D
 
 export(float) var amplitude = 6.0
-#export(float) var duration = 1.0 setget set_duration
+export(float, EASE) var EASING_CURVE = 1.0
+
+onready var timer = $Timer
 
 enum STATES {IDLE, SHAKING}
 var state = IDLE
@@ -20,16 +22,14 @@ func _change_state(new_state):
 			set_process(false)
 		SHAKING:
 			set_process(true)
-			$ShakeTimer.start()
+			timer.start()
 	state = new_state
 
 func _process(delta):
+	var damping = ease(timer.time_left / timer.wait_time, EASING_CURVE)
 	offset = Vector2(
-		rand_range(amplitude, -amplitude),
-		rand_range(amplitude, -amplitude))
+		rand_range(amplitude, -amplitude) * damping,
+		rand_range(amplitude, -amplitude) * damping)
 
 func _on_ShakeTimer_timeout():
 	_change_state(IDLE)
-
-func _on_WildBoar_phase_changed(new_phase_name):
-	start_shake()

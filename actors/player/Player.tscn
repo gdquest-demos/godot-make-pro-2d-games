@@ -80,6 +80,9 @@ __meta__ = {
 
 [node name="ShakingCamera" parent="." index="0" instance=ExtResource( 2 )]
 
+amplitude = 6.0
+EASING_CURVE = 0.435275
+
 [node name="HitBox" parent="." index="1" instance=ExtResource( 3 )]
 
 monitorable = true
@@ -242,4 +245,5 @@ bus = "Master"
 [connection signal="damage_taken" from="Health" to="StateMachine" method="_on_Health_damage_taken"]
 
 
+[editable path="ShakingCamera"]
 [editable path="HitBox"]

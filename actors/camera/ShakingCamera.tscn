@@ -2,8 +2,7 @@
 
 [ext_resource path="res://actors/camera/ShakingCamera.gd" type="Script" id=1]
 
-
-[node name="ShakingCamera" type="Camera2D" index="0"]
+[node name="ShakingCamera" type="Camera2D"]
 
 anchor_mode = 1
 rotating = false
@@ -30,14 +29,15 @@ editor_draw_drag_margin = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 amplitude = 8.0
+EASING_CURVE = 1.0
 
-[node name="ShakeTimer" type="Timer" parent="." index="0"]
+[node name="Timer" type="Timer" parent="." index="0"]
 
 process_mode = 1
-wait_time = 1.5
+wait_time = 0.2
 one_shot = true
 autostart = false
 
-[connection signal="timeout" from="ShakeTimer" to="." method="_on_ShakeTimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_ShakeTimer_timeout"]
 
 
