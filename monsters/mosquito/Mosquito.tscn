@@ -4,10 +4,7 @@
 [ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=2]
 [ext_resource path="res://monsters/mosquito/mosquito.png" type="Texture" id=3]
 
-
-
-
-[node name="Mosquito" type="KinematicBody2D" index="0" groups=[
+[node name="Mosquito" type="KinematicBody2D" groups=[
 "character",
 ]]
 
@@ -18,6 +15,10 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index" ]
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
 FOLLOW_RANGE = 300.0
 MAX_FLY_SPEED = 360.0
 MAX_ROTATION_STEP = 20.0

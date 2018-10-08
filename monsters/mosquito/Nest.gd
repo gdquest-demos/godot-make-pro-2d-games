@@ -2,24 +2,31 @@ extends Node2D
 
 export(int) var MAX_MOSQUITO_COUNT = 2
 
-var mosquito_scene = preload("Mosquito.tscn")
+var Mosquito = preload("Mosquito.tscn")
+
+var target
+
 onready var timer = $SpawnTimer
-onready var collision_shape = $SpawnArea/CollisionShape2D
+onready var collider = $SpawnArea/CollisionShape2D
+onready var mosquitos = $Mosquitos
+
+func initialize(actor):
+	target = actor
+
+func _on_SpawnTimer_timeout():
+	if mosquitos.get_child_count() < MAX_MOSQUITO_COUNT:
+		spawn_mosquito()
 
 func spawn_mosquito():
-	var new_mosquito = mosquito_scene.instance()
+	var new_mosquito = Mosquito.instance()
 	new_mosquito.global_position = calculate_random_spawn_position()
-	add_child(new_mosquito)
+	new_mosquito.initialize(target)
+	mosquitos.add_child(new_mosquito)
 
 func calculate_random_spawn_position():
-	var spawn_center = collision_shape.global_position
-	var spawn_radius = collision_shape.shape.radius
+	var spawn_radius = collider.shape.radius
 
 	var random_angle = randf() * 2 * PI
 	var random_radius = randf() * spawn_radius / 2 + spawn_radius / 2
 
-	return spawn_center + Vector2(cos(random_angle) * random_radius, sin(random_angle) * random_radius)
-
-func _on_SpawnTimer_timeout():
-	if get_child_count() < MAX_MOSQUITO_COUNT:
-		spawn_mosquito()
+	return collider.global_position + Vector2(cos(random_angle) * random_radius, sin(random_angle) * random_radius)

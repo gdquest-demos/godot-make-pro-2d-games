@@ -3,9 +3,6 @@
 [ext_resource path="res://monsters/mosquito/Nest.gd" type="Script" id=1]
 [ext_resource path="res://monsters/mosquito/nest.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -19,8 +16,11 @@ func _ready():
 	wait_time = randf() *1.5 + 2.0
 "
 
-[node name="Nest" type="Node2D" index="0"]
+[node name="Nest" type="Node2D" index="0" groups=[
+"monster",
+]]
 
+position = Vector2( 468, 202 )
 script = ExtResource( 1 )
 MAX_MOSQUITO_COUNT = 2
 
@@ -53,6 +53,8 @@ wait_time = 2.0
 one_shot = false
 autostart = true
 script = SubResource( 2 )
+
+[node name="Mosquitos" type="Node" parent="." index="3"]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 

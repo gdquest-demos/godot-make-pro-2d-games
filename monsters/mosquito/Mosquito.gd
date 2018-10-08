@@ -27,9 +27,13 @@ func _physics_process(delta):
 	var current_state = state
 	match current_state:
 		IDLE:
+			if not target:
+				return
 			if position.distance_to(target.position) <= FOLLOW_RANGE:
 				_change_state(FOLLOW)
 		FOLLOW:
+			if not target:
+				return
 			if position.distance_to(target.position) > FOLLOW_RANGE:
 				_change_state(RETURN)
 				return
