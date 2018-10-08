@@ -30,7 +30,8 @@ func follow(velocity,
 			mass=DEFAULT_MASS):
 	var desired_velocity = (target_position - position).normalized() * max_speed
 
-	var push = calculate_avoid_force(desired_velocity)
-	var steering = (desired_velocity - velocity + push) / mass
+#	var push = calculate_avoid_force(desired_velocity)
+#	var steering = (desired_velocity - velocity + push) / mass
+	var steering = (desired_velocity - velocity) / mass
 
 	return velocity + steering

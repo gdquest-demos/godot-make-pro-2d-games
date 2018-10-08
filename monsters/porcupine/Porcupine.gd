@@ -104,7 +104,7 @@ func _physics_process(delta):
 			elif position.distance_to(target.position) < SPOT_RANGE:
 				_change_state(SPOT)
 		RETURN:
-			velocity = Steering.arrive_to(velocity, position, start_position, roam_slow_radius, MAX_ROAM_SPEED, true)
+			velocity = Steering.arrive_to(velocity, position, start_position, roam_slow_radius, MAX_ROAM_SPEED)
 			move_and_slide(velocity)
 			if position.distance_to(start_position) < ARRIVE_DISTANCE:
 				_change_state(IDLE)
@@ -125,11 +125,13 @@ func _physics_process(delta):
 		CHARGE:
 			if charge_distance > 800.0:
 				_change_state(BUMP_COOLDOWN)
+				return
 
 			velocity = charge_direction * MAX_CHARGE_SPEED
 			charge_distance += velocity.length() * delta
 			move_and_slide(velocity)
 
+			# TODO: Replace with a HitBox
 			if get_slide_count() > 0:
 				var body = get_slide_collision(0).collider
 				if body.get_name() == "Player":

@@ -250,7 +250,6 @@ tracks/0/keys = {
 }
 
 [node name="Porcupine" type="KinematicBody2D" index="0" groups=[
-"character",
 "monster",
 ]]
 
