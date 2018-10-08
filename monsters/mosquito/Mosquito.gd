@@ -1,24 +1,18 @@
 extends '../Monster.gd'
 
-enum STATES { IDLE, RETURN, SPOT, FOLLOW, ORBIT, STAGGER, ATTACK_COOLDOWN, DIE, DEAD}
+enum STATES { IDLE, RETURN, SPOT, FOLLOW, DIE}
 
 export(float) var FOLLOW_RANGE = 300.0
 export(float) var MAX_FLY_SPEED = 360.0
-export(float) var MAX_ROTATION_STEP = 20.0
 
 func _ready():
 	_change_state(IDLE)
 
 func _change_state(new_state):
-	match state:
-		ATTACK_COOLDOWN:
-			$CollisionPolygon2D.disabled = false
-
 	match new_state:
 		IDLE:
 			pass
-		ATTACK_COOLDOWN:
-			$CollisionPolygon2D.disabled = true
+		DIE:
 			queue_free()
 			emit_signal('died')
 	state = new_state
@@ -41,13 +35,6 @@ func _physics_process(delta):
 			velocity = Steering.follow(velocity, position, target.position, MAX_FLY_SPEED)
 			move_and_slide(velocity)
 			rotation = velocity.angle()
-
-			if get_slide_count() == 0:
-				return
-			var body = get_slide_collision(0).collider
-			if body.is_in_group('character'):
-				body.take_damage(self, 4)
-				_change_state(ATTACK_COOLDOWN)
 		RETURN:
 			velocity = Steering.arrive_to(velocity, position, start_position)
 			move_and_slide(velocity)
@@ -55,3 +42,6 @@ func _physics_process(delta):
 
 			if position.distance_to(start_position) < ARRIVE_DISTANCE:
 				_change_state(IDLE)
+
+func _on_DamageSource_area_entered(area):
+	_change_state(DIE)

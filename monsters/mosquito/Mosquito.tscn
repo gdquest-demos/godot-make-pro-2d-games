@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://monsters/mosquito/Mosquito.gd" type="Script" id=1]
-[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=2]
-[ext_resource path="res://monsters/mosquito/mosquito.png" type="Texture" id=3]
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=2]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=3]
+[ext_resource path="res://monsters/mosquito/mosquito.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 24.9469
 
 [node name="Mosquito" type="KinematicBody2D" groups=[
 "character",
@@ -21,16 +27,27 @@ DEFAULT_MAX_SPEED = 300.0
 MASS = 8.0
 FOLLOW_RANGE = 300.0
 MAX_FLY_SPEED = 360.0
-MAX_ROTATION_STEP = 20.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
 position = Vector2( -3.01358, 49.1823 )
 build_mode = 0
 polygon = PoolVector2Array( -18.0136, -69.4669, -18.0136, -29.4669, 31.9864, -29.4669, 31.9864, -69.4669 )
+disabled = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="BodyPivot" type="Position2D" parent="." index="1"]
+[node name="DamageSource" parent="." index="1" instance=ExtResource( 2 )]
+
+monitoring = true
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+damage = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
+
+position = Vector2( 6, 0 )
+shape = SubResource( 1 )
+
+[node name="BodyPivot" type="Position2D" parent="." index="2"]
 
 z_index = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
@@ -40,28 +57,30 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 74.8139, -90 )
 rotation = 0.253141
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="BodyPivot" index="1"]
 
 position = Vector2( 1.40846, -1.88954 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 offset = Vector2( 15.695, 0.889542 )
 
-[node name="Timer" type="Timer" parent="." index="2"]
+[node name="Timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
 
 visible = false
 enabled = false
 exclude_parent = true
 cast_to = Vector2( 0, 50 )
 collision_mask = 1
+
+[connection signal="area_entered" from="DamageSource" to="." method="_on_DamageSource_area_entered"]
 
 

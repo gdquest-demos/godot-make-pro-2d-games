@@ -82,6 +82,8 @@ __meta__ = {
 
 [node name="HitBox" parent="." index="1" instance=ExtResource( 3 )]
 
+monitorable = true
+
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 
 shape = SubResource( 1 )
