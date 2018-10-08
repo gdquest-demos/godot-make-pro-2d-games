@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://monsters/bosses/wild_boar/states/stomp/Stomp.gd" type="Script" id=1]
+
+
+
+
+
+[node name="Stomp" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="ExplodeTimer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = false
+autostart = false
+
+

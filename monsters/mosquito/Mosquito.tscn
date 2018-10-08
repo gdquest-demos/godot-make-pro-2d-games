@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://monsters/mosquito/Mosquito.gd" type="Script" id=1]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=2]
+[ext_resource path="res://monsters/mosquito/mosquito.png" type="Texture" id=3]
+
+
+
+
+[node name="Mosquito" type="KinematicBody2D" index="0" groups=[
+"character",
+]]
+
+position = Vector2( -1.98642, 0.817726 )
+input_pickable = false
+collision_layer = 2
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Z Index" ]
+FOLLOW_RANGE = 300.0
+MAX_FLY_SPEED = 360.0
+MAX_ROTATION_STEP = 20.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+position = Vector2( -3.01358, 49.1823 )
+build_mode = 0
+polygon = PoolVector2Array( -18.0136, -69.4669, -18.0136, -29.4669, 31.9864, -29.4669, 31.9864, -69.4669 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BodyPivot" type="Position2D" parent="." index="1"]
+
+z_index = 2
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="exclamation-mark" type="Sprite" parent="BodyPivot" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 74.8139, -90 )
+rotation = 0.253141
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Sprite" type="Sprite" parent="BodyPivot" index="1"]
+
+position = Vector2( 1.40846, -1.88954 )
+texture = ExtResource( 3 )
+offset = Vector2( 15.695, 0.889542 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+
+visible = false
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, 50 )
+collision_mask = 1
+
+

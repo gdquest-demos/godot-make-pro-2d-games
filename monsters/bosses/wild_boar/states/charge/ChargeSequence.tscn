@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://utils/state/Sequence.gd" type="Script" id=1]
+[ext_resource path="res://monsters/bosses/wild_boar/states/charge/Prepare.gd" type="Script" id=2]
+[ext_resource path="res://monsters/bosses/wild_boar/states/charge/Sprint.gd" type="Script" id=3]
+[ext_resource path="res://monsters/bosses/wild_boar/states/charge/Bump.gd" type="Script" id=4]
+[ext_resource path="res://monsters/bosses/wild_boar/states/ReturnToCenter.gd" type="Script" id=5]
+
+
+[node name="ChargeSequence" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="Prepare" type="Node" parent="." index="0"]
+
+script = ExtResource( 2 )
+
+[node name="Sprint" type="Node" parent="." index="1"]
+
+script = ExtResource( 3 )
+SPEED = 1000.0
+MAX_DISTANCE = 1200.0
+
+[node name="Bump" type="Node" parent="." index="2"]
+
+script = ExtResource( 4 )
+SPEED = 100.0
+
+[node name="ReturnToCenter" type="Node" parent="." index="3"]
+
+script = ExtResource( 5 )
+MASS = 4.0
+SLOW_RADIUS = 200.0
+MAX_SPEED = 300.0
+ARRIVE_DISTANCE = 6.0
+
+[connection signal="charge_direction_set" from="Sprint" to="Bump" method="_on_Sprint_charge_direction_set"]
+
+
