@@ -6,7 +6,7 @@
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -18,7 +18,7 @@ pause_mode = 2
 stream = ExtResource( 2 )
 volume_db = 0.0
 pitch_scale = 1.0
-autoplay = true
+autoplay = false
 mix_target = 0
 bus = "Music"
 _sections_unfolded = [ "Pause" ]

@@ -20,6 +20,9 @@ func change_level(scene_path):
 
 	var spawn = map.get_node("PlayerSpawningPoint")
 	player.reset(spawn.global_position)
+	
+	for monster in get_tree().get_nodes_in_group("monster"):
+		monster.initialize(player)
 
 func get_doors():
 	var doors = []

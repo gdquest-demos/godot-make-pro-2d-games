@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://world/levels/tilesets/cave/cave.tres" type="TileSet" id=1]
 [ext_resource path="res://utils/PlayerSpawningPoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://world/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/pit.png" type="Texture" id=4]
+[ext_resource path="res://monsters/bosses/wild_boar/WildBoar.tscn" type="PackedScene" id=5]
 
-[node name="Cave" type="TileMap"]
+[node name="Cave" type="TileMap" index="0"]
 
 position = Vector2( 0, 32 )
 mode = 0
@@ -36,12 +37,16 @@ position = Vector2( 512, 672 )
 
 [node name="Door" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 967, 469 )
+position = Vector2( 1570, 208 )
 map_path = "res://world/levels/Grasslands.tscn"
 
 [node name="Stairs" parent="Door" index="0"]
 
 texture = ExtResource( 4 )
+
+[node name="WildBoar" parent="." index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 970, 528 )
 
 
 [editable path="Door"]

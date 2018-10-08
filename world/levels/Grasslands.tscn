@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world/levels/tilesets/outdoor/outdoor.tres" type="TileSet" id=1]
-[ext_resource path="res://actors/monsters/porcupine/Porcupine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://monsters/porcupine/Porcupine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://utils/PlayerSpawningPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/Gap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://world/Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/monsters/mosquito/Nest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://monsters/mosquito/Nest.tscn" type="PackedScene" id=6]
 
 [node name="Grasslands" type="TileMap"]
 
@@ -38,7 +38,7 @@ position = Vector2( 1350.01, 976.818 )
 
 [node name="PlayerSpawningPoint" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 380, 140 )
+position = Vector2( 596, 862 )
 
 [node name="Gap" parent="." index="3" instance=ExtResource( 4 )]
 
