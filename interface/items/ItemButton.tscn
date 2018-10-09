@@ -29,7 +29,7 @@ group = null
 flat = false
 align = 1
 script = ExtResource( 2 )
-_sections_unfolded = [ "Rect", "Size Flags", "Theme" ]
+_sections_unfolded = [ "Focus", "Rect", "Size Flags", "Theme" ]
 
 [node name="Name" type="Label" parent="." index="0"]
 

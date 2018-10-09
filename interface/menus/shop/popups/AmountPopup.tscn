@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
 [ext_resource path="res://interface/menus/shop/popups/AmountPopup.gd" type="Script" id=2]
-[ext_resource path="res://interface/menus/shop/popups/AmountLabel.gd" type="Script" id=3]
-[ext_resource path="res://interface/menus/shop/popups/HSlider.gd" type="Script" id=4]
+[ext_resource path="res://interface/menus/MenuSfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/menus/shop/popups/AmountLabel.gd" type="Script" id=4]
+[ext_resource path="res://interface/menus/shop/popups/HSlider.gd" type="Script" id=5]
 
-
-[node name="AmountPopup" type="PopupPanel" index="0"]
+[node name="AmountPopup" type="PopupPanel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -27,7 +27,9 @@ script = ExtResource( 2 )
 _sections_unfolded = [ "Pause", "Popup", "Rect", "Theme" ]
 SUB_MENU_PATH = null
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+[node name="MenuSfx" parent="." index="0" instance=ExtResource( 3 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -102,7 +104,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="HSlider" type="HSlider" parent="VBoxContainer/Slider" index="1"]
 
@@ -132,7 +134,7 @@ editable = true
 tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="OkButton" type="Button" parent="VBoxContainer" index="2"]
 

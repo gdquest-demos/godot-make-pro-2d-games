@@ -18,6 +18,13 @@ func add_item_button(item, price):
 	item_button.connect("amount_changed", self, "_on_ItemButton_amount_changed")
 	return item_button
 
+func _input(event):
+	if event.is_action_pressed('ui_left') or \
+		event.is_action_pressed('ui_right') or \
+		event.is_action_pressed('ui_up') or \
+		event.is_action_pressed('ui_down'):
+		$MenuSfx/Navigate.play()
+
 func get_item_buttons():
 	return _grid.get_children()
 

@@ -4,7 +4,10 @@ signal open()
 signal closed()
 
 export(NodePath) var SUB_MENU_PATH
-onready var audio_player = $AudioStreamPlayer
+
+onready var sound_confirm = $MenuSfx/Confirm
+onready var sound_navigate = $MenuSfx/Navigate
+onready var sound_open = $MenuSfx/Open
 
 func _ready():
 	set_process_input(false)
@@ -13,13 +16,13 @@ func open():
 	emit_signal("open")
 	set_process_input(true)
 	show()
-	audio_player.play_popup_open()
+	sound_open.play()
 
 func close():
 	emit_signal("closed")
 	set_process_input(false)
 	hide()
-	audio_player.play_confirm()
+	sound_confirm.play()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
