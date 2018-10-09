@@ -25,13 +25,11 @@ func open(shop, buyer):
 		[SellMenu, shop, buyer, buyer.get_node("Inventory")])
 	buttons.get_child(0).grab_focus()
 	.open()
-	get_tree().paused = true
 
 func close():
 	button_buy.disconnect('pressed', self, 'open_submenu')
 	button_sell.disconnect('pressed', self, 'open_submenu')
 	.close()
-	get_tree().paused = false
 
 func open_submenu(Menu, shop, buyer, inventory):
 	var pressed_button = get_focus_owner()

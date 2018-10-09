@@ -1,14 +1,13 @@
-extends Control
+extends "res://interface/menus/Menu.gd"
 
-signal pause_toggled(status)
+signal unpause()
 
-func _input(event):
-	if event.is_action_pressed("pause"):
-		var new_pause_state = not get_tree().paused
-		set_paused(new_pause_state)
+func _ready():
+	for node in $Background/Column.get_children():
+		if not node is Button:
+			continue
+		node.connect('pressed', self, 'emit_signal', ['unpause'])
 
-func set_paused(value):
-	get_tree().paused = value
-	visible = value
-	emit_signal("pause_toggled", value)
-
+func open():
+	.open()
+	$Background/Column/ContinueButton.grab_focus()

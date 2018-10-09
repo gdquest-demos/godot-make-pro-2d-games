@@ -2,10 +2,11 @@
 
 [ext_resource path="res://interface/menus/Menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/menus/shop/menus/ShopSubMenu.gd" type="Script" id=2]
-[ext_resource path="res://interface/theme/default.theme" type="Theme" id=3]
+[ext_resource path="res://interface/default.theme" type="Theme" id=3]
 [ext_resource path="res://interface/menus/shop/panels/ShopItemsList.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/menus/shop/panels/InfoPanel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/menus/shop/panels/DescriptionPanel.tscn" type="PackedScene" id=6]
+
 
 [node name="ShopSubMenu" index="0" instance=ExtResource( 1 )]
 

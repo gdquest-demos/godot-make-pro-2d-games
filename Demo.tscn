@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://audio/music/birdy_pong.ogg" type="AudioStream" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/Interface.gd" type="Script" id=6]
 [ext_resource path="res://interface/menus/shop/ShopMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=8]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -62,6 +63,12 @@ pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Theme" ]
 
+[node name="PauseMenu" parent="Interface" index="1" instance=ExtResource( 8 )]
+
+visible = false
+
 [connection signal="loaded" from="Level" to="Interface" method="_on_Level_loaded"]
+
+[connection signal="unpause" from="Interface/PauseMenu" to="." method="_on_PauseMenu_unpause"]
 
 

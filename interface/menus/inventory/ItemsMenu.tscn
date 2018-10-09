@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
+[ext_resource path="res://interface/default.theme" type="Theme" id=1]
 [ext_resource path="res://interface/menus/inventory/ItemsMenu.gd" type="Script" id=2]
 [ext_resource path="res://interface/menus/inventory/ItemButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/menus/inventory/ItemGrid.gd" type="Script" id=4]
 [ext_resource path="res://interface/menus/inventory/user_select/UserSelectMenu.tscn" type="PackedScene" id=5]
+
 
 
 [node name="ItemsMenu" type="Control" index="0"]
