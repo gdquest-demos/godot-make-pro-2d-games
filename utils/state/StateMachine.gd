@@ -15,18 +15,10 @@ var current_state = null
 var _active = false setget set_active
 
 func _ready():
-	for child in get_children():
-		child.connect("finished", self, "_change_state")
-	initialize(get_child(0))
-
-func initialize(start_state):
-	set_active(true)
-	if start_state:
-		states_stack.push_front(get_node(start_state))
-	else:
-		states_stack.push_front(get_child(0))
+	states_stack.push_front(get_child(0))
 	current_state = states_stack[0]
 	current_state.enter()
+	set_active(true)
 
 func set_active(value):
 	_active = value
