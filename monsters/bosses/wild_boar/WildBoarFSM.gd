@@ -1,101 +1,93 @@
 extends "res://utils/state/StateMachine.gd"
 
 var sequence_cycles = 0
-export(int, 1, 3) var _phase = 1 setget _set_phase
+export(int, 1, 3) var phase = 1
 
 func _ready():
-	_set_phase(_phase)
-	$AnimationPlayer.play("SETUP")
-	._ready()
+	for child in get_children():
+		child.connect("finished", self, "go_to_next_state")
+
+func initialize():
+	change_phase(phase)
 
 func _on_active_state_finished():
 	go_to_next_state()
 
 func go_to_next_state(state_override=null):
-	var new_state = state_override if state_override else _decide_on_next_state()
-	_change_state(new_state)
+	"""
+	Replaces _change_state from the parent class
+	StateMachine.gd to use state objects instead of strings
+	"""
+	if not _active:
+		return
+	current_state.exit()
+	current_state = _decide_on_next_state() if state_override == null else state_override
+	emit_signal("state_changed", current_state)
+	current_state.enter()
 
 func _decide_on_next_state():
 	# Battle start
-	if state_active == null:
-		set_invincible(true)
-		return $States/Spawn
-	if state_active == $States/Spawn:
-		set_invincible(false)
-		return $States/RoamSequence
+	if current_state == null:
+		owner.set_invincible(true)
+		return $Spawn
+	if current_state == $Spawn:
+		owner.set_invincible(false)
+		return $RoamSequence
 	# Death
-	if state_active == $States/Die:
+	if current_state == $Die:
 		queue_free()
-		return $States/Dead
+		return $Dead
 
-	if _phase == 1:
-		if state_active == $States/RoamSequence:
+	if phase == 1:
+		if current_state == $RoamSequence:
 			sequence_cycles += 1
 			if sequence_cycles < 2:
-				return $States/RoamSequence
+				return $RoamSequence
 			else:
 				sequence_cycles = 0
-				return $States/Stomp
-		if state_active == $States/Stomp:
-			return $States/RoamSequence
+				return $Stomp
+		if current_state == $Stomp:
+			return $RoamSequence
 
-	elif _phase == 2:
-		if state_active == $States/RoamSequence:
-			return $States/Stomp
-		if state_active == $States/Stomp:
+	elif phase == 2:
+		if current_state == $RoamSequence:
+			return $Stomp
+		if current_state == $Stomp:
 			if sequence_cycles < 2:
 				sequence_cycles += 1
-				return $States/Stomp
+				return $Stomp
 			else:
 				sequence_cycles = 0
-				return $States/ChargeSequence
-		if state_active == $States/ChargeSequence:
-			return $States/RoamSequence
+				return $ChargeSequence
+		if current_state == $ChargeSequence:
+			return $RoamSequence
 
-
-	elif _phase == 3:
-		if state_active == $States/RoamSequence:
-			return $States/Stomp
-		if state_active == $States/Stomp:
+	elif phase == 3:
+		if current_state == $RoamSequence:
+			return $Stomp
+		if current_state == $Stomp:
 			if sequence_cycles < 2:
 				sequence_cycles += 1
-				return $States/Stomp
+				return $Stomp
 			else:
 				sequence_cycles = 0
-				return $States/ChargeSequence
-		if state_active == $States/ChargeSequence:
+				return $ChargeSequence
+		if current_state == $ChargeSequence:
 			if sequence_cycles < 2:
 				sequence_cycles += 1
-				return $States/ChargeSequence
+				return $ChargeSequence
 			else:
 				sequence_cycles = 0
-				return $States/Stomp
+				return $Stomp
 
-
-func _on_Health_health_changed(new_health):
-	$Tween.interpolate_property($Pivot, 'scale', Vector2(0.92, 1.12), Vector2(1.0, 1.0), 0.3, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
-	$Tween.interpolate_property($Pivot/Body, 'modulate', Color('#ff48de'), Color('#ffffff'), 0.2, Tween.TRANS_QUINT, Tween.EASE_IN)
-	$Tween.start()
-	match _phase:
-		1:
-			if new_health < 100:
-				self._phase = 2
-		2:
-			if new_health < 50:
-				self._phase = 3
-
-func _set_phase(new_phase):
-	var phase_name = ""
+func change_phase(new_phase):
+	phase = new_phase
+	var anim_player = owner.get_node('AnimationPlayer')
 	match new_phase:
 		1:
-			$AnimationPlayer.playback_speed = 1.0
-			phase_name = "One"
+			anim_player.playback_speed = 1.0
 		2:
-			$AnimationPlayer.playback_speed = 1.4
-			phase_name = "Two"
+			anim_player.playback_speed = 1.4
 		3:
-			$AnimationPlayer.playback_speed = 1.8
-			phase_name = "Three"
-
-	emit_signal("phase_changed", phase_name)
-	_phase = new_phase
+			anim_player.playback_speed = 1.8
+	emit_signal("phase_changed", new_phase)

@@ -378,11 +378,11 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
-"character",
+[node name="WildBoar" type="KinematicBody2D" groups=[
 "monster",
 ]]
 
+position = Vector2( 580, 480 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 2
@@ -392,6 +392,9 @@ _sections_unfolded = [ "Collision", "Transform", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
 MASS = 1.4
 
 [node name="DustPuffsLarge" parent="." index="0" instance=ExtResource( 2 )]
@@ -434,7 +437,7 @@ max_health = 120
 [node name="StateMachine" type="Node" parent="." index="4"]
 
 script = ExtResource( 7 )
-_phase = 1
+phase = 1
 
 [node name="Spawn" type="Node" parent="StateMachine" index="0"]
 
@@ -546,6 +549,8 @@ shape = SubResource( 12 )
 [node name="HitBox" parent="." index="7" instance=ExtResource( 22 )]
 
 position = Vector2( 0, -32 )
+collision_layer = 8
+collision_mask = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="8"]
 
@@ -554,7 +559,7 @@ build_mode = 0
 polygon = PoolVector2Array( -36, -96, 36, -96, 36, -24, -36, -24 )
 _sections_unfolded = [ "Visibility" ]
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
 
 [connection signal="health_changed" from="Health" to="." method="_on_Health_health_changed"]
 

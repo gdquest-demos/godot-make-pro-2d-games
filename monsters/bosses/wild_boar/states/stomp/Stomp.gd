@@ -16,7 +16,7 @@ func _on_animation_finished(anim_name):
 	emit_signal('finished')
 
 func stomp():
-	direction = (owner.target_position - owner.global_position).normalized()
+	direction = (owner.target.position - owner.global_position).normalized()
 	$ExplodeTimer.start()
 	explode()
 
