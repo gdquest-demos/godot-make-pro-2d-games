@@ -1,5 +1,7 @@
 extends Node
 
+signal loaded()
+
 export(String, FILE, "*.tscn") var LEVEL_START
 export(PackedScene) var Player = preload("res://actors/player/Player.tscn")
 
@@ -23,6 +25,7 @@ func change_level(scene_path):
 	
 	for monster in get_tree().get_nodes_in_group("monster"):
 		monster.initialize(player)
+	emit_signal("loaded")
 
 func get_doors():
 	var doors = []

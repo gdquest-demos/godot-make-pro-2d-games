@@ -8,6 +8,8 @@ func _ready():
 		'stagger': $Stagger,
 		'attack': $Attack,
 	}
+	for state in get_children():
+		state.connect('finished', self, '_change_state')
 
 func _change_state(state_name):
 	if not _active:

@@ -6,7 +6,7 @@
 [ext_resource path="res://world/pit.png" type="Texture" id=4]
 [ext_resource path="res://monsters/bosses/wild_boar/WildBoar.tscn" type="PackedScene" id=5]
 
-[node name="Cave" type="TileMap" index="0"]
+[node name="Cave" type="TileMap"]
 
 position = Vector2( 0, 32 )
 mode = 0

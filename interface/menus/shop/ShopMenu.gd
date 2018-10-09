@@ -6,25 +6,34 @@ export(PackedScene) var SellMenu = preload("menus/SellSubMenu.tscn")
 onready var buttons = $Column/Buttons
 onready var submenu = $Column/Menu
 
+onready var button_buy = $Column/Buttons/BuyButton
+onready var button_sell = $Column/Buttons/SellButton
+
 # To test from ShopMenu.tscn
 #func _ready():
 #	var shop = load("res://shop/Shop.tscn").instance()
 #	var player = load("res://actors/characters/player/Player.tscn").instance()
 #	open(shop, player)
 
+func _ready():
+	hide()
+
 func open(shop, buyer):
-	$Column/Buttons/BuyButton.connect("pressed", self, "opensubmenu",
+	button_buy.connect("pressed", self, "open_submenu",
 		[BuyMenu, shop, buyer, shop.inventory])
-	$Column/Buttons/SellButton.connect("pressed", self, "opensubmenu",
+	button_sell.connect("pressed", self, "open_submenu",
 		[SellMenu, shop, buyer, buyer.get_node("Inventory")])
 	buttons.get_child(0).grab_focus()
 	.open()
+	get_tree().paused = true
 
 func close():
-	queue_free()
+	button_buy.disconnect('pressed', self, 'open_submenu')
+	button_sell.disconnect('pressed', self, 'open_submenu')
 	.close()
+	get_tree().paused = false
 
-func opensubmenu(Menu, shop, buyer, inventory):
+func open_submenu(Menu, shop, buyer, inventory):
 	var pressed_button = get_focus_owner()
 	
 	var active_menu = Menu.instance()

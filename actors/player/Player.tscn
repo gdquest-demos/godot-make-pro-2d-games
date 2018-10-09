@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://actors/player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://actors/camera/ShakingCamera.tscn" type="PackedScene" id=2]
@@ -17,11 +17,12 @@
 [ext_resource path="res://actors/weapons/sword/WeaponPivot.gd" type="Script" id=15]
 [ext_resource path="res://actors/weapons/sword/Sword.tscn" type="PackedScene" id=16]
 [ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=17]
-[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=18]
-[ext_resource path="res://inventory/items/usable/potions/restore_health/MinorHealthPotion.tscn" type="PackedScene" id=19]
-[ext_resource path="res://inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=20]
-[ext_resource path="res://actors/weapons/bullet/BulletSpawner.gd" type="Script" id=21]
-[ext_resource path="res://audio/sfx/step_01.wav" type="AudioStream" id=22]
+[ext_resource path="res://shop/purse/Purse.tscn" type="PackedScene" id=18]
+[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=19]
+[ext_resource path="res://inventory/items/usable/potions/restore_health/MinorHealthPotion.tscn" type="PackedScene" id=20]
+[ext_resource path="res://inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=21]
+[ext_resource path="res://actors/weapons/bullet/BulletSpawner.gd" type="Script" id=22]
+[ext_resource path="res://audio/sfx/step_01.wav" type="AudioStream" id=23]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -66,7 +67,7 @@ use_filter = true
 font_data = ExtResource( 13 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -93,9 +94,7 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="2"]
 
-editor/display_folded = true
 script = ExtResource( 4 )
-START_STATE = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
 
@@ -205,19 +204,24 @@ polygon = PoolVector2Array( -20, 0, -20, -20, 20, -20, 20, 0 )
 
 [node name="Health" parent="." index="8" instance=ExtResource( 17 )]
 
-[node name="Inventory" parent="." index="9" instance=ExtResource( 18 )]
+[node name="Purse" parent="." index="9" instance=ExtResource( 18 )]
 
-[node name="MinorHealthPotion" parent="Inventory" index="0" instance=ExtResource( 19 )]
+coins = 32
+MAXIMUM = 1000000
+
+[node name="Inventory" parent="." index="10" instance=ExtResource( 19 )]
+
+[node name="MinorHealthPotion" parent="Inventory" index="0" instance=ExtResource( 20 )]
 
 amount = 4
 
-[node name="StrongHealthPotion" parent="Inventory" index="1" instance=ExtResource( 20 )]
+[node name="StrongHealthPotion" parent="Inventory" index="1" instance=ExtResource( 21 )]
 
-[node name="BulletSpawn" type="Node2D" parent="." index="10"]
+[node name="BulletSpawn" type="Node2D" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
-script = ExtResource( 21 )
+script = ExtResource( 22 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CooldownTimer" type="Timer" parent="BulletSpawn" index="0"]
@@ -227,9 +231,9 @@ wait_time = 0.2
 one_shot = true
 autostart = false
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="12"]
 
-stream = ExtResource( 22 )
+stream = ExtResource( 23 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

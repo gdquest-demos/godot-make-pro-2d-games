@@ -4,13 +4,14 @@
 [ext_resource path="res://shop/Shop.tscn" type="PackedScene" id=2]
 [ext_resource path="res://actors/body.png" type="Texture" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 49.2988
 
-[node name="Seller" type="Area2D"]
+[node name="Seller" type="Area2D" index="0" groups=[
+"seller",
+]]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

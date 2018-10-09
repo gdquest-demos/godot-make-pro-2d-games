@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://audio/music/birdy_pong.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Level.gd" type="Script" id=3]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://interface/Interface.gd" type="Script" id=6]
+[ext_resource path="res://interface/menus/shop/ShopMenu.tscn" type="PackedScene" id=7]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -28,13 +30,13 @@ _sections_unfolded = [ "Pause" ]
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/Grasslands.tscn"
+LEVEL_START = "res://TestLevel.tscn"
 Player = ExtResource( 4 )
 
 [node name="Overlays" type="CanvasLayer" parent="." index="2"]
 
 pause_mode = 2
-layer = 1
+layer = 50
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
@@ -42,5 +44,24 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="TransitionColor" parent="Overlays" index="0" instance=ExtResource( 5 )]
+
+[node name="Interface" type="CanvasLayer" parent="." index="3"]
+
+pause_mode = 2
+layer = 100
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="ShopMenu" parent="Interface" index="0" instance=ExtResource( 7 )]
+
+pause_mode = 2
+visible = false
+_sections_unfolded = [ "Pause", "Theme" ]
+
+[connection signal="loaded" from="Level" to="Interface" method="_on_Level_loaded"]
 
 
