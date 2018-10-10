@@ -91,3 +91,6 @@ func change_phase(new_phase):
 		3:
 			anim_player.playback_speed = 1.8
 	emit_signal("phase_changed", new_phase)
+
+func _on_Health_health_depleted():
+	go_to_next_state($Die)

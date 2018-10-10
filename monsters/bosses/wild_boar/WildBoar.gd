@@ -1,14 +1,18 @@
 extends "res://monsters/Monster.gd"
 
 onready var state_machine = $StateMachine
-onready var start_global_position
+onready var lifebar = $BossLifebar
+
+var start_global_position
 
 func _ready():
 	start_global_position = global_position
+	lifebar.initialize($Health)
+	lifebar.appear()
 
 func _on_Health_health_depleted():
 	set_invincible(true)
-	go_to_next_state($States/Die)
+	lifebar.disappear()
 
 func _on_Health_health_changed(new_health):
 	$Tween.interpolate_property($Pivot, 'scale', Vector2(0.92, 1.12), Vector2(1.0, 1.0), 0.3, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)

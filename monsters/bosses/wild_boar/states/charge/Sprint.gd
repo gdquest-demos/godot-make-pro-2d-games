@@ -10,7 +10,7 @@ var distance = 0.0
 
 func enter():
 	distance = 0.0
-	direction = (owner.target_position - owner.global_position).normalized()
+	direction = (owner.target.global_position - owner.global_position).normalized()
 	owner.get_node('AnimationPlayer').play('sprint')
 	owner.set_particles_active(true)
 
@@ -20,7 +20,7 @@ func exit():
 func update(delta):
 	var velocity = SPEED * direction
 	owner.move_and_slide(velocity)
-	distance += velocity * delta
+	distance += velocity.length() * delta
 
 	if owner.get_slide_count() > 0:
 		emit_signal('charge_direction_set', direction)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://monsters/bosses/wild_boar/WildBoar.gd" type="Script" id=1]
 [ext_resource path="res://particles/dust_puffs/DustPuffsLarge.tscn" type="PackedScene" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://utils/state/State.gd" type="Script" id=20]
 [ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=22]
+[ext_resource path="res://interface/gui/boss/BossLifebar.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Animation" id=1]
 
@@ -509,7 +510,7 @@ autostart = false
 [node name="Die" type="Node" parent="StateMachine" index="4"]
 
 script = ExtResource( 18 )
-MAX_RADIUS = 300.0
+MAX_RADIUS = 180.0
 Explosion = ExtResource( 19 )
 
 [node name="ExplodeTimer" type="Timer" parent="StateMachine/Die" index="0"]
@@ -559,9 +560,18 @@ build_mode = 0
 polygon = PoolVector2Array( -36, -96, 36, -96, 36, -24, -36, -24 )
 _sections_unfolded = [ "Visibility" ]
 
+[node name="BossLifebar" parent="." index="9" instance=ExtResource( 23 )]
+
+visible = false
+margin_top = -153.0
+margin_bottom = -60.0
+boss_name = "Wild Boar"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
 
 [connection signal="health_changed" from="Health" to="." method="_on_Health_health_changed"]
+
+[connection signal="health_depleted" from="Health" to="StateMachine" method="_on_Health_health_depleted"]
 
 [connection signal="health_depleted" from="Health" to="." method="_on_Health_health_depleted"]
 
