@@ -45,3 +45,6 @@ func _physics_process(delta):
 
 func _on_DamageSource_area_entered(area):
 	_change_state(DIE)
+
+func _on_Stats_damage_taken(new_health):
+	_change_state(DIE)

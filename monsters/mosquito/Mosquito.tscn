@@ -1,16 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://monsters/mosquito/Mosquito.gd" type="Script" id=1]
-[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=2]
-[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=3]
-[ext_resource path="res://monsters/mosquito/mosquito.png" type="Texture" id=4]
+[ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=4]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=5]
+[ext_resource path="res://monsters/mosquito/mosquito.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
+radius = 38.4768
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
 radius = 24.9469
 
-[node name="Mosquito" type="KinematicBody2D" groups=[
+[node name="Mosquito" type="KinematicBody2D" index="0" groups=[
 "character",
 ]]
 
@@ -28,7 +35,11 @@ MASS = 8.0
 FOLLOW_RANGE = 300.0
 MAX_FLY_SPEED = 360.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+[node name="Stats" parent="." index="0" instance=ExtResource( 2 )]
+
+max_health = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 
 position = Vector2( -3.01358, 49.1823 )
 build_mode = 0
@@ -36,8 +47,20 @@ polygon = PoolVector2Array( -18.0136, -69.4669, -18.0136, -29.4669, 31.9864, -29
 disabled = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="DamageSource" parent="." index="1" instance=ExtResource( 2 )]
+[node name="HitBox" parent="." index="2" instance=ExtResource( 3 )]
 
+editor/display_folded = true
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+
+position = Vector2( 6, -2.42273 )
+shape = SubResource( 1 )
+
+[node name="DamageSource" parent="." index="3" instance=ExtResource( 4 )]
+
+editor/display_folded = true
 monitoring = true
 _sections_unfolded = [ "Audio Bus", "Collision" ]
 damage = 3
@@ -45,10 +68,11 @@ damage = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
 
 position = Vector2( 6, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="BodyPivot" type="Position2D" parent="." index="2"]
+[node name="BodyPivot" type="Position2D" parent="." index="4"]
 
+editor/display_folded = true
 z_index = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
@@ -57,23 +81,23 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 74.8139, -90 )
 rotation = 0.253141
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="BodyPivot" index="1"]
 
 position = Vector2( 1.40846, -1.88954 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 offset = Vector2( 15.695, 0.889542 )
 
-[node name="Timer" type="Timer" parent="." index="3"]
+[node name="Timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
+[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
 
 visible = false
 enabled = false
@@ -81,6 +105,9 @@ exclude_parent = true
 cast_to = Vector2( 0, 50 )
 collision_mask = 1
 
+[connection signal="damage_taken" from="Stats" to="." method="_on_Stats_damage_taken"]
+
 [connection signal="area_entered" from="DamageSource" to="." method="_on_DamageSource_area_entered"]
 
 
+[editable path="HitBox"]

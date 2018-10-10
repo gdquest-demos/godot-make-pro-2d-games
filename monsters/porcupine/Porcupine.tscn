@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://monsters/porcupine/Porcupine.gd" type="Script" id=1]
-[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=3]
-[ext_resource path="res://monsters/porcupine/porcupine.png" type="Texture" id=4]
-[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=5]
-[ext_resource path="res://particles/dust_puffs/DustPuffs.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=4]
+[ext_resource path="res://monsters/porcupine/porcupine.png" type="Texture" id=5]
+[ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=6]
+[ext_resource path="res://particles/dust_puffs/DustPuffs.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -217,7 +218,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id=5]
 
-length = 0.3
+length = 0.5
 loop = false
 step = 0.05
 tracks/0/type = "value"
@@ -227,7 +228,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.3 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 0.296875, 0.296875, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.296875, 0.296875, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.296875, 0.296875, 1 ), Color( 1, 1, 1, 1 ) ]
@@ -263,7 +264,7 @@ radius = 35.906
 position = Vector2( -1.98642, 0.817726 )
 input_pickable = false
 collision_layer = 2
-collision_mask = 7
+collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Z Index" ]
@@ -298,24 +299,34 @@ position = Vector2( 0, 48.6492 )
 build_mode = 0
 polygon = PoolVector2Array( -36, -96, 36, -96, 36, -24, -36, -24 )
 
-[node name="HitBox" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Stats" parent="." index="3" instance=ExtResource( 2 )]
 
-[node name="DamageSource" parent="." index="4" instance=ExtResource( 3 )]
+max_health = 5
+
+[node name="HitBox" parent="." index="4" instance=ExtResource( 3 )]
+
+collision_layer = 8
+collision_mask = 16
+
+[node name="DamageSource" parent="." index="5" instance=ExtResource( 4 )]
+
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
 
 position = Vector2( -1.19209e-007, -14 )
 shape = SubResource( 7 )
 
-[node name="BodyPivot" type="Position2D" parent="." index="5"]
+[node name="BodyPivot" type="Position2D" parent="." index="6"]
 
+editor/display_folded = true
 z_index = 2
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="BodyPivot" index="0"]
 
 position = Vector2( 3.57628e-007, 17.6051 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( 0.0850579, -32.8777 )
 _sections_unfolded = [ "Visibility" ]
 
@@ -324,16 +335,8 @@ _sections_unfolded = [ "Visibility" ]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 74.8139, -90 )
 rotation = 0.253141
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
-
-[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
-
-visible = false
-enabled = false
-exclude_parent = true
-cast_to = Vector2( 0, 50 )
-collision_mask = 4
 
 [node name="Timer" type="Timer" parent="." index="7"]
 
@@ -342,8 +345,12 @@ wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="DustPuffs" parent="." index="8" instance=ExtResource( 6 )]
+[node name="DustPuffs" parent="." index="8" instance=ExtResource( 7 )]
 
 emitting = false
+
+[connection signal="damage_taken" from="Stats" to="." method="_on_Stats_damage_taken"]
+
+[connection signal="health_depleted" from="Stats" to="." method="_on_Stats_health_depleted"]
 
 

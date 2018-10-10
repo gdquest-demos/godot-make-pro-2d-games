@@ -6,13 +6,16 @@ signal health_depleted()
 
 var modifiers = {}
 
-export(int) var health = 0
-export(int) var max_health = 9
+var health = 0
+export(int) var max_health = 9 setget set_max_health
 export(int) var strength = 2
 export(int) var defense = 0
 
 func _ready():
 	health = max_health
+
+func set_max_health(value):
+	max_health = max(0, value)
 
 func take_damage(amount):
 	health -= amount

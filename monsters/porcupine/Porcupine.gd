@@ -1,7 +1,7 @@
 tool
 extends '../Monster.gd'
 
-enum STATES { IDLE, ROAM, RETURN, SPOT, FOLLOW, PREPARE_TO_CHARGE, CHARGE, BUMP, BUMP_COOLDOWN, HIT_PLAYER_COOLDOWN, STAGGER, DIE, DEAD}
+enum STATES { IDLE, ROAM, RETURN, SPOT, FOLLOW, STAGGER, PREPARE_TO_CHARGE, CHARGE, BUMP, BUMP_COOLDOWN, HIT_PLAYER_COOLDOWN, STAGGER, DIE, DEAD}
 
 export(float) var MAX_ROAM_SPEED = 200.0
 export(float) var MAX_FOLLOW_SPEED = 400.0
@@ -13,6 +13,12 @@ export(float) var BUMP_RANGE = 90.0
 
 export(float) var CHARGE_RANGE = 340.0
 export(float) var PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+
+onready var timer = $Timer
+onready var body_pivot = $BodyPivot
+onready var dust_puffs = $DustPuffs
+onready var anim_player = $AnimationPlayer
+onready var tween = $Tween
 
 var charge_direction = Vector2()
 var charge_distance = 0.0
@@ -35,28 +41,22 @@ func _ready():
 		return
 
 	_change_state(IDLE)
-	$Tween.connect('tween_completed', self, '_on_tween_completed')
-	$AnimationPlayer.connect('animation_finished', self, '_on_animation_finished')
-	$Timer.connect('timeout', self, '_on_Timer_timeout')
+	tween.connect('tween_completed', self, '_on_tween_completed')
+	anim_player.connect('animation_finished', self, '_on_animation_finished')
+	timer.connect('timeout', self, '_on_Timer_timeout')
 
 func _change_state(new_state):
 	match state:
 		IDLE:
-			$Timer.stop()
-		RETURN:
-			$RayCast2D.visible = false
-		FOLLOW:
-			$RayCast2D.visible = false
+			timer.stop()
 		CHARGE:
-			$DustPuffs.emitting = false
+			dust_puffs.emitting = false
 
 	match new_state:
 		IDLE:
 			randomize()
-			$Timer.wait_time = randf() * 2 + 1.0
-			$Timer.start()
-		RETURN:
-			$RayCast2D.visible = true
+			timer.wait_time = randf() * 2 + 1.0
+			timer.start()
 		ROAM:
 			randomize()
 			var random_angle = randf() * 2 * PI
@@ -64,26 +64,31 @@ func _change_state(new_state):
 			var random_radius = (randf() * ROAM_RADIUS) / 2 + ROAM_RADIUS / 2
 			roam_target_position = start_position + Vector2(cos(random_angle) * random_radius, sin(random_angle) * random_radius)
 			roam_slow_radius = roam_target_position.distance_to(start_position) / 2
+		STAGGER:
+			anim_player.play("stagger")
 		SPOT:
-			$AnimationPlayer.play('spot')
-		FOLLOW:
-			$RayCast2D.visible = true
+			anim_player.play('spot')
 		PREPARE_TO_CHARGE:
-			$Timer.wait_time = PREPARE_TO_CHARGE_WAIT_TIME
-			$Timer.start()
+			timer.wait_time = PREPARE_TO_CHARGE_WAIT_TIME
+			timer.start()
 		CHARGE:
 			charge_direction = (target.position - position).normalized()
 			charge_distance = 0.0
-			$DustPuffs.emitting = true
+			dust_puffs.emitting = true
 		BUMP:
-			$AnimationPlayer.stop()
+			anim_player.stop()
 			var bump_direction = (position - target.position).normalized()
-			$Tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * bump_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
-			$Tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
-			$Tween.start()
+			tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * bump_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			tween.start()
 		BUMP_COOLDOWN:
 			randomize()
 			get_tree().create_timer(BUMP_COOLDOWN_DURATION).connect('timeout', self, '_change_state', [FOLLOW])
+		DEAD:
+			anim_player.play("die")
+			set_active(false)
+			yield(anim_player, "animation_finished")
+			queue_free()
 	state = new_state
 
 func _physics_process(delta):
@@ -133,12 +138,15 @@ func _physics_process(delta):
 			if get_slide_count() > 0:
 				_change_state(BUMP)
 
-func _on_animation_finished(name):
-	if name == 'spot':
-		_change_state(FOLLOW)
+func _on_animation_finished(anim_name):
+	match anim_name:
+		'spot':
+			_change_state(FOLLOW)
+		'stagger':
+			_change_state(IDLE)
 
 func _animate_bump_height(progress):
-	$BodyPivot.position.y = -pow(sin(progress * PI), 0.4) * MAX_BUMP_HEIGHT
+	body_pivot.position.y = -pow(sin(progress * PI), 0.4) * MAX_BUMP_HEIGHT
 
 func _on_tween_completed(object, key):
 	_change_state(BUMP_COOLDOWN)
@@ -149,3 +157,9 @@ func _on_Timer_timeout():
 			_change_state(ROAM)
 		PREPARE_TO_CHARGE:
 			_change_state(CHARGE)
+
+func _on_Stats_damage_taken(new_health):
+	_change_state(STAGGER)
+
+func _on_Stats_health_depleted():
+	_change_state(DEAD)
