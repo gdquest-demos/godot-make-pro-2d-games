@@ -31,7 +31,7 @@ _sections_unfolded = [ "Pause" ]
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/Cave.tscn"
+LEVEL_START = "res://world/levels/TestLevel.tscn"
 Player = ExtResource( 4 )
 
 [node name="Overlays" type="CanvasLayer" parent="." index="2"]

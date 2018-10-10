@@ -58,7 +58,7 @@ position = Vector2( 1635, 455 )
 
 [node name="Porcupine" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 2042.01, 984.82 )
+position = Vector2( 1166.01, 1352.82 )
 
 [node name="Porcupine2" parent="." index="7" instance=ExtResource( 7 )]
 

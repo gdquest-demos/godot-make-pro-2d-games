@@ -4,9 +4,7 @@
 [ext_resource path="res://interface/gui/lifebar/background.png" type="Texture" id=2]
 [ext_resource path="res://interface/gui/lifebar/fill.png" type="Texture" id=3]
 
-
-
-[node name="HookableLifeBar" type="Node2D" index="0" groups=[
+[node name="HookableLifeBar" type="Node2D" groups=[
 "bars",
 ]]
 

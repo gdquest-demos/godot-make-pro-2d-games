@@ -91,7 +91,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="BossLifebar" type="VBoxContainer" index="0"]
+[node name="BossLifebar" type="VBoxContainer"]
 
 visible = false
 anchor_left = 0.5

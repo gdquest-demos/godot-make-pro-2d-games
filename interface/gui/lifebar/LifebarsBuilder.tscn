@@ -3,9 +3,6 @@
 [ext_resource path="res://interface/gui/lifebar/LifebarsBuilder.gd" type="Script" id=1]
 [ext_resource path="res://interface/gui/lifebar/HookableLifeBar.tscn" type="PackedScene" id=2]
 
-
-
-
 [node name="LifebarsBuilder" type="Node"]
 
 script = ExtResource( 1 )
