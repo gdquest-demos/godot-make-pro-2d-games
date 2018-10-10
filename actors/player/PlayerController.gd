@@ -7,6 +7,7 @@ onready var state_machine = $StateMachine
 func reset(target_global_position):
 	.reset(target_global_position)
 	camera.offset = Vector2()
+	camera.current = true
 
 func take_damage_from(damage_source):
 	.take_damage_from(damage_source)
