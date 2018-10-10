@@ -379,7 +379,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" groups=[
+[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
 "monster",
 ]]
 
@@ -562,7 +562,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="BossLifebar" parent="." index="9" instance=ExtResource( 23 )]
 
-visible = false
 margin_top = -153.0
 margin_bottom = -60.0
 boss_name = "Wild Boar"
@@ -574,6 +573,8 @@ boss_name = "Wild Boar"
 [connection signal="health_depleted" from="Health" to="StateMachine" method="_on_Health_health_depleted"]
 
 [connection signal="health_depleted" from="Health" to="." method="_on_Health_health_depleted"]
+
+[connection signal="finished" from="StateMachine/Spawn" to="." method="_on_Spawn_finished"]
 
 [connection signal="charge_direction_set" from="StateMachine/ChargeSequence/Sprint" to="StateMachine/ChargeSequence/Bump" method="_on_Sprint_charge_direction_set"]
 

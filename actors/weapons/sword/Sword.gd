@@ -32,7 +32,6 @@ func _change_state(new_state):
 	match state:
 		IDLE:
 			visible = true
-
 	match new_state:
 		IDLE:
 			attack_id = 0

@@ -6,9 +6,13 @@ onready var lifebar = $BossLifebar
 var start_global_position
 
 func _ready():
+	set_invincible(true)
 	start_global_position = global_position
 	lifebar.initialize($Health)
 	lifebar.appear()
+
+func _on_Spawn_finished():
+	set_invincible(false)
 
 func _on_Health_health_depleted():
 	set_invincible(true)
@@ -36,3 +40,4 @@ func set_invincible(value):
 
 func take_damage_from(attacker):
 	$Health.take_damage(attacker.damage)
+
