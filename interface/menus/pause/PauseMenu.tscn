@@ -4,7 +4,7 @@
 [ext_resource path="res://utils/Pause.gd" type="Script" id=2]
 [ext_resource path="res://interface/menus/shared/Button.tscn" type="PackedScene" id=3]
 
-[node name="PauseMenu" index="0" instance=ExtResource( 1 )]
+[node name="PauseMenu" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
@@ -82,112 +82,36 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Theme" ]
 
-[node name="ContinueButton" type="Button" parent="Background/Column" index="1" instance=ExtResource( 3 )]
+[node name="ContinueButton" parent="Background/Column" index="1" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 100.0
 margin_top = 147.0
 margin_right = 500.0
 margin_bottom = 211.0
-rect_min_size = Vector2( 400, 64 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Continue"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "Theme" ]
 
-[node name="ItemsButton" type="Button" parent="Background/Column" index="2" instance=ExtResource( 3 )]
+[node name="ItemsButton" parent="Background/Column" index="2" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 100.0
 margin_top = 227.0
 margin_right = 500.0
 margin_bottom = 291.0
-rect_min_size = Vector2( 400, 64 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Items"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "Theme" ]
 
-[node name="OptionsButton" type="Button" parent="Background/Column" index="3" instance=ExtResource( 3 )]
+[node name="OptionsButton" parent="Background/Column" index="3" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 100.0
 margin_top = 307.0
 margin_right = 500.0
 margin_bottom = 371.0
-rect_min_size = Vector2( 400, 64 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Options"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "Theme" ]
 
-[node name="TitleScreenButton" type="Button" parent="Background/Column" index="4" instance=ExtResource( 3 )]
+[node name="TitleScreenButton" parent="Background/Column" index="4" instance=ExtResource( 3 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 100.0
 margin_top = 387.0
 margin_right = 500.0
 margin_bottom = 451.0
-rect_min_size = Vector2( 400, 64 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Title Screen"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "Theme" ]
 
 

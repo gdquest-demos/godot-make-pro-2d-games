@@ -9,7 +9,7 @@
 [ext_resource path="res://interface/menus/shop/ShopMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=8]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -31,7 +31,7 @@ _sections_unfolded = [ "Pause" ]
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://TestLevel.tscn"
+LEVEL_START = "res://world/levels/Grasslands.tscn"
 Player = ExtResource( 4 )
 
 [node name="Overlays" type="CanvasLayer" parent="." index="2"]

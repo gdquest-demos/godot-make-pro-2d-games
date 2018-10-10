@@ -1,0 +1,151 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://interface/theme/fonts/source_code_pro_26.tres" type="DynamicFont" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "tool
+extends Panel
+
+export(String, \"Music\", \"Sounds\", \"Interface\") var BUS_NAME = \"Music\"
+var audio_bus_index
+
+func _ready():
+	audio_bus_index = AudioServer.get_bus_index(BUS_NAME)
+	$Row/Label.text = BUS_NAME
+	$Row/Amount.text = str($Row/HSlider.value)
+	$Row/HSlider.connect(\"value_changed\", self, \"change_volume\")
+
+func change_volume(value):
+	var volume = max(linear2db(value/100.0), -80.0)
+	AudioServer.set_bus_volume_db(audio_bus_index, volume)
+"
+
+[sub_resource type="GDScript" id=2]
+
+resource_local_to_scene = true
+script/source = "extends Label
+
+func _on_HSlider_value_changed(value):
+	text = str(value)
+"
+_sections_unfolded = [ "Resource" ]
+
+[node name="SoundController" type="Panel"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -390.0
+margin_top = -110.0
+margin_right = 390.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 780, 140 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = SubResource( 1 )
+_sections_unfolded = [ "Rect" ]
+BUS_NAME = ""
+
+[node name="Row" type="HBoxContainer" parent="." index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -80.0
+margin_right = 320.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Label" type="Label" parent="Row" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 140.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 1 )
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="HSlider" type="HSlider" parent="Row" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_right = 588.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 140 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 10.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+editable = true
+tick_count = 0
+ticks_on_borders = false
+focus_mode = 0
+
+[node name="Amount" type="Label" parent="Row" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 592.0
+margin_top = 63.0
+margin_right = 640.0
+margin_bottom = 97.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 1 )
+text = "100"
+align = 1
+valign = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = SubResource( 2 )
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[connection signal="value_changed" from="Row/HSlider" to="Row/Amount" method="_on_HSlider_value_changed"]
+
+
