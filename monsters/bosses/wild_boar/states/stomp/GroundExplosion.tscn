@@ -16,7 +16,7 @@ length = 0.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("../CollisionShape2D:disabled")
+tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ false, true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Explosion:emitting")
+tracks/1/path = NodePath("Explosion:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -54,7 +54,7 @@ tracks/2/keys = {
 } ]
 }
 
-[node name="GroundExplosion" index="0" instance=ExtResource( 1 )]
+[node name="GroundExplosion" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
@@ -64,9 +64,6 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Explosion" parent="." index="1" instance=ExtResource( 3 )]
-
-emitting = false
-one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 

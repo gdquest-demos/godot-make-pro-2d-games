@@ -23,7 +23,6 @@
 [ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=22]
 
-
 [sub_resource type="Animation" id=1]
 
 resource_name = "SETUP"
