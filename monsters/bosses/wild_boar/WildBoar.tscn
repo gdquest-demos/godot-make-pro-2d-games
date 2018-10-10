@@ -14,7 +14,7 @@
 [ext_resource path="res://utils/state/Sequence.gd" type="Script" id=12]
 [ext_resource path="res://monsters/bosses/wild_boar/states/charge/Prepare.gd" type="Script" id=13]
 [ext_resource path="res://monsters/bosses/wild_boar/states/charge/Sprint.gd" type="Script" id=14]
-[ext_resource path="res://monsters/bosses/wild_boar/states/charge/Bump.gd" type="Script" id=15]
+[ext_resource path="res://monsters/bosses/wild_boar/states/charge/BumpWildBoar.gd" type="Script" id=15]
 [ext_resource path="res://monsters/bosses/wild_boar/states/ReturnToCenter.gd" type="Script" id=16]
 [ext_resource path="res://monsters/bosses/wild_boar/states/stomp/Stomp.gd" type="Script" id=17]
 [ext_resource path="res://monsters/bosses/wild_boar/states/Die.gd" type="Script" id=18]
@@ -22,6 +22,7 @@
 [ext_resource path="res://utils/state/State.gd" type="Script" id=20]
 [ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=21]
 [ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=22]
+
 
 [sub_resource type="Animation" id=1]
 

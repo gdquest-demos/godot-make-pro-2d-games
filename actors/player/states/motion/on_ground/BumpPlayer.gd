@@ -14,6 +14,3 @@ func update(delta):
 
 func _on_animation_finished(anim_name):
 	emit_signal('finished', 'idle')
-
-func _on_Sprint_charge_direction_set(charge_direction):
-	direction = -charge_direction

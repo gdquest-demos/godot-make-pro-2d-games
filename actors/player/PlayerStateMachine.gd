@@ -6,6 +6,7 @@ func _ready():
 		'move': $Move,
 		'jump': $Jump,
 		'bump': $Bump,
+		'fall': $Fall,
 		'stagger': $Stagger,
 		'attack': $Attack,
 	}
