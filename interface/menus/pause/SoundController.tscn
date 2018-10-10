@@ -31,7 +31,7 @@ func _on_HSlider_value_changed(value):
 "
 _sections_unfolded = [ "Resource" ]
 
-[node name="SoundController" type="Panel"]
+[node name="SoundController" type="Panel" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5

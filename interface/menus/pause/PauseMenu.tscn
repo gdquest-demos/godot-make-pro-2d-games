@@ -4,7 +4,7 @@
 [ext_resource path="res://utils/Pause.gd" type="Script" id=2]
 [ext_resource path="res://interface/menus/shared/Button.tscn" type="PackedScene" id=3]
 
-[node name="PauseMenu" instance=ExtResource( 1 )]
+[node name="PauseMenu" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
