@@ -27,7 +27,6 @@
 [ext_resource path="res://audio/sfx/step_01.wav" type="AudioStream" id=25]
 [ext_resource path="res://audio/AudioShuffleStepSounds.gd" type="Script" id=26]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -361,7 +360,6 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="WeaponPivot" type="Position2D" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
 script = ExtResource( 17 )
 
@@ -427,7 +425,7 @@ script = ExtResource( 26 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
 
-[connection signal="attack_finished" from="WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_attack_finished"]
+[connection signal="combo_finished" from="WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_combo_finished"]
 
 [connection signal="damage_taken" from="Health" to="StateMachine" method="_on_Health_damage_taken"]
 

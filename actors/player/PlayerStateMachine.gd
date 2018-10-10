@@ -24,9 +24,10 @@ func _change_state(state_name):
 
 func _input(event):
 	if event.is_action_pressed('attack'):
-		if current_state == $Attack:
+		if current_state in [$Attack, $Stagger]:
 			return
 		_change_state('attack')
+		get_tree().set_input_as_handled()
 		return
 	current_state.handle_input(event)
 

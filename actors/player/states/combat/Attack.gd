@@ -9,5 +9,5 @@ func enter():
 	owner.get_node("AnimationPlayer").play("idle")
 	owner.weapon.attack()
 
-func _on_Sword_attack_finished():
+func _on_Sword_combo_finished():
 	emit_signal("finished", "previous")
