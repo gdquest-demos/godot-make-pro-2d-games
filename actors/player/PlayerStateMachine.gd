@@ -5,6 +5,7 @@ func _ready():
 		'idle': $Idle,
 		'move': $Move,
 		'jump': $Jump,
+		'bump': $Bump,
 		'stagger': $Stagger,
 		'attack': $Attack,
 	}

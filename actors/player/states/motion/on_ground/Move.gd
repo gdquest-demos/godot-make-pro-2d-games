@@ -1,5 +1,7 @@
 extends "OnGround.gd"
 
+signal last_moved(direction)
+
 export(float) var MAX_WALK_SPEED = 450
 export(float) var MAX_RUN_SPEED = 700
 
@@ -30,7 +32,8 @@ func update(delta):
 	if not collision_info:
 		return
 	if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):
-		return null
+		emit_signal("last_moved", input_direction)
+		emit_signal("finished", 'bump')
 
 func move(speed, direction):
 	velocity = direction.normalized() * speed
