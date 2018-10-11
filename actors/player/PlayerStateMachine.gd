@@ -9,6 +9,7 @@ func _ready():
 		'fall': $Fall,
 		'stagger': $Stagger,
 		'attack': $Attack,
+		'die': $Die,
 	}
 	for state in get_children():
 		state.connect('finished', self, '_change_state')
@@ -33,3 +34,6 @@ func _input(event):
 
 func _on_Health_damage_taken(new_health):
 	_change_state('stagger')
+
+func _on_Health_health_depleted():
+	_change_state('die')

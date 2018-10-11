@@ -7,8 +7,13 @@ func _ready():
 	remove_child(shop_menu)
 
 func _on_Level_loaded():
-	for seller in get_tree().get_nodes_in_group('seller'):
+	var tree = get_tree()
+	for seller in tree.get_nodes_in_group('seller'):
 		seller.connect('shop_open_requested', self, 'shop_open')
+
+	var monsters = tree.get_nodes_in_group('monster')
+	var spawners = tree.get_nodes_in_group('monster_spawner')
+	$LifebarsBuilder.initialize(monsters, spawners)
 
 func shop_open(seller_shop, buyer):
 	add_child(shop_menu)

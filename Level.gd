@@ -3,13 +3,13 @@ extends Node
 signal loaded()
 
 export(String, FILE, "*.tscn") var LEVEL_START
-export(PackedScene) var Player = preload("res://actors/player/Player.tscn")
 
 var map
 var player
 
 func initialize():
-	player = Player.instance()
+	player = $Player
+	remove_child(player)
 	change_level(LEVEL_START)
 
 func change_level(scene_path):

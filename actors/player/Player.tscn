@@ -225,7 +225,7 @@ use_filter = true
 font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 960, 550 )
 input_pickable = false
@@ -428,6 +428,8 @@ script = ExtResource( 26 )
 [connection signal="combo_finished" from="WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_combo_finished"]
 
 [connection signal="damage_taken" from="Health" to="StateMachine" method="_on_Health_damage_taken"]
+
+[connection signal="health_depleted" from="Health" to="StateMachine" method="_on_Health_health_depleted"]
 
 
 [editable path="ShakingCamera"]

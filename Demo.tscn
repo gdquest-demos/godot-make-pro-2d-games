@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://audio/music/birdy_pong.ogg" type="AudioStream" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/Interface.gd" type="Script" id=6]
-[ext_resource path="res://interface/menus/shop/ShopMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interface/gui/player/PlayerGUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/menus/shop/ShopMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://interface/gui/lifebar/LifebarsBuilder.tscn" type="PackedScene" id=10]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -31,8 +33,9 @@ _sections_unfolded = [ "Pause" ]
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/TestLevel.tscn"
-Player = ExtResource( 4 )
+LEVEL_START = "res://world/levels/Cave.tscn"
+
+[node name="Player" parent="Level" index="0" instance=ExtResource( 4 )]
 
 [node name="Overlays" type="CanvasLayer" parent="." index="2"]
 
@@ -57,15 +60,19 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 6 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="ShopMenu" parent="Interface" index="0" instance=ExtResource( 7 )]
+[node name="PlayerGUI" parent="Interface" index="0" instance=ExtResource( 7 )]
+
+[node name="ShopMenu" parent="Interface" index="1" instance=ExtResource( 8 )]
 
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Theme" ]
 
-[node name="PauseMenu" parent="Interface" index="1" instance=ExtResource( 8 )]
+[node name="PauseMenu" parent="Interface" index="2" instance=ExtResource( 9 )]
 
 visible = false
+
+[node name="LifebarsBuilder" parent="Interface" index="3" instance=ExtResource( 10 )]
 
 [connection signal="loaded" from="Level" to="Interface" method="_on_Level_loaded"]
 
