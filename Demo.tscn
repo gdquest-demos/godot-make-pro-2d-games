@@ -11,7 +11,7 @@
 [ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://interface/gui/lifebar/LifebarsBuilder.tscn" type="PackedScene" id=10]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )
@@ -33,7 +33,7 @@ _sections_unfolded = [ "Pause" ]
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/Cave.tscn"
+LEVEL_START = "res://world/levels/TestLevel.tscn"
 
 [node name="Player" parent="Level" index="0" instance=ExtResource( 4 )]
 

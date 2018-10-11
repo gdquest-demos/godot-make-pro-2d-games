@@ -12,14 +12,11 @@ func set_health(value):
 	$TextureProgress.value = value
 
 func initialize(actor):
-	if not (actor.has_node("Health") and actor.has_node("InterfaceAnchor")):
-		return
-	
 	var hook = actor.get_node("InterfaceAnchor")
 	global_position = hook.global_position
 	hook.remote_path = hook.get_path_to(self)
 	
-	var health_node = actor.get_node("Health")
+	var health_node = actor.get_node("Stats")
 	health_node.connect("health_changed", self, "_on_Actor_health_changed")
 	health_node.connect("health_depleted", self, "_on_Actor_health_depleted")
 	

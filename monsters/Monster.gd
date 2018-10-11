@@ -31,6 +31,7 @@ func initialize(actor):
 
 func _on_target_died():
 	target = null
+	set_active(false)
 
 func take_damage_from(damage_source):
 	stats.take_damage(damage_source.damage)

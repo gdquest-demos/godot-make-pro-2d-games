@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://monsters/porcupine/Porcupine.gd" type="Script" id=1]
 [ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://monsters/porcupine/porcupine.png" type="Texture" id=5]
 [ext_resource path="res://monsters/exclamation-mark.png" type="Texture" id=6]
 [ext_resource path="res://particles/dust_puffs/DustPuffs.tscn" type="PackedScene" id=7]
+[ext_resource path="res://interface/gui/lifebar/InterfaceAnchor.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -348,6 +349,11 @@ autostart = false
 [node name="DustPuffs" parent="." index="8" instance=ExtResource( 7 )]
 
 emitting = false
+
+[node name="InterfaceAnchor" parent="." index="9" instance=ExtResource( 8 )]
+
+position = Vector2( 0, -106.219 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="damage_taken" from="Stats" to="." method="_on_Stats_damage_taken"]
 
