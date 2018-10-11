@@ -10,6 +10,8 @@ func reset(target_global_position):
 	camera.current = true
 
 func take_damage_from(damage_source):
+	if state_machine.current_state == $StateMachine/Stagger:
+		return
 	.take_damage_from(damage_source)
 	$StateMachine/Stagger.knockback_direction = (damage_source.global_position - global_position).normalized()
 	camera.start_shake()
@@ -29,3 +31,6 @@ func fall(gap_size):
 	state_machine._change_state('fall')
 	yield(state_machine.current_state, 'finished')
 	move_and_collide(-look_direction * gap_size * 1.5)
+
+func _on_Die_finished():
+	queue_free()
