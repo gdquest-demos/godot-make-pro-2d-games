@@ -41,3 +41,7 @@ func set_invincible(value):
 func take_damage_from(attacker):
 	$Stats.take_damage(attacker.damage)
 
+func _on_Die_finished():
+	state_machine.set_active(false)
+	emit_signal('died')
+	queue_free()

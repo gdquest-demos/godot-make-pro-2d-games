@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://world/levels/tilesets/cave/cave.tres" type="TileSet" id=1]
 [ext_resource path="res://utils/PlayerSpawningPoint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://world/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/pit.png" type="Texture" id=4]
 [ext_resource path="res://monsters/bosses/wild_boar/WildBoar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/CoinsFountain.tscn" type="PackedScene" id=6]
 
 [sub_resource type="GDScript" id=1]
 
@@ -88,7 +89,14 @@ texture = ExtResource( 4 )
 
 position = Vector2( 970, 528 )
 
+[node name="CoinsFountain" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 970, 528 )
+MAX_SPAWN_COUNT = 16
+
 [connection signal="died" from="WildBoar" to="." method="_on_WildBoar_died"]
+
+[connection signal="died" from="WildBoar" to="CoinsFountain" method="start"]
 
 
 [editable path="Door"]

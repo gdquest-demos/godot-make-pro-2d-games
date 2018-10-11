@@ -33,10 +33,6 @@ func _decide_on_next_state():
 	if current_state == $Spawn:
 		owner.set_invincible(false)
 		return $RoamSequence
-	# Death
-	if current_state == $Die:
-		queue_free()
-		return $Dead
 
 	if phase == 1:
 		if current_state == $RoamSequence:
@@ -50,7 +46,6 @@ func _decide_on_next_state():
 			return $RoamSequence
 
 	elif phase == 2:
-		return $ChargeSequence
 		if current_state == $RoamSequence:
 			return $Stomp
 		if current_state == $Stomp:

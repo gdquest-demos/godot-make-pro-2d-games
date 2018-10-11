@@ -15,10 +15,10 @@ func _init():
 func randomize_wait_time():
 	wait_time = rand_range(MINIMUM_WAIT_TIME, MAXIMUM_WAIT_TIME)"
 
-[node name="CoinsFountain" type="Position2D" index="0"]
+[node name="CoinsFountain" type="Position2D"]
 
-position = Vector2( 870.01, 638.97 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 MAX_SPAWN_COUNT = 20
 
 [node name="Timer" type="Timer" parent="." index="0"]

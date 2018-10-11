@@ -8,7 +8,7 @@ onready var timer = $Timer
 export(int) var MAX_SPAWN_COUNT = 12
 var spawn_cycles = 0
 
-func _ready():
+func start():
 	timer.start()
 
 func _on_Timer_timeout():

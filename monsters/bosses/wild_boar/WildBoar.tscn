@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://monsters/bosses/wild_boar/WildBoar.gd" type="Script" id=1]
 [ext_resource path="res://particles/dust_puffs/DustPuffsLarge.tscn" type="PackedScene" id=2]
@@ -19,10 +19,9 @@
 [ext_resource path="res://monsters/bosses/wild_boar/states/stomp/Stomp.gd" type="Script" id=17]
 [ext_resource path="res://monsters/bosses/wild_boar/states/Die.gd" type="Script" id=18]
 [ext_resource path="res://particles/explosions/Explosion.tscn" type="PackedScene" id=19]
-[ext_resource path="res://utils/state/State.gd" type="Script" id=20]
-[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=21]
-[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=22]
-[ext_resource path="res://interface/gui/boss/BossLifebar.tscn" type="PackedScene" id=23]
+[ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=20]
+[ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=21]
+[ext_resource path="res://interface/gui/boss/BossLifebar.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Animation" id=1]
 
@@ -379,7 +378,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" groups=[
+[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
 "monster",
 ]]
 
@@ -520,10 +519,6 @@ wait_time = 0.15
 one_shot = false
 autostart = false
 
-[node name="Dead" type="Node" parent="StateMachine" index="5"]
-
-script = ExtResource( 20 )
-
 [node name="Pivot" type="Position2D" parent="." index="5"]
 
 position = Vector2( 0, -27.075 )
@@ -537,7 +532,7 @@ texture = ExtResource( 3 )
 offset = Vector2( -1.98642, -55.6066 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="CharacterDamager" parent="." index="6" instance=ExtResource( 21 )]
+[node name="CharacterDamager" parent="." index="6" instance=ExtResource( 20 )]
 
 position = Vector2( 0, -27.075 )
 damage = 4
@@ -547,7 +542,7 @@ damage = 4
 position = Vector2( 0, -17.075 )
 shape = SubResource( 12 )
 
-[node name="HitBox" parent="." index="7" instance=ExtResource( 22 )]
+[node name="HitBox" parent="." index="7" instance=ExtResource( 21 )]
 
 position = Vector2( 0, -32 )
 collision_layer = 8
@@ -560,7 +555,7 @@ build_mode = 0
 polygon = PoolVector2Array( -36, -96, 36, -96, 36, -24, -36, -24 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="BossLifebar" parent="." index="9" instance=ExtResource( 23 )]
+[node name="BossLifebar" parent="." index="9" instance=ExtResource( 22 )]
 
 margin_top = -153.0
 margin_bottom = -60.0
@@ -577,6 +572,8 @@ boss_name = "Wild Boar"
 [connection signal="finished" from="StateMachine/Spawn" to="." method="_on_Spawn_finished"]
 
 [connection signal="charge_direction_set" from="StateMachine/ChargeSequence/Sprint" to="StateMachine/ChargeSequence/Bump" method="_on_Sprint_charge_direction_set"]
+
+[connection signal="finished" from="StateMachine/Die" to="." method="_on_Die_finished"]
 
 [connection signal="timeout" from="StateMachine/Die/ExplodeTimer" to="StateMachine/Die" method="_on_ExplodeTimer_timeout"]
 
