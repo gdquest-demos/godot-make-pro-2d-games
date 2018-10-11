@@ -225,7 +225,7 @@ use_filter = true
 font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 960, 550 )
 input_pickable = false
