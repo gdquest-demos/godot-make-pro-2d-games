@@ -431,14 +431,14 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="Health" parent="." index="3" instance=ExtResource( 6 )]
+[node name="Stats" parent="." index="3" instance=ExtResource( 6 )]
 
 max_health = 120
 
 [node name="StateMachine" type="Node" parent="." index="4"]
 
 script = ExtResource( 7 )
-phase = 1
+phase = 2
 
 [node name="Spawn" type="Node" parent="StateMachine" index="0"]
 
@@ -568,11 +568,11 @@ boss_name = "Wild Boar"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
 
-[connection signal="health_changed" from="Health" to="." method="_on_Health_health_changed"]
+[connection signal="health_changed" from="Stats" to="." method="_on_Health_health_changed"]
 
-[connection signal="health_depleted" from="Health" to="StateMachine" method="_on_Health_health_depleted"]
+[connection signal="health_depleted" from="Stats" to="StateMachine" method="_on_Health_health_depleted"]
 
-[connection signal="health_depleted" from="Health" to="." method="_on_Health_health_depleted"]
+[connection signal="health_depleted" from="Stats" to="." method="_on_Health_health_depleted"]
 
 [connection signal="finished" from="StateMachine/Spawn" to="." method="_on_Spawn_finished"]
 

@@ -50,6 +50,7 @@ func _decide_on_next_state():
 			return $RoamSequence
 
 	elif phase == 2:
+		return $ChargeSequence
 		if current_state == $RoamSequence:
 			return $Stomp
 		if current_state == $Stomp:

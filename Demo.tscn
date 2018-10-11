@@ -33,7 +33,7 @@ _sections_unfolded = [ "Pause" ]
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/TestLevel.tscn"
+LEVEL_START = "res://world/levels/Cave.tscn"
 
 [node name="Player" parent="Level" index="0" instance=ExtResource( 4 )]
 

@@ -74,6 +74,54 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Shadow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Shadow:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BodyPivot:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BodyPivot:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -280,7 +328,7 @@ use_filter = true
 font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 960, 550 )
 input_pickable = false
@@ -310,6 +358,7 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="2"]
 
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
@@ -372,16 +421,14 @@ blend_times = [  ]
 
 [node name="Shadow" type="Sprite" parent="." index="4"]
 
-modulate = Color( 1, 1, 1, 0 )
 self_modulate = Color( 1, 1, 1, 0.361098 )
 position = Vector2( 0.362319, -4 )
-scale = Vector2( 0.275362, 0.275362 )
 texture = ExtResource( 13 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="5"]
 
-scale = Vector2( 1e-005, 1e-005 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Body" type="Sprite" parent="BodyPivot" index="0"]
 

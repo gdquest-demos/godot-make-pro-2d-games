@@ -1,20 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://rocks/rocks_particle.tres" type="Material" id=1]
-[ext_resource path="res://rocks/rocks.png" type="Texture" id=2]
-[ext_resource path="res://rocks/crumbs_particle.tres" type="Material" id=3]
+[ext_resource path="res://particles/rocks/rocks_particle.tres" type="Material" id=1]
+[ext_resource path="res://particles/rocks/rocks.png" type="Texture" id=2]
+[ext_resource path="res://particles/rocks/crumbs_particle.tres" type="Material" id=3]
 
+[sub_resource type="GDScript" id=1]
 
-[node name="DirectionalRock" type="Particles2D" index="0"]
+script/source = "extends Particles2D
+
+func initialize(position, angle):
+	global_position = position
+	rotation = angle
+	yield(get_tree().create_timer(lifetime / speed_scale), \"timeout\")
+	queue_free()
+"
+
+[node name="DirectionalRock" type="Particles2D"]
 
 modulate = Color( 0.691406, 0.486124, 0.132339, 1 )
 rotation = -1.5708
 emitting = true
 amount = 20
 lifetime = 0.7
-one_shot = false
+one_shot = true
 preprocess = 0.0
-speed_scale = 1.0
+speed_scale = 1.5
 explosiveness = 0.9
 randomness = 0.9
 fixed_fps = 0
@@ -27,6 +37,7 @@ texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
+script = SubResource( 1 )
 _sections_unfolded = [ "Material", "Process Material", "Time", "Visibility" ]
 
 [node name="Pebbles2" type="Particles2D" parent="." index="0"]

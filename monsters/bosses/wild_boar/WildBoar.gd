@@ -8,7 +8,7 @@ var start_global_position
 func _ready():
 	set_invincible(true)
 	start_global_position = global_position
-	lifebar.initialize($Health)
+	lifebar.initialize($Stats)
 	lifebar.appear()
 
 func _on_Spawn_finished():
@@ -39,5 +39,5 @@ func set_invincible(value):
 	$CharacterDamager/CollisionShape2D.disabled = value
 
 func take_damage_from(attacker):
-	$Health.take_damage(attacker.damage)
+	$Stats.take_damage(attacker.damage)
 
