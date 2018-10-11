@@ -15,6 +15,9 @@ func _ready():
 		state.connect('finished', self, '_change_state')
 
 func _change_state(state_name):
+	if current_state == states_map['die']:
+		set_active(false)
+		return
 	if not _active:
 		return
 	if state_name in ['stagger', 'jump', 'attack']:
