@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://actors/player/PlayerController.gd" type="Script" id=1]
 [ext_resource path="res://actors/camera/ShakingCamera.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://actors/weapons/bullet/BulletSpawner.gd" type="Script" id=24]
 [ext_resource path="res://audio/sfx/step_01.wav" type="AudioStream" id=25]
 [ext_resource path="res://audio/AudioShuffleStepSounds.gd" type="Script" id=26]
+[ext_resource path="res://actors/CoinsCollector.tscn" type="PackedScene" id=27]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -142,7 +143,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -58.8242 ), Vector2( 0, -100 ), Vector2( 0, -58.8242 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 
 resource_name = "die"
 length = 0.6
@@ -197,9 +198,8 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource_name = "fall"
 length = 1.1
 loop = false
 step = 0.05
@@ -252,7 +252,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.175781, 0.175781, 0.175781, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 
 length = 0.01
 loop = true
@@ -270,7 +270,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -58.8242 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 
 length = 0.6
 loop = false
@@ -288,7 +288,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 
 length = 0.3
 loop = true
@@ -320,7 +320,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=9]
 
 size = 20
 use_mipmaps = false
@@ -412,11 +412,11 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/SETUP = SubResource( 2 )
 anims/bump = SubResource( 3 )
-anims/die = SubResource( 9 )
-anims/fall = SubResource( 4 )
-anims/idle = SubResource( 5 )
-anims/stagger = SubResource( 6 )
-anims/walk = SubResource( 7 )
+anims/die = SubResource( 4 )
+anims/fall = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/stagger = SubResource( 7 )
+anims/walk = SubResource( 8 )
 blend_times = [  ]
 
 [node name="Shadow" type="Sprite" parent="." index="4"]
@@ -428,6 +428,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="5"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Body" type="Sprite" parent="BodyPivot" index="0"]
@@ -454,7 +455,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Test"
 align = 1
 valign = 1
@@ -467,6 +468,7 @@ _sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="WeaponPivot" type="Position2D" parent="." index="6"]
 
+editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
 script = ExtResource( 17 )
 
@@ -526,6 +528,8 @@ mix_target = 0
 bus = "Master"
 script = ExtResource( 26 )
 
+[node name="CoinsCollector" parent="." index="13" instance=ExtResource( 27 )]
+
 [connection signal="state_changed" from="StateMachine" to="BodyPivot/StateNameDisplayer" method="_on_StateMachine_state_changed"]
 
 [connection signal="last_moved" from="StateMachine/Move" to="StateMachine/Bump" method="_on_Move_last_moved"]
@@ -539,6 +543,8 @@ script = ExtResource( 26 )
 [connection signal="damage_taken" from="Health" to="StateMachine" method="_on_Health_damage_taken"]
 
 [connection signal="health_depleted" from="Health" to="StateMachine" method="_on_Health_health_depleted"]
+
+[connection signal="coins_received" from="CoinsCollector" to="Purse" method="add_coins"]
 
 
 [editable path="ShakingCamera"]

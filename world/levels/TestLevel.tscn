@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://world/levels/tilesets/outdoor/outdoor.tres" type="TileSet" id=1]
 [ext_resource path="res://actors/characters/seller/Seller.tscn" type="PackedScene" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://monsters/mosquito/Nest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://monsters/porcupine/Porcupine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://world/Rock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://inventory/items/Coins.tscn" type="PackedScene" id=9]
 
-[node name="Grasslands" type="TileMap"]
+[node name="Grasslands" type="TileMap" index="0"]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -42,30 +43,42 @@ position = Vector2( 684, 1214 )
 
 position = Vector2( 1658, 902 )
 
-[node name="Gap2" parent="." index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 738, 1130 )
-
-[node name="Door" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Door" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 2006, 722 )
 scale = Vector2( 0.8125, 0.8125 )
 map_path = "res://world/levels/Cave.tscn"
 
-[node name="Nest" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Nest" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 1635, 455 )
 
-[node name="Porcupine" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Porcupine" parent="." index="5" instance=ExtResource( 7 )]
 
-position = Vector2( 1166.01, 1352.82 )
+position = Vector2( 2086.01, 1288.82 )
 
-[node name="Porcupine2" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Porcupine2" parent="." index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 2546.01, 728.82 )
 
-[node name="Rock" parent="." index="8" instance=ExtResource( 8 )]
+[node name="Rock" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 930, 1169 )
+position = Vector2( 1162, 801 )
+
+[node name="Coins" parent="." index="8" instance=ExtResource( 9 )]
+
+position = Vector2( 648, 1031 )
+
+[node name="Coins2" parent="." index="9" instance=ExtResource( 9 )]
+
+position = Vector2( 852, 1171 )
+
+[node name="Coins3" parent="." index="10" instance=ExtResource( 9 )]
+
+position = Vector2( 936, 1319 )
+
+[node name="Coins4" parent="." index="11" instance=ExtResource( 9 )]
+
+position = Vector2( 988, 1051 )
 
 

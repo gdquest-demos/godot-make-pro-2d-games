@@ -78,6 +78,8 @@ pause=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"",
 2d_physics/layer_4="hitbox_monsters"
 2d_physics/layer_5="weapon"
 2d_physics/layer_6="damager_area"
+2d_physics/layer_7="collectibles"
+2d_physics/layer_8="collector"
 
 [rendering]
 
