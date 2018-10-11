@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://audio/MusicPlayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Level.gd" type="Script" id=3]
+[ext_resource path="res://LevelLoader.gd" type="Script" id=3]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/Interface.gd" type="Script" id=6]

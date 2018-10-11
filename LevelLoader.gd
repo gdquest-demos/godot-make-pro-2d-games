@@ -19,8 +19,8 @@ func change_level(scene_path):
 	map = load(scene_path).instance()
 	add_child(map)
 	move_child(map, 0)
-
-	map.add_child(player)
+	
+	map.get_ysort_node().add_child(player)
 	var spawn = map.get_node("PlayerSpawningPoint")
 	player.reset(spawn.global_position)
 	
