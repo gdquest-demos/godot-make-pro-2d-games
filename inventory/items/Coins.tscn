@@ -22,6 +22,11 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 amount = 1
+MAX_START_VERTICAL_THRUST = 700.0
+MAX_HORIZONTAL_SPEED = 200.0
+GRAVITY = 1000.0
+STOP_THRESHOLD_VERTICAL_SPEED = 3.0
+DAMPING_FACTOR = 0.6
 
 [node name="coins" type="Sprite" parent="." index="0"]
 
@@ -31,6 +36,13 @@ _sections_unfolded = [ "Transform" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 

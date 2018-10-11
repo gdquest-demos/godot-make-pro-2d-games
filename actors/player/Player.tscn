@@ -516,12 +516,10 @@ autostart = false
 
 [node name="Sfx" type="Node" parent="." index="12"]
 
-editor/display_folded = true
-
 [node name="Steps" type="AudioStreamPlayer" parent="Sfx" index="0"]
 
 stream = ExtResource( 25 )
-volume_db = -9.0
+volume_db = -16.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
