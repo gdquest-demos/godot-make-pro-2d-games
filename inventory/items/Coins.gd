@@ -7,10 +7,11 @@ export(int) var amount = 1 setget set_amount
 export(float) var MAX_START_VERTICAL_THRUST = 400.0
 export(float) var MAX_HORIZONTAL_SPEED = 200.0
 export(float) var GRAVITY = 2000.0
-export(float) var STOP_THRESHOLD_VERTICAL_SPEED = 3.0
-export(float, 0.0, 1.0) var DAMPING_FACTOR = 0.6
+export(float) var STOP_THRESHOLD_VERTICAL_SPEED = 4.0
+export(float, 0.0, 1.0) var DAMPING_FACTOR = 0.4
 
 var direction = Vector2()
+var velocity = Vector2()
 var speed_horizontal = 0.0
 var speed_vertical = 0.0
 var height = 0.0 setget set_height
@@ -26,9 +27,6 @@ func _on_area_entered(area):
 
 func _ready():
 	set_process(false)
-	if Engine.editor_hint:
-		return
-	throw()
 
 func throw():
 	var rand_angle = randf() * 2 * PI
@@ -42,19 +40,28 @@ func throw():
 	set_process(true)
 
 func _process(delta):
-	self.height += speed_vertical * delta
-	if height < 0:
-		speed_vertical = -speed_vertical * DAMPING_FACTOR
-		height = -height
-		if abs(speed_vertical) < STOP_THRESHOLD_VERTICAL_SPEED:
-			speed_vertical = 0.0
-			height = 0.0
-			set_process(false)
-	speed_vertical -= GRAVITY * delta
+	# Move horizontally
 	var speed_scale = $Timer.time_left / $Timer.wait_time
-	position += speed_horizontal * direction * delta * speed_scale
+	velocity = speed_horizontal * direction * speed_scale
+	position += velocity * delta
+
+	# Move vertically
+	speed_vertical -= GRAVITY * delta
+	var distance_vertical = speed_vertical * delta
+	self.height += distance_vertical
+	if height < 0.0:
+		self.height = 0.0
+		set_process(false)
 
 func set_height(value):
 	height = value
 	if is_processing():
 		$coins.position.y = -height
+
+# TODO: won't work as currently velocity is re-calculated on every process tick
+#func steer_towards(target_global_position):
+#	velocity = Steering.follow(
+#		velocity, 
+#		global_position, 
+#		target_global_position, 
+#		MAX_HORIZONTAL_SPEED)

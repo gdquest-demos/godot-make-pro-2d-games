@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://actors/CoinsFountain.gd" type="Script" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Timer
+
+export(float) var MINIMUM_WAIT_TIME = 0.05
+export(float) var MAXIMUM_WAIT_TIME = 0.1
+
+func _init():
+	assert MINIMUM_WAIT_TIME <= MAXIMUM_WAIT_TIME
+
+func randomize_wait_time():
+	wait_time = rand_range(MINIMUM_WAIT_TIME, MAXIMUM_WAIT_TIME)"
+
+[node name="CoinsFountain" type="Position2D" index="0"]
+
+position = Vector2( 870.01, 638.97 )
+script = ExtResource( 1 )
+MAX_SPAWN_COUNT = 20
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = false
+autostart = false
+script = SubResource( 1 )
+MINIMUM_WAIT_TIME = 0.05
+MAXIMUM_WAIT_TIME = 0.1
+
+[connection signal="timeout" from="Timer" to="Timer" method="randomize_wait_time"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
