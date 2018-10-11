@@ -2,13 +2,13 @@ extends Node
 
 signal pause_toggled(status)
 
-onready var level = $Level
+onready var level = $LevelLoader
 onready var transition = $Overlays/TransitionColor
 onready var pause_menu = $Interface/PauseMenu
 onready var tree = get_tree()
 
 func _ready():
-	$Interface/PlayerGUI.initialize($Level/Player/Health)
+	$Interface/PlayerGUI.initialize($LevelLoader/Player/Health)
 	level.initialize()
 	for door in level.get_doors():
 		door.connect("player_entered", self, "_on_Door_player_entered")

@@ -1,11 +1,14 @@
 extends "res://interface/menus/Menu.gd"
 
-export(String, "sell_to", "buy_from") var ACTION
+export(String, "sell_to", "buy_from") var ACTION = ""
 
 onready var items_list = $Column/Row/ShopItemsList
 onready var description_panel = $Column/DescriptionPanel
 onready var info_panel = $Column/Row/InfoPanel
 onready var amount_popup = items_list.get_node("AmountPopup")
+
+func _ready():
+	assert ACTION != ""
 
 func initialize(shop, buyer, items):
 	for item in items:

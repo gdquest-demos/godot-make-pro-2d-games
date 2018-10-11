@@ -9,7 +9,7 @@
 [ext_resource path="res://world/Gap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://world/Door.tscn" type="PackedScene" id=8]
 
-[node name="Grasslands" type="Node2D"]
+[node name="Grasslands" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Cell", "Collision" ]

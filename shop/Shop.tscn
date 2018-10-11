@@ -7,7 +7,6 @@
 [ext_resource path="res://inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://shop/purse/Purse.tscn" type="PackedScene" id=6]
 
-
 [node name="Shop" type="Node"]
 
 script = ExtResource( 1 )

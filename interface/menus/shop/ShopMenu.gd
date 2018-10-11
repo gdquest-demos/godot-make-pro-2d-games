@@ -19,6 +19,7 @@ func _ready():
 	hide()
 
 func open(shop, buyer):
+	get_tree().paused = true
 	button_buy.connect("pressed", self, "open_submenu",
 		[BuyMenu, shop, buyer, shop.inventory])
 	button_sell.connect("pressed", self, "open_submenu",
@@ -27,6 +28,7 @@ func open(shop, buyer):
 	.open()
 
 func close():
+	get_tree().paused = false
 	button_buy.disconnect('pressed', self, 'open_submenu')
 	button_sell.disconnect('pressed', self, 'open_submenu')
 	.close()

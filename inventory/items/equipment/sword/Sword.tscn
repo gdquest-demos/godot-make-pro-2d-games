@@ -3,7 +3,6 @@
 [ext_resource path="res://inventory/items/equipment/Equipment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/theme/icons/sword.png" type="Texture" id=2]
 
-
 [node name="Sword" index="0" instance=ExtResource( 1 )]
 
 icon = ExtResource( 2 )

@@ -19,14 +19,14 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="MusicPlayer" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="Level" type="Node" parent="." index="1"]
+[node name="LevelLoader" type="Node" parent="." index="1"]
 
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
 LEVEL_START = "res://world/levels/TestLevel.tscn"
 
-[node name="Player" parent="Level" index="0" instance=ExtResource( 4 )]
+[node name="Player" parent="LevelLoader" index="0" instance=ExtResource( 4 )]
 
 [node name="Overlays" type="CanvasLayer" parent="." index="2"]
 
@@ -65,7 +65,7 @@ visible = false
 
 [node name="LifebarsBuilder" parent="Interface" index="3" instance=ExtResource( 10 )]
 
-[connection signal="loaded" from="Level" to="Interface" method="_on_Level_loaded"]
+[connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
 
 [connection signal="unpause" from="Interface/PauseMenu" to="." method="_on_PauseMenu_unpause"]
 

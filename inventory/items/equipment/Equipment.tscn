@@ -7,10 +7,6 @@
 
 script = ExtResource( 2 )
 icon = null
-display_name = ""
-description = ""
-amount = 1
-usable = true
 STRENGTH = 0
 MAGIC = 0
 ARMOR = 0
