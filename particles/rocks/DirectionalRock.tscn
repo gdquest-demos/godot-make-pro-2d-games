@@ -19,7 +19,7 @@ func initialize(position, angle):
 
 modulate = Color( 0.691406, 0.486124, 0.132339, 1 )
 rotation = -1.5708
-emitting = true
+emitting = false
 amount = 20
 lifetime = 0.7
 one_shot = true

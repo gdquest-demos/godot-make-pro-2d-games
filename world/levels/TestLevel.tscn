@@ -10,7 +10,7 @@
 [ext_resource path="res://world/Rock.tscn" type="PackedScene" id=8]
 [ext_resource path="res://inventory/items/Coins.tscn" type="PackedScene" id=9]
 
-[node name="Grasslands" type="TileMap" index="0"]
+[node name="Grasslands" type="TileMap"]
 
 mode = 0
 tile_set = ExtResource( 1 )
@@ -67,26 +67,18 @@ position = Vector2( 1162, 801 )
 
 [node name="Coins" parent="." index="8" instance=ExtResource( 9 )]
 
-position = Vector2( 858, 1149 )
-MAX_START_VERTICAL_THRUST = 800.0
-GRAVITY = 2000.0
+position = Vector2( 472.412, 993.695 )
 
 [node name="Coins2" parent="." index="9" instance=ExtResource( 9 )]
 
-position = Vector2( 934, 1253 )
-MAX_START_VERTICAL_THRUST = 800.0
-GRAVITY = 2000.0
+position = Vector2( 781.924, 811.246 )
 
 [node name="Coins3" parent="." index="10" instance=ExtResource( 9 )]
 
-position = Vector2( 650, 1005 )
-MAX_START_VERTICAL_THRUST = 800.0
-GRAVITY = 2000.0
+position = Vector2( 1153.34, 1179.4 )
 
 [node name="Coins4" parent="." index="11" instance=ExtResource( 9 )]
 
-position = Vector2( 534, 1105 )
-MAX_START_VERTICAL_THRUST = 800.0
-GRAVITY = 2000.0
+position = Vector2( 1062.11, 1485.65 )
 
 
