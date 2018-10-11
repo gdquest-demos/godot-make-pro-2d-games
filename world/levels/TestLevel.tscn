@@ -67,18 +67,26 @@ position = Vector2( 1162, 801 )
 
 [node name="Coins" parent="." index="8" instance=ExtResource( 9 )]
 
-position = Vector2( 648, 1031 )
+position = Vector2( 858, 1149 )
+MAX_START_VERTICAL_THRUST = 800.0
+GRAVITY = 2000.0
 
 [node name="Coins2" parent="." index="9" instance=ExtResource( 9 )]
 
-position = Vector2( 852, 1171 )
+position = Vector2( 934, 1253 )
+MAX_START_VERTICAL_THRUST = 800.0
+GRAVITY = 2000.0
 
 [node name="Coins3" parent="." index="10" instance=ExtResource( 9 )]
 
-position = Vector2( 936, 1319 )
+position = Vector2( 650, 1005 )
+MAX_START_VERTICAL_THRUST = 800.0
+GRAVITY = 2000.0
 
 [node name="Coins4" parent="." index="11" instance=ExtResource( 9 )]
 
-position = Vector2( 988, 1051 )
+position = Vector2( 534, 1105 )
+MAX_START_VERTICAL_THRUST = 800.0
+GRAVITY = 2000.0
 
 

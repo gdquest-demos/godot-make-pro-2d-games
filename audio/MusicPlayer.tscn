@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://audio/music/birdy_pong.ogg" type="AudioStream" id=1]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+
+pause_mode = 2
+stream = ExtResource( 1 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Music"
+_sections_unfolded = [ "Pause" ]
+
+

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
-[ext_resource path="res://audio/music/birdy_pong.ogg" type="AudioStream" id=2]
+[ext_resource path="res://audio/MusicPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level.gd" type="Script" id=3]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=5]
@@ -17,23 +17,14 @@ pause_mode = 2
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="0"]
-
-pause_mode = 2
-stream = ExtResource( 2 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Music"
-_sections_unfolded = [ "Pause" ]
+[node name="MusicPlayer" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="Level" type="Node" parent="." index="1"]
 
 pause_mode = 1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/Cave.tscn"
+LEVEL_START = "res://world/levels/TestLevel.tscn"
 
 [node name="Player" parent="Level" index="0" instance=ExtResource( 4 )]
 
