@@ -8,4 +8,4 @@ func _on_area_entered(area):
 	owner.take_damage_from(area)
 
 func set_active(value):
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = not value
