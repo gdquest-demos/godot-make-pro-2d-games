@@ -41,6 +41,7 @@ func set_invincible(value):
 	$CollisionPolygon2D.disabled = value
 	$HitBox/CollisionShape2D.disabled = value
 	$DamageSource/CollisionShape2D.disabled = value
+	$DamageSource.monitorable = not value
 
 func take_damage_from(attacker):
 	$Stats.take_damage(attacker.damage)

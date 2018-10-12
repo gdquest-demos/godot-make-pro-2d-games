@@ -390,7 +390,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" groups=[
+[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
 "monster",
 ]]
 
@@ -551,6 +551,7 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 [node name="DamageSource" parent="." index="6" instance=ExtResource( 20 )]
 
 position = Vector2( 0, -27.075 )
+monitorable = false
 damage = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
@@ -560,7 +561,7 @@ shape = SubResource( 12 )
 
 [node name="HitBox" parent="." index="7" instance=ExtResource( 21 )]
 
-position = Vector2( 0, -32 )
+position = Vector2( 0, -212 )
 collision_layer = 8
 collision_mask = 16
 

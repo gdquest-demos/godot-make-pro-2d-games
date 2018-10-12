@@ -28,10 +28,8 @@ func go_to_next_state(state_override=null):
 func _decide_on_next_state():
 	# Battle start
 	if current_state == null:
-		owner.set_invincible(true)
 		return $Spawn
 	if current_state == $Spawn:
-		owner.set_invincible(false)
 		return $RoamSequence
 
 	if phase == 1:
