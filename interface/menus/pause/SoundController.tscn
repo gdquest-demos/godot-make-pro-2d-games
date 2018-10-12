@@ -15,6 +15,7 @@ func _ready():
 	$Row/Label.text = BUS_NAME
 	$Row/Amount.text = str($Row/HSlider.value)
 	$Row/HSlider.connect(\"value_changed\", self, \"change_volume\")
+	$Row/HSlider.grab_focus()
 
 func change_volume(value):
 	var volume = max(linear2db(value/100.0), -80.0)
@@ -49,7 +50,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = SubResource( 1 )
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Focus", "Rect" ]
 BUS_NAME = ""
 
 [node name="Row" type="HBoxContainer" parent="." index="0"]
@@ -69,6 +70,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Focus" ]
 
 [node name="Label" type="Label" parent="Row" index="0"]
 
@@ -86,12 +88,11 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 5
 custom_fonts/font = ExtResource( 1 )
-text = "Label"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Focus", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="HSlider" type="HSlider" parent="Row" index="1"]
 
@@ -105,6 +106,7 @@ margin_bottom = 160.0
 rect_min_size = Vector2( 0, 140 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
@@ -119,7 +121,8 @@ rounded = false
 editable = true
 tick_count = 0
 ticks_on_borders = false
-focus_mode = 0
+focus_mode = 2
+_sections_unfolded = [ "Focus" ]
 
 [node name="Amount" type="Label" parent="Row" index="2"]
 
