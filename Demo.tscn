@@ -128,9 +128,9 @@ visible = false
 
 [connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
 
-[connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]
-
 [connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
+
+[connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]
 
 [connection signal="unpause" from="Interface/PauseMenu" to="." method="_on_PauseMenu_unpause"]
 

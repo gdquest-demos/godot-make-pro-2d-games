@@ -129,7 +129,7 @@ polygon = PoolVector2Array( 768, 896, 1152, 896, 1152, 1024, 768, 1024 )
 
 [node name="PlayerSpawningPoint" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 960, 1152 )
+position = Vector2( 960, 2944 )
 
 [node name="Door" parent="." index="3" instance=ExtResource( 3 )]
 
@@ -154,9 +154,9 @@ position = Vector2( 970, 528 )
 position = Vector2( 970, 528 )
 MAX_SPAWN_COUNT = 16
 
-[connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
-
 [connection signal="body_entered" from="CameraTrigger" to="." method="_on_CameraTrigger_body_entered"]
+
+[connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
 
 [connection signal="died" from="YSort/WildBoar" to="." method="_on_WildBoar_died"]
 

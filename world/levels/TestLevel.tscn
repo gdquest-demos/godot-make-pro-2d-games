@@ -36,7 +36,7 @@ fog = false
 
 [node name="PlayerSpawningPoint" parent="." index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 2068.66, 559.139 )
+position = Vector2( 2020, 590 )
 
 [node name="Gap" parent="." index="1" instance=ExtResource( 4 )]
 
@@ -63,10 +63,44 @@ position = Vector2( 1635, 455 )
 [node name="Porcupine" parent="YSort" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 2086.01, 1288.82 )
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+MAX_ROAM_SPEED = 200.0
+MAX_FOLLOW_SPEED = 400.0
+MAX_CHARGE_SPEED = 900.0
+SPOT_RANGE = 460.0
+FOLLOW_RANGE = 700.0
+BUMP_RANGE = 90.0
+CHARGE_RANGE = 340.0
+PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+ROAM_RADIUS = 140.0
+BUMP_DISTANCE = 60.0
+BUMP_DURATION = 0.2
+MAX_BUMP_HEIGHT = 50.0
+BUMP_COOLDOWN_DURATION = 0.6
 
 [node name="Porcupine2" parent="YSort" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 2546.01, 728.82 )
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+MAX_ROAM_SPEED = 200.0
+MAX_FOLLOW_SPEED = 400.0
+MAX_CHARGE_SPEED = 900.0
+SPOT_RANGE = 460.0
+FOLLOW_RANGE = 700.0
+BUMP_RANGE = 90.0
+CHARGE_RANGE = 340.0
+PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+ROAM_RADIUS = 140.0
+BUMP_DISTANCE = 60.0
+BUMP_DURATION = 0.2
+MAX_BUMP_HEIGHT = 50.0
+BUMP_COOLDOWN_DURATION = 0.6
 
 [node name="Rock" parent="YSort" index="4" instance=ExtResource( 9 )]
 
