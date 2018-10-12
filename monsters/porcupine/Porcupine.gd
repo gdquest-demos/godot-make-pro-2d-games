@@ -1,4 +1,3 @@
-tool
 extends '../Monster.gd'
 
 enum STATES { IDLE, ROAM, RETURN, SPOT, FOLLOW, STAGGER, PREPARE_TO_CHARGE, CHARGE, BUMP, BUMP_COOLDOWN, HIT_PLAYER_COOLDOWN, STAGGER, DIE, DEAD}
@@ -34,24 +33,21 @@ export(float) var MAX_BUMP_HEIGHT = 50.0
 
 export(float) var BUMP_COOLDOWN_DURATION = 0.6
 
-func _ready():
-	start_position = position
-	if Engine.editor_hint:
-		set_physics_process(false)
-		return
-
-	_change_state(IDLE)
+func initialize(target_actor):
+	.initialize(target_actor)
 	tween.connect('tween_completed', self, '_on_tween_completed')
 	anim_player.connect('animation_finished', self, '_on_animation_finished')
 	timer.connect('timeout', self, '_on_Timer_timeout')
+	_change_state(IDLE)
 
 func _change_state(new_state):
+	if not active:
+		return
 	match state:
 		IDLE:
 			timer.stop()
 		CHARGE:
 			dust_puffs.emitting = false
-
 	match new_state:
 		IDLE:
 			randomize()
@@ -128,7 +124,7 @@ func _physics_process(delta):
 			if position.distance_to(target.position) > FOLLOW_RANGE:
 				_change_state(RETURN)
 		CHARGE:
-			if charge_distance > 800.0:
+			if charge_distance > 800.0 or not target:
 				_change_state(BUMP_COOLDOWN)
 				return
 

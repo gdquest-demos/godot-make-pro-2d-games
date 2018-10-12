@@ -3,6 +3,7 @@ extends KinematicBody2D
 signal died
 
 var state
+var active
 
 export(float) var ARRIVE_DISTANCE = 6.0
 export(float) var DEFAULT_SLOW_RADIUS = 200.0
@@ -21,20 +22,21 @@ func _ready():
 	set_as_toplevel(true)
 	start_position = global_position
 
-func initialize(actor):
-	if not actor is Actor:
+func initialize(target_actor):
+	if not target_actor is Actor:
 		return
-	target = actor
+	target = target_actor
 	target.connect('died', self, '_on_target_died')
+	set_active(true)
 
 func _on_target_died():
 	target = null
-	set_active(false)
 
 func take_damage_from(damage_source):
 	stats.take_damage(damage_source.damage)
 
 func set_active(value):
+	active = value
 	set_physics_process(value)
-	$HitBox.set_active(false)
-	$DamageSource.set_active(false)
+	$HitBox.set_active(value)
+	$DamageSource.set_active(value)
