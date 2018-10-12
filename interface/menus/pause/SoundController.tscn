@@ -86,6 +86,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 5
 custom_fonts/font = ExtResource( 1 )
+text = "Label"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0

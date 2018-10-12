@@ -24,7 +24,7 @@ func update_text(value):
 "
 _sections_unfolded = [ "Resource" ]
 
-[node name="AmountPopup" type="PopupPanel" index="0"]
+[node name="AmountPopup" type="PopupPanel"]
 
 anchor_left = 0.0
 anchor_top = 0.0

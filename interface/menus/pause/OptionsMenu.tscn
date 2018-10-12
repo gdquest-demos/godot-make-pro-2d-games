@@ -5,7 +5,7 @@
 [ext_resource path="res://interface/menus/MenuSfx.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/menus/pause/SoundController.tscn" type="PackedScene" id=4]
 
-[node name="OptionsMenu" type="Panel" index="0"]
+[node name="OptionsMenu" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -78,7 +78,7 @@ margin_right = 780.0
 margin_bottom = 524.0
 BUS_NAME = "Interface"
 
-[node name="Button" type="Button" parent="Column" index="3"]
+[node name="GoBackButton" type="Button" parent="Column" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -103,5 +103,7 @@ text = "Go back"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
+
+[connection signal="pressed" from="Column/GoBackButton" to="." method="close"]
 
 
