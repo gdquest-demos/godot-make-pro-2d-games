@@ -69,6 +69,7 @@ _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
+fog = true
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -153,9 +154,9 @@ position = Vector2( 970, 528 )
 position = Vector2( 970, 528 )
 MAX_SPAWN_COUNT = 16
 
-[connection signal="body_entered" from="CameraTrigger" to="." method="_on_CameraTrigger_body_entered"]
-
 [connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
+
+[connection signal="body_entered" from="CameraTrigger" to="." method="_on_CameraTrigger_body_entered"]
 
 [connection signal="died" from="YSort/WildBoar" to="." method="_on_WildBoar_died"]
 

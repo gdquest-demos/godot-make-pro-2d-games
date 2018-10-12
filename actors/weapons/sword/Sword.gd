@@ -12,7 +12,7 @@ var ready_for_next_attack = false
 var attack_id = 0
 var combo = [
 	{
-		'damage': 200,
+		'damage': 1,
 		'animation': 'attack_fast',
 	},
 	{

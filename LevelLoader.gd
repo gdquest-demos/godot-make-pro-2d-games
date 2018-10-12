@@ -1,6 +1,6 @@
 extends Node
 
-signal loaded()
+signal loaded(level)
 
 export(String, FILE, "*.tscn") var LEVEL_START
 
@@ -28,7 +28,7 @@ func change_level(scene_path):
 		monster.initialize(player)
 	if map.has_method('initialize'):
 		map.initialize()
-	emit_signal("loaded")
+	emit_signal("loaded", map)
 
 func get_doors():
 	var doors = []
