@@ -1,7 +1,5 @@
 extends Node
 
-signal pause_toggled(status)
-
 onready var level_loader = $LevelLoader
 onready var transition = $Overlays/TransitionColor
 onready var pause_menu = $Interface/PauseMenu
@@ -29,16 +27,11 @@ func _on_Door_player_entered(target_map):
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		set_paused(not tree.paused)
+		pause()
 		tree.set_input_as_handled()
 
-func set_paused(pause):
-	tree.paused = pause
-	if pause:
-		pause_menu.open()
-	else:
-		pause_menu.close()
-	emit_signal("pause_toggled", pause)
-
-func _on_PauseMenu_unpause():
-	set_paused(false)
+func pause():
+	tree.paused = true
+	pause_menu.open()
+	yield(pause_menu, "closed")
+	tree.paused = false

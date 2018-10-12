@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="Button" type="Button" index="0"]
+[node name="Button" type="Button"]
 
 editor/display_folded = true
 anchor_left = 0.0

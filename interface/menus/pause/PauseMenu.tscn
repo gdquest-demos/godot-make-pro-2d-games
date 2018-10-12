@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface/menus/Menu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://utils/Pause.gd" type="Script" id=2]
+[ext_resource path="res://utils/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://interface/menus/shared/Button.tscn" type="PackedScene" id=3]
 
 [node name="PauseMenu" instance=ExtResource( 1 )]
@@ -113,5 +113,11 @@ margin_top = 387.0
 margin_right = 500.0
 margin_bottom = 451.0
 text = "Title Screen"
+
+[connection signal="pressed" from="Background/Column/ContinueButton" to="." method="close"]
+
+[connection signal="pressed" from="Background/Column/ItemsButton" to="." method="close"]
+
+[connection signal="pressed" from="Background/Column/TitleScreenButton" to="." method="close"]
 
 
