@@ -26,6 +26,7 @@ func close():
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
+		get_tree().set_input_as_handled()
 		close()
 
 # You can streamline opening sub menus with these methods

@@ -5,7 +5,7 @@
 [ext_resource path="res://audio/sfx/menu_navigate_01.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/sfx/menu_popup_open.wav" type="AudioStream" id=4]
 
-[node name="BuySubMenu" index="0" instance=ExtResource( 1 )]
+[node name="BuySubMenu" instance=ExtResource( 1 )]
 
 ACTION = "buy_from"
 
