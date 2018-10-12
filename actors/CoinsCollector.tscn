@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://actors/CoinsCollector.gd" type="Script" id=1]
-[ext_resource path="res://actors/CoinsAttractor.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 240.0
+radius = 44.6727
 
 [node name="CoinsCollector" type="Area2D" index="0"]
 
@@ -15,7 +14,6 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-monitorable = false
 collision_layer = 128
 collision_mask = 64
 audio_bus_override = false
@@ -26,7 +24,5 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
-
-[node name="CoinsAttractor" parent="." index="1" instance=ExtResource( 2 )]
 
 
