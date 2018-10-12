@@ -14,7 +14,7 @@
 [ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://interface/gui/lifebar/LifebarsBuilder.tscn" type="PackedScene" id=13]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 pause_mode = 2
 script = ExtResource( 1 )

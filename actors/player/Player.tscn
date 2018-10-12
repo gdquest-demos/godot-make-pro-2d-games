@@ -13,11 +13,11 @@
 [ext_resource path="res://actors/player/states/combat/Attack.gd" type="Script" id=11]
 [ext_resource path="res://actors/player/states/Die.gd" type="Script" id=12]
 [ext_resource path="res://actors/player/shadow.png" type="Texture" id=13]
-[ext_resource path="res://actors/player/body.png" type="Texture" id=14]
-[ext_resource path="res://interface/fonts/SourceCodePro-Bold.ttf" type="DynamicFontData" id=15]
-[ext_resource path="res://actors/player/states/debug/StateNameDisplayer.gd" type="Script" id=16]
-[ext_resource path="res://actors/weapons/sword/WeaponPivot.gd" type="Script" id=17]
-[ext_resource path="res://actors/weapons/sword/Sword.tscn" type="PackedScene" id=18]
+[ext_resource path="res://actors/weapons/sword/WeaponPivot.gd" type="Script" id=14]
+[ext_resource path="res://actors/weapons/sword/Sword.tscn" type="PackedScene" id=15]
+[ext_resource path="res://actors/player/body.png" type="Texture" id=16]
+[ext_resource path="res://interface/fonts/SourceCodePro-Bold.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://actors/player/states/debug/StateNameDisplayer.gd" type="Script" id=18]
 [ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=19]
 [ext_resource path="res://shop/purse/Purse.tscn" type="PackedScene" id=20]
 [ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=21]
@@ -325,10 +325,10 @@ tracks/1/keys = {
 size = 20
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 15 )
+font_data = ExtResource( 17 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 960, 550 )
 input_pickable = false
@@ -363,7 +363,6 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="2"]
 
-editor/display_folded = true
 script = ExtResource( 4 )
 active = false
 
@@ -434,16 +433,28 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="5"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Body" type="Sprite" parent="BodyPivot" index="0"]
+[node name="WeaponPivot" type="Position2D" parent="BodyPivot" index="0"]
+
+editor/display_folded = true
+position = Vector2( 0, -62 )
+script = ExtResource( 14 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Offset" type="Position2D" parent="BodyPivot/WeaponPivot" index="0"]
+
+position = Vector2( 110, 0 )
+
+[node name="Sword" parent="BodyPivot/WeaponPivot/Offset" index="0" instance=ExtResource( 15 )]
+
+[node name="Body" type="Sprite" parent="BodyPivot" index="1"]
 
 position = Vector2( 0, -58.8242 )
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="StateNameDisplayer" type="Label" parent="BodyPivot" index="1"]
+[node name="StateNameDisplayer" type="Label" parent="BodyPivot" index="2"]
 
 editor/display_folded = true
 visible = false
@@ -469,34 +480,22 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 16 )
+script = ExtResource( 18 )
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="WeaponPivot" type="Position2D" parent="." index="6"]
-
-editor/display_folded = true
-position = Vector2( 1.17401, -61.266 )
-script = ExtResource( 17 )
-
-[node name="Offset" type="Position2D" parent="WeaponPivot" index="0"]
-
-position = Vector2( 110, 0 )
-
-[node name="Sword" parent="WeaponPivot/Offset" index="0" instance=ExtResource( 18 )]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="6"]
 
 build_mode = 0
 polygon = PoolVector2Array( -20, 0, -20, -20, 20, -20, 20, 0 )
 
-[node name="Health" parent="." index="8" instance=ExtResource( 19 )]
+[node name="Health" parent="." index="7" instance=ExtResource( 19 )]
 
-[node name="Purse" parent="." index="9" instance=ExtResource( 20 )]
+[node name="Purse" parent="." index="8" instance=ExtResource( 20 )]
 
 coins = 32
 MAXIMUM = 1000000
 
-[node name="Inventory" parent="." index="10" instance=ExtResource( 21 )]
+[node name="Inventory" parent="." index="9" instance=ExtResource( 21 )]
 
 editor/display_folded = true
 
@@ -506,7 +505,7 @@ amount = 4
 
 [node name="StrongHealthPotion" parent="Inventory" index="1" instance=ExtResource( 23 )]
 
-[node name="BulletSpawn" type="Node2D" parent="." index="11"]
+[node name="BulletSpawn" type="Node2D" parent="." index="10"]
 
 editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
@@ -520,7 +519,7 @@ wait_time = 0.2
 one_shot = true
 autostart = false
 
-[node name="Sfx" type="Node" parent="." index="12"]
+[node name="Sfx" type="Node" parent="." index="11"]
 
 [node name="Steps" type="AudioStreamPlayer" parent="Sfx" index="0"]
 
@@ -532,7 +531,9 @@ mix_target = 0
 bus = "Master"
 script = ExtResource( 26 )
 
-[node name="CoinsCollector" parent="." index="13" instance=ExtResource( 27 )]
+[node name="CoinsCollector" parent="." index="12" instance=ExtResource( 27 )]
+
+[connection signal="direction_changed" from="." to="BodyPivot/WeaponPivot" method="_on_Player_direction_changed"]
 
 [connection signal="state_changed" from="StateMachine" to="BodyPivot/StateNameDisplayer" method="_on_StateMachine_state_changed"]
 
@@ -542,7 +543,7 @@ script = ExtResource( 26 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
 
-[connection signal="combo_finished" from="WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_combo_finished"]
+[connection signal="combo_finished" from="BodyPivot/WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_combo_finished"]
 
 [connection signal="damage_taken" from="Health" to="StateMachine" method="_on_Health_damage_taken"]
 

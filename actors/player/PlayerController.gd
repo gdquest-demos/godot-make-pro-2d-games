@@ -1,6 +1,6 @@
 extends "res://actors/Actor.gd"
 
-onready var weapon = $WeaponPivot/Offset/Sword
+onready var weapon = $BodyPivot/WeaponPivot/Offset/Sword
 onready var camera = $ShakingCamera
 onready var state_machine = $StateMachine
 onready var anim_player = $AnimationPlayer
@@ -37,5 +37,5 @@ func fall(gap_size):
 	yield(state_machine.current_state, 'finished')
 	move_and_collide(-look_direction * gap_size * 1.5)
 
-func _on_Die_finished():
+func _on_Die_finished(string):
 	queue_free()
