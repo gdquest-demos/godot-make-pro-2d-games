@@ -3,9 +3,11 @@ extends "res://actors/Actor.gd"
 onready var weapon = $WeaponPivot/Offset/Sword
 onready var camera = $ShakingCamera
 onready var state_machine = $StateMachine
+onready var anim_player = $AnimationPlayer
 
 func _ready():
-	$AnimationPlayer.play('SETUP')
+	anim_player.play('SETUP')
+	state_machine.start()
 
 func reset(target_global_position):
 	.reset(target_global_position)

@@ -18,7 +18,7 @@ func go_to_next_state(state_override=null):
 	Replaces _change_state from the parent class
 	StateMachine.gd to use state objects instead of strings
 	"""
-	if not _active:
+	if not active:
 		return
 	current_state.exit()
 	current_state = _decide_on_next_state() if state_override == null else state_override

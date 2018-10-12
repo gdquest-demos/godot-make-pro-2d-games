@@ -237,6 +237,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ), Vector2( 0, -45 ), Vector2( 0, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=8]
 
@@ -378,7 +390,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
+[node name="WildBoar" type="KinematicBody2D" groups=[
 "monster",
 ]]
 
@@ -388,7 +400,7 @@ collision_layer = 1
 collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -437,7 +449,8 @@ max_health = 120
 [node name="StateMachine" type="Node" parent="." index="4"]
 
 script = ExtResource( 7 )
-phase = 2
+active = false
+phase = 1
 
 [node name="Spawn" type="Node" parent="StateMachine" index="0"]
 
@@ -445,6 +458,7 @@ script = ExtResource( 8 )
 
 [node name="RoamSequence" type="Node" parent="StateMachine" index="1"]
 
+editor/display_folded = true
 script = ExtResource( 9 )
 
 [node name="Wait" type="Node" parent="StateMachine/RoamSequence" index="0"]
@@ -470,6 +484,7 @@ ROAM_RADIUS = 150.0
 
 [node name="ChargeSequence" type="Node" parent="StateMachine" index="2"]
 
+editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="Prepare" type="Node" parent="StateMachine/ChargeSequence" index="0"]
@@ -497,6 +512,7 @@ ARRIVE_DISTANCE = 6.0
 
 [node name="Stomp" type="Node" parent="StateMachine" index="3"]
 
+editor/display_folded = true
 script = ExtResource( 17 )
 
 [node name="ExplodeTimer" type="Timer" parent="StateMachine/Stomp" index="0"]
@@ -508,6 +524,7 @@ autostart = false
 
 [node name="Die" type="Node" parent="StateMachine" index="4"]
 
+editor/display_folded = true
 script = ExtResource( 18 )
 MAX_RADIUS = 180.0
 Explosion = ExtResource( 19 )
@@ -521,12 +538,11 @@ autostart = false
 
 [node name="Pivot" type="Position2D" parent="." index="5"]
 
-position = Vector2( 0, -27.075 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="Sprite" parent="Pivot" index="0"]
 
-position = Vector2( 3.57628e-007, 17.6051 )
+position = Vector2( -477.666, -688.279 )
 rotation = 0.0058149
 texture = ExtResource( 3 )
 offset = Vector2( -1.98642, -55.6066 )
@@ -565,9 +581,9 @@ boss_name = "Wild Boar"
 
 [connection signal="health_changed" from="Stats" to="." method="_on_Health_health_changed"]
 
-[connection signal="health_depleted" from="Stats" to="StateMachine" method="_on_Health_health_depleted"]
-
 [connection signal="health_depleted" from="Stats" to="." method="_on_Health_health_depleted"]
+
+[connection signal="health_depleted" from="Stats" to="StateMachine" method="_on_Health_health_depleted"]
 
 [connection signal="finished" from="StateMachine/Spawn" to="." method="_on_Spawn_finished"]
 

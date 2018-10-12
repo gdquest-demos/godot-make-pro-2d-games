@@ -18,7 +18,7 @@ func _change_state(state_name):
 	if current_state == states_map['die']:
 		set_active(false)
 		return
-	if not _active:
+	if not active:
 		return
 	if state_name in ['stagger', 'jump', 'attack']:
 		states_stack.push_front(states_map[state_name])

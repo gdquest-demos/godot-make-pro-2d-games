@@ -35,7 +35,7 @@ _sections_unfolded = [ "Cell", "Collision" ]
 
 [node name="PlayerSpawningPoint" parent="." index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 684, 1214 )
+position = Vector2( 2068.66, 559.139 )
 
 [node name="Gap" parent="." index="1" instance=ExtResource( 4 )]
 

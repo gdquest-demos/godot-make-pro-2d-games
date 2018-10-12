@@ -6,10 +6,14 @@ onready var lifebar = $BossLifebar
 var start_global_position
 
 func _ready():
+	visible = false
 	set_invincible(true)
 	start_global_position = global_position
 	lifebar.initialize($Stats)
+
+func start():
 	lifebar.appear()
+	state_machine.start()
 
 func _on_Spawn_finished():
 	set_invincible(false)

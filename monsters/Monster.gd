@@ -22,8 +22,6 @@ func _ready():
 	start_position = global_position
 
 func initialize(actor):
-	if not actor:
-		return
 	if not actor is Actor:
 		return
 	target = actor

@@ -328,7 +328,7 @@ use_filter = true
 font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 960, 550 )
 input_pickable = false
@@ -344,6 +344,11 @@ __meta__ = {
 [node name="ShakingCamera" parent="." index="0" instance=ExtResource( 2 )]
 
 editor/display_folded = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+smoothing_speed = 7.0
+_sections_unfolded = [ "Drag Margin", "Offset", "Smoothing", "Transform" ]
 amplitude = 6.0
 EASING_CURVE = 0.435275
 
@@ -360,6 +365,7 @@ shape = SubResource( 1 )
 
 editor/display_folded = true
 script = ExtResource( 4 )
+active = false
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
 
