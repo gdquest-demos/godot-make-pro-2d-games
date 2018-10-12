@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://inventory/items/Coins.gd" type="Script" id=1]
-[ext_resource path="res://interface/theme/icons/coins.png" type="Texture" id=2]
+[ext_resource path="res://inventory/items/coins/coin_single.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 19.4514
+radius = 25.1241
 
-[node name="Coins" type="Area2D" index="0"]
+[node name="Coins" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -21,7 +21,7 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-amount = 1
+amount = 10
 MAX_START_VERTICAL_THRUST = 700.0
 MAX_HORIZONTAL_SPEED = 200.0
 GRAVITY = 1000.0
