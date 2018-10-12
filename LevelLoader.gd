@@ -15,6 +15,7 @@ func initialize():
 func change_level(scene_path):
 	if map:
 		map.get_ysort_node().remove_child(player)
+		remove_child(map)
 		map.queue_free()
 	map = load(scene_path).instance()
 	add_child(map)
