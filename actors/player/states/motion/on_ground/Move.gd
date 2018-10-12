@@ -7,6 +7,7 @@ export(float) var MAX_RUN_SPEED = 700
 
 func enter():
 	speed = 0.0
+	velocity = Vector2()
 
 	var input_direction = get_input_direction()
 	update_look_direction(input_direction)
@@ -25,7 +26,8 @@ func update(delta):
 	update_look_direction(input_direction)
 
 	speed = MAX_RUN_SPEED if Input.is_action_pressed("run") else MAX_WALK_SPEED
-	var collision_info = owner.move(speed, input_direction)
+	velocity = input_direction.normalized() * speed
+	var collision_info = owner.move(velocity)
 	if not collision_info:
 		return
 	if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):

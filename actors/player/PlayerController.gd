@@ -22,8 +22,7 @@ func take_damage_from(damage_source):
 	$StateMachine/Stagger.knockback_direction = (damage_source.global_position - global_position).normalized()
 	camera.start_shake()
 
-func move(speed, direction):
-	var velocity = direction.normalized() * speed
+func move(velocity):
 	move_and_slide(velocity, Vector2(), 5, 2)
 	emit_signal("position_changed", position)
 	if get_slide_count() == 0:
