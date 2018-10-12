@@ -11,6 +11,7 @@ func _ready():
 
 func reset(target_global_position):
 	.reset(target_global_position)
+	anim_player.play('SETUP')
 	camera.offset = Vector2()
 	camera.current = true
 
