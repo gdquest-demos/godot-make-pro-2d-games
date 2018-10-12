@@ -15,7 +15,7 @@ func _init():
 func randomize_wait_time():
 	wait_time = rand_range(MINIMUM_WAIT_TIME, MAXIMUM_WAIT_TIME)"
 
-[node name="CoinsFountain" type="Position2D"]
+[node name="CoinsFountain" type="Position2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -31,8 +31,8 @@ script = SubResource( 1 )
 MINIMUM_WAIT_TIME = 0.05
 MAXIMUM_WAIT_TIME = 0.1
 
-[connection signal="timeout" from="Timer" to="Timer" method="randomize_wait_time"]
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer" to="Timer" method="randomize_wait_time"]
 
 

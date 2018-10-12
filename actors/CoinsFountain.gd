@@ -1,7 +1,6 @@
 extends Position2D
 
 const Coins = preload("res://inventory/items/Coins.tscn")
-var coin_values = [10, 20, 50, 100]
 
 onready var timer = $Timer
 
@@ -16,8 +15,8 @@ func _on_Timer_timeout():
 
 func spawn_random_coin_stack():
 	var coins = Coins.instance()
-	coins.amount = randi() % coin_values.size()
 	add_child(coins)
+	coins.set_random_amount()
 	coins.throw()
 	spawn_cycles += 1
 	if spawn_cycles == MAX_SPAWN_COUNT:
