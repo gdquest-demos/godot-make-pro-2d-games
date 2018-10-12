@@ -40,7 +40,7 @@ func set_particles_active(value):
 func set_invincible(value):
 	$CollisionPolygon2D.disabled = value
 	$HitBox/CollisionShape2D.disabled = value
-	$CharacterDamager/CollisionShape2D.disabled = value
+	$DamageSource/CollisionShape2D.disabled = value
 
 func take_damage_from(attacker):
 	$Stats.take_damage(attacker.damage)

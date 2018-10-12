@@ -548,12 +548,12 @@ texture = ExtResource( 3 )
 offset = Vector2( -1.98642, -55.6066 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="CharacterDamager" parent="." index="6" instance=ExtResource( 20 )]
+[node name="DamageSource" parent="." index="6" instance=ExtResource( 20 )]
 
 position = Vector2( 0, -27.075 )
 damage = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterDamager" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
 
 position = Vector2( 0, -17.075 )
 shape = SubResource( 12 )

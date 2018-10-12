@@ -17,7 +17,7 @@ radius = 38.4768
 custom_solver_bias = 0.0
 radius = 24.9469
 
-[node name="Mosquito" type="KinematicBody2D" index="0" groups=[
+[node name="Mosquito" type="KinematicBody2D" groups=[
 "character",
 ]]
 
