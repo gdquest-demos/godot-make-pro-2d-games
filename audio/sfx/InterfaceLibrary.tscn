@@ -1,0 +1,776 @@
+[gd_scene load_steps=104 format=2]
+
+[ext_resource path="res://audio/sfx/SoundEffectLibrary.gd" type="Script" id=1]
+[ext_resource path="res://audio/sfx/ui_sfx/source/click1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://audio/sfx/ui_sfx/source/click2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://audio/sfx/ui_sfx/source/click3.ogg" type="AudioStream" id=4]
+[ext_resource path="res://audio/sfx/ui_sfx/source/click4.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audio/sfx/ui_sfx/source/click5.ogg" type="AudioStream" id=6]
+[ext_resource path="res://audio/sfx/ui_sfx/source/mouseclick1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://audio/sfx/ui_sfx/source/mouserelease1.ogg" type="AudioStream" id=8]
+[ext_resource path="res://audio/sfx/ui_sfx/source/rollover1.ogg" type="AudioStream" id=9]
+[ext_resource path="res://audio/sfx/ui_sfx/source/rollover2.ogg" type="AudioStream" id=10]
+[ext_resource path="res://audio/sfx/ui_sfx/source/rollover3.ogg" type="AudioStream" id=11]
+[ext_resource path="res://audio/sfx/ui_sfx/source/rollover4.ogg" type="AudioStream" id=12]
+[ext_resource path="res://audio/sfx/ui_sfx/source/rollover5.ogg" type="AudioStream" id=13]
+[ext_resource path="res://audio/sfx/ui_sfx/source/rollover6.ogg" type="AudioStream" id=14]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch2.ogg" type="AudioStream" id=16]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch3.ogg" type="AudioStream" id=17]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch4.ogg" type="AudioStream" id=18]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch5.ogg" type="AudioStream" id=19]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch6.ogg" type="AudioStream" id=20]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch7.ogg" type="AudioStream" id=21]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch8.ogg" type="AudioStream" id=22]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch9.ogg" type="AudioStream" id=23]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch10.ogg" type="AudioStream" id=24]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch11.ogg" type="AudioStream" id=25]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch12.ogg" type="AudioStream" id=26]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch13.ogg" type="AudioStream" id=27]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch14.ogg" type="AudioStream" id=28]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch15.ogg" type="AudioStream" id=29]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch16.ogg" type="AudioStream" id=30]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch17.ogg" type="AudioStream" id=31]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch18.ogg" type="AudioStream" id=32]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch19.ogg" type="AudioStream" id=33]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch20.ogg" type="AudioStream" id=34]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch21.ogg" type="AudioStream" id=35]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch22.ogg" type="AudioStream" id=36]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch23.ogg" type="AudioStream" id=37]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch24.ogg" type="AudioStream" id=38]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch25.ogg" type="AudioStream" id=39]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch26.ogg" type="AudioStream" id=40]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch27.ogg" type="AudioStream" id=41]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch28.ogg" type="AudioStream" id=42]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch29.ogg" type="AudioStream" id=43]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch30.ogg" type="AudioStream" id=44]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch31.ogg" type="AudioStream" id=45]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch32.ogg" type="AudioStream" id=46]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch33.ogg" type="AudioStream" id=47]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch34.ogg" type="AudioStream" id=48]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch35.ogg" type="AudioStream" id=49]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch36.ogg" type="AudioStream" id=50]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch37.ogg" type="AudioStream" id=51]
+[ext_resource path="res://audio/sfx/ui_sfx/source/switch38.ogg" type="AudioStream" id=52]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+
+audio_stream = ExtResource( 2 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+
+audio_stream = ExtResource( 3 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+
+audio_stream = ExtResource( 4 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=4]
+
+audio_stream = ExtResource( 5 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=5]
+
+audio_stream = ExtResource( 6 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+
+audio_stream = ExtResource( 7 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+
+audio_stream = ExtResource( 8 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=8]
+
+audio_stream = ExtResource( 9 )
+random_pitch = 1.1
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="AudioStreamRandomPitch" id=9]
+
+audio_stream = ExtResource( 10 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=10]
+
+audio_stream = ExtResource( 11 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=11]
+
+audio_stream = ExtResource( 12 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=12]
+
+audio_stream = ExtResource( 13 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=13]
+
+audio_stream = ExtResource( 14 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=14]
+
+audio_stream = ExtResource( 15 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=15]
+
+audio_stream = ExtResource( 16 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=16]
+
+audio_stream = ExtResource( 17 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=17]
+
+audio_stream = ExtResource( 18 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=18]
+
+audio_stream = ExtResource( 19 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=19]
+
+audio_stream = ExtResource( 20 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=20]
+
+audio_stream = ExtResource( 21 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=21]
+
+audio_stream = ExtResource( 22 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=22]
+
+audio_stream = ExtResource( 23 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=23]
+
+audio_stream = ExtResource( 24 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=24]
+
+audio_stream = ExtResource( 25 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=25]
+
+audio_stream = ExtResource( 26 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=26]
+
+audio_stream = ExtResource( 27 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=27]
+
+audio_stream = ExtResource( 28 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=28]
+
+audio_stream = ExtResource( 29 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=29]
+
+audio_stream = ExtResource( 30 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=30]
+
+audio_stream = ExtResource( 31 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=31]
+
+audio_stream = ExtResource( 32 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=32]
+
+audio_stream = ExtResource( 33 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=33]
+
+audio_stream = ExtResource( 34 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=34]
+
+audio_stream = ExtResource( 35 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=35]
+
+audio_stream = ExtResource( 36 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=36]
+
+audio_stream = ExtResource( 37 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=37]
+
+audio_stream = ExtResource( 38 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=38]
+
+audio_stream = ExtResource( 39 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=39]
+
+audio_stream = ExtResource( 40 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=40]
+
+audio_stream = ExtResource( 41 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=41]
+
+audio_stream = ExtResource( 42 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=42]
+
+audio_stream = ExtResource( 43 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=43]
+
+audio_stream = ExtResource( 44 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=44]
+
+audio_stream = ExtResource( 45 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=45]
+
+audio_stream = ExtResource( 46 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=46]
+
+audio_stream = ExtResource( 47 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=47]
+
+audio_stream = ExtResource( 48 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=48]
+
+audio_stream = ExtResource( 49 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=49]
+
+audio_stream = ExtResource( 50 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=50]
+
+audio_stream = ExtResource( 51 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=51]
+
+audio_stream = ExtResource( 52 )
+random_pitch = 1.1
+
+[node name="InterfaceLibrary" type="Node"]
+
+script = ExtResource( 1 )
+source_directory = "res://audio/sfx/ui_sfx/source"
+
+[node name="click1" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = SubResource( 1 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="click2" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = SubResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="click3" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = SubResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="click4" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = SubResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="click5" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = SubResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="mouseclick1" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = SubResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="mouserelease" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = SubResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="rollover1" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = SubResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="rollover2" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = SubResource( 9 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="rollover3" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = SubResource( 10 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="rollover4" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = SubResource( 11 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="rollover5" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = SubResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="rollover6" type="AudioStreamPlayer" parent="." index="12"]
+
+stream = SubResource( 13 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch1" type="AudioStreamPlayer" parent="." index="13"]
+
+stream = SubResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch2" type="AudioStreamPlayer" parent="." index="14"]
+
+stream = SubResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch3" type="AudioStreamPlayer" parent="." index="15"]
+
+stream = SubResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch4" type="AudioStreamPlayer" parent="." index="16"]
+
+stream = SubResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch5" type="AudioStreamPlayer" parent="." index="17"]
+
+stream = SubResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch6" type="AudioStreamPlayer" parent="." index="18"]
+
+stream = SubResource( 19 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch7" type="AudioStreamPlayer" parent="." index="19"]
+
+stream = SubResource( 20 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch8" type="AudioStreamPlayer" parent="." index="20"]
+
+stream = SubResource( 21 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch9" type="AudioStreamPlayer" parent="." index="21"]
+
+stream = SubResource( 22 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch10" type="AudioStreamPlayer" parent="." index="22"]
+
+stream = SubResource( 23 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch11" type="AudioStreamPlayer" parent="." index="23"]
+
+stream = SubResource( 24 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch12" type="AudioStreamPlayer" parent="." index="24"]
+
+stream = SubResource( 25 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch13" type="AudioStreamPlayer" parent="." index="25"]
+
+stream = SubResource( 26 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch14" type="AudioStreamPlayer" parent="." index="26"]
+
+stream = SubResource( 27 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch15" type="AudioStreamPlayer" parent="." index="27"]
+
+stream = SubResource( 28 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch16" type="AudioStreamPlayer" parent="." index="28"]
+
+stream = SubResource( 29 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch17" type="AudioStreamPlayer" parent="." index="29"]
+
+stream = SubResource( 30 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch18" type="AudioStreamPlayer" parent="." index="30"]
+
+stream = SubResource( 31 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch19" type="AudioStreamPlayer" parent="." index="31"]
+
+stream = SubResource( 32 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch20" type="AudioStreamPlayer" parent="." index="32"]
+
+stream = SubResource( 33 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch21" type="AudioStreamPlayer" parent="." index="33"]
+
+stream = SubResource( 34 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch22" type="AudioStreamPlayer" parent="." index="34"]
+
+stream = SubResource( 35 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch23" type="AudioStreamPlayer" parent="." index="35"]
+
+stream = SubResource( 36 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch24" type="AudioStreamPlayer" parent="." index="36"]
+
+stream = SubResource( 37 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch25" type="AudioStreamPlayer" parent="." index="37"]
+
+stream = SubResource( 38 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch26" type="AudioStreamPlayer" parent="." index="38"]
+
+stream = SubResource( 39 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch27" type="AudioStreamPlayer" parent="." index="39"]
+
+stream = SubResource( 40 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch28" type="AudioStreamPlayer" parent="." index="40"]
+
+stream = SubResource( 41 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch29" type="AudioStreamPlayer" parent="." index="41"]
+
+stream = SubResource( 42 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch30" type="AudioStreamPlayer" parent="." index="42"]
+
+stream = SubResource( 43 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch31" type="AudioStreamPlayer" parent="." index="43"]
+
+stream = SubResource( 44 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch32" type="AudioStreamPlayer" parent="." index="44"]
+
+stream = SubResource( 45 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch33" type="AudioStreamPlayer" parent="." index="45"]
+
+stream = SubResource( 46 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch34" type="AudioStreamPlayer" parent="." index="46"]
+
+stream = SubResource( 47 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch35" type="AudioStreamPlayer" parent="." index="47"]
+
+stream = SubResource( 48 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch36" type="AudioStreamPlayer" parent="." index="48"]
+
+stream = SubResource( 49 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch37" type="AudioStreamPlayer" parent="." index="49"]
+
+stream = SubResource( 50 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+[node name="switch38" type="AudioStreamPlayer" parent="." index="50"]
+
+stream = SubResource( 51 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Interface"
+
+
