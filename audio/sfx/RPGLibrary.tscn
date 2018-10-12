@@ -1,0 +1,430 @@
+[gd_scene load_steps=58 format=2]
+
+[ext_resource path="res://audio/sfx/SoundEffectLibrary.gd" type="Script" id=1]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/beltHandle1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/beltHandle2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/bookClose.ogg" type="AudioStream" id=4]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/bookFlip1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/bookFlip2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/bookFlip3.ogg" type="AudioStream" id=7]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/bookOpen.ogg" type="AudioStream" id=8]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/clothBelt2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/clothBelt.ogg" type="AudioStream" id=10]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/drawKnife1.ogg" type="AudioStream" id=11]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/drawKnife2.ogg" type="AudioStream" id=12]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/drawKnife3.ogg" type="AudioStream" id=13]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep00.ogg" type="AudioStream" id=14]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep01.ogg" type="AudioStream" id=15]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep02.ogg" type="AudioStream" id=16]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep03.ogg" type="AudioStream" id=17]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep04.ogg" type="AudioStream" id=18]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep05.ogg" type="AudioStream" id=19]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep06.ogg" type="AudioStream" id=20]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep07.ogg" type="AudioStream" id=21]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep08.ogg" type="AudioStream" id=22]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/footstep09.ogg" type="AudioStream" id=23]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/handleCoins2.ogg" type="AudioStream" id=24]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/handleCoins.ogg" type="AudioStream" id=25]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/knifeSlice2.ogg" type="AudioStream" id=26]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/knifeSlice.ogg" type="AudioStream" id=27]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/metalClick.ogg" type="AudioStream" id=28]
+[ext_resource path="res://audio/sfx/rpg_sfx/source/metalLatch.ogg" type="AudioStream" id=29]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+
+audio_stream = ExtResource( 2 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+
+audio_stream = ExtResource( 3 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+
+audio_stream = ExtResource( 4 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=4]
+
+audio_stream = ExtResource( 5 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=5]
+
+audio_stream = ExtResource( 6 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+
+audio_stream = ExtResource( 7 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+
+audio_stream = ExtResource( 8 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=12]
+
+audio_stream = ExtResource( 9 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=13]
+
+audio_stream = ExtResource( 10 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=14]
+
+audio_stream = ExtResource( 11 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=15]
+
+audio_stream = ExtResource( 12 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=16]
+
+audio_stream = ExtResource( 13 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=17]
+
+audio_stream = ExtResource( 14 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=18]
+
+audio_stream = ExtResource( 15 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=19]
+
+audio_stream = ExtResource( 16 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=20]
+
+audio_stream = ExtResource( 17 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=21]
+
+audio_stream = ExtResource( 18 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=22]
+
+audio_stream = ExtResource( 19 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=23]
+
+audio_stream = ExtResource( 20 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=24]
+
+audio_stream = ExtResource( 21 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=25]
+
+audio_stream = ExtResource( 22 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=26]
+
+audio_stream = ExtResource( 23 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=27]
+
+audio_stream = ExtResource( 24 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=28]
+
+audio_stream = ExtResource( 25 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=29]
+
+audio_stream = ExtResource( 26 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=30]
+
+audio_stream = ExtResource( 27 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=31]
+
+audio_stream = ExtResource( 28 )
+random_pitch = 1.1
+
+[sub_resource type="AudioStreamRandomPitch" id=32]
+
+audio_stream = ExtResource( 29 )
+random_pitch = 1.1
+
+[node name="RPGLibrary" type="Node" index="0"]
+
+script = ExtResource( 1 )
+source_directory = "res://audio/sfx/rpg_sfx/source"
+
+[node name="beltHandle1" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = SubResource( 1 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="beltHandle2" type="AudioStreamPlayer" parent="." index="1"]
+
+stream = SubResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="bookClose" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = SubResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="bookFlip1" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = SubResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="bookFlip2" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = SubResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="bookFlip3" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = SubResource( 6 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="bookOpen" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = SubResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="clothBelt2" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = SubResource( 12 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="clothBelt" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = SubResource( 13 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="drawKnife1" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = SubResource( 14 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="drawKnife2" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = SubResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="drawKnife3" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = SubResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep00" type="AudioStreamPlayer" parent="." index="12"]
+
+stream = SubResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep01" type="AudioStreamPlayer" parent="." index="13"]
+
+stream = SubResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep02" type="AudioStreamPlayer" parent="." index="14"]
+
+stream = SubResource( 19 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep03" type="AudioStreamPlayer" parent="." index="15"]
+
+stream = SubResource( 20 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep04" type="AudioStreamPlayer" parent="." index="16"]
+
+stream = SubResource( 21 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep05" type="AudioStreamPlayer" parent="." index="17"]
+
+stream = SubResource( 22 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep06" type="AudioStreamPlayer" parent="." index="18"]
+
+stream = SubResource( 23 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep07" type="AudioStreamPlayer" parent="." index="19"]
+
+stream = SubResource( 24 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep08" type="AudioStreamPlayer" parent="." index="20"]
+
+stream = SubResource( 25 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="footstep09" type="AudioStreamPlayer" parent="." index="21"]
+
+stream = SubResource( 26 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="handleCoins2" type="AudioStreamPlayer" parent="." index="22"]
+
+stream = SubResource( 27 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="handleCoins" type="AudioStreamPlayer" parent="." index="23"]
+
+stream = SubResource( 28 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="knifeSlice2" type="AudioStreamPlayer" parent="." index="24"]
+
+stream = SubResource( 29 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="knifeSlice" type="AudioStreamPlayer" parent="." index="25"]
+
+stream = SubResource( 30 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="metalClick" type="AudioStreamPlayer" parent="." index="26"]
+
+stream = SubResource( 31 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+[node name="metalLatch" type="AudioStreamPlayer" parent="." index="27"]
+
+stream = SubResource( 32 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Sounds"
+
+

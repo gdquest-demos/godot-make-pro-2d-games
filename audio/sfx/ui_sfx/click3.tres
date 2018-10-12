@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamRandomPitch" load_steps=2 format=2]
+
+[ext_resource path="res://audio/sfx/ui_sfx/source/click3.ogg" type="AudioStream" id=1]
+
+
+[resource]
+
+audio_stream = ExtResource( 1 )
+random_pitch = 1.1
+
