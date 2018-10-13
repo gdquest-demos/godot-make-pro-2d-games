@@ -109,6 +109,8 @@ func _physics_process(delta):
 			move_and_slide(velocity)
 			if position.distance_to(start_position) < ARRIVE_DISTANCE:
 				_change_state(IDLE)
+			elif not target:
+				return
 			elif position.distance_to(target.position) < SPOT_RANGE:
 				_change_state(SPOT)
 		FOLLOW:
