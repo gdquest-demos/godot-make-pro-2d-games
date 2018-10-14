@@ -6,7 +6,9 @@ export(PackedScene) var ActorButton
 
 func _ready():
 	set_as_toplevel(true)
-	for actor in get_tree().get_nodes_in_group("actor"):
+
+func initialize(actors):
+	for actor in actors:
 		create_actor_button(actor)
 
 func create_actor_button(actor):
@@ -22,7 +24,11 @@ func _input(event):
 func _on_SelectButton_pressed(actor):
 	close(actor)
 
+# TODO: Temporarily bypassing the menu, 
+# see https://github.com/GDquest/make-pro-2d-games-with-godot/issues/66
 func open():
+	close()
+	return
 	$ActorsList.get_child(0).grab_focus()
 	visible = true
 	set_process_input(true)
@@ -31,4 +37,3 @@ func close(selected_actor=null):
 	visible = false
 	set_process_input(false)
 	emit_signal("closed", selected_actor)
-	

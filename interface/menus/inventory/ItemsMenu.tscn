@@ -6,8 +6,6 @@
 [ext_resource path="res://interface/menus/inventory/ItemGrid.gd" type="Script" id=4]
 [ext_resource path="res://interface/menus/inventory/user_select/UserSelectMenu.tscn" type="PackedScene" id=5]
 
-
-
 [node name="ItemsMenu" type="Control" index="0"]
 
 anchor_left = 0.0
@@ -19,9 +17,10 @@ rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_vertical = 3
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+_sections_unfolded = [ "Size Flags" ]
 ItemButton = ExtResource( 3 )
 
 [node name="Column" type="VBoxContainer" parent="." index="0"]
@@ -45,8 +44,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1280.0
-margin_bottom = 620.0
+margin_right = 1920.0
+margin_bottom = 980.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -76,8 +75,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 1264.0
-margin_bottom = 604.0
+margin_right = 1904.0
+margin_bottom = 964.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -90,51 +89,13 @@ columns = 2
 script = ExtResource( 4 )
 _sections_unfolded = [ "custom_constants" ]
 
-[node name="ItemButton" parent="Column/ItemsList/Margin/Grid" index="0" instance=ExtResource( 3 )]
-
-margin_right = 616.0
-_sections_unfolded = [ "Size Flags" ]
-
-[node name="ItemButton2" parent="Column/ItemsList/Margin/Grid" index="1" instance=ExtResource( 3 )]
-
-visible = false
-margin_left = 316.0
-margin_right = 616.0
-size_flags_horizontal = 1
-
-[node name="ItemButton3" parent="Column/ItemsList/Margin/Grid" index="2" instance=ExtResource( 3 )]
-
-visible = false
-margin_top = 76.0
-margin_right = 300.0
-margin_bottom = 136.0
-size_flags_horizontal = 1
-
-[node name="ItemButton4" parent="Column/ItemsList/Margin/Grid" index="3" instance=ExtResource( 3 )]
-
-visible = false
-margin_left = 316.0
-margin_top = 76.0
-margin_right = 616.0
-margin_bottom = 136.0
-size_flags_horizontal = 1
-
-[node name="ItemButton6" parent="Column/ItemsList/Margin/Grid" index="4" instance=ExtResource( 3 )]
-
-visible = false
-margin_top = 152.0
-margin_right = 300.0
-margin_bottom = 212.0
-size_flags_horizontal = 1
-
-[node name="Button" type="Button" parent="Column/ItemsList/Margin/Grid" index="5"]
+[node name="Placeholder" type="Button" parent="Column/ItemsList/Margin/Grid" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 632.0
-margin_right = 1248.0
+margin_right = 1888.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -158,9 +119,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 620.0
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_top = 980.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 0, 100 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -191,7 +152,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 16.0
 margin_top = 25.0
-margin_right = 1264.0
+margin_right = 1904.0
 margin_bottom = 74.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

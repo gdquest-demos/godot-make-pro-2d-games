@@ -6,7 +6,7 @@ onready var pause_menu = $Interface/PauseMenu
 onready var tree = get_tree()
 
 func _ready():
-	$Interface/PlayerGUI.initialize($LevelLoader/Player/Health)
+	$Interface.initialize($LevelLoader/Player)
 	level_loader.initialize()
 	for door in level_loader.get_doors():
 		door.connect("player_entered", self, "_on_Door_player_entered")

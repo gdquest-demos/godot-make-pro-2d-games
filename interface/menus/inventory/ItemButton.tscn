@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://interface/menus/inventory/ItemButton.gd" type="Script" id=1]
-[ext_resource path="res://interface/icons/purse.png" type="Texture" id=2]
+[ext_resource path="res://interface/theme/icons/purse.png" type="Texture" id=2]
+
 
 
 [node name="ItemButton" type="Button" index="0"]

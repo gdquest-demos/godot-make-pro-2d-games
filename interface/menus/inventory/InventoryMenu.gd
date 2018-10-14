@@ -1,6 +1,11 @@
-extends Control
+extends "res://interface/menus/Menu.gd"
 
-signal item_use_requested(item, actor)
+onready var items_list = $Column/ItemsMenu
 
-func initialize(inventory):
-	return
+func open(inventory):
+	.open()
+	items_list.initialize(inventory)
+
+func close():
+	.close()
+	queue_free()

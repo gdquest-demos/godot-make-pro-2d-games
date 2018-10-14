@@ -8,12 +8,13 @@ onready var _item_grid = $Column/ItemsList/Margin/Grid
 onready var _description_label = $Column/DescriptionPanel/Margin/Label
 
 func initialize(inventory):
+	var buttons = []
 	for item in inventory.get_items():
 		var item_button = create_item_button(item)
 		item_button.connect("focus_entered", self, "_on_ItemButton_focus_entered")
 		item_button.connect("pressed", self, "_on_ItemButton_pressed", [item])
-
-	_item_grid.initialize()
+		buttons.append(item_button)
+	_item_grid.initialize(buttons)
 
 	inventory.connect("item_added", self, "create_item_button")
 	connect("item_use_requested", inventory, "use")
@@ -21,7 +22,6 @@ func initialize(inventory):
 func create_item_button(item):
 	var item_button = ItemButton.instance()
 	item_button.initialize(item)
-	_item_grid.add_child(item_button)
 	return item_button
 
 func _on_ItemButton_focus_entered():

@@ -6,6 +6,10 @@ func _ready():
 	shop_menu.connect('closed', self, 'remove_child', [shop_menu])
 	remove_child(shop_menu)
 
+func initialize(player):
+	$PlayerGUI.initialize(player.get_health_node())
+	$PauseMenu.initialize(player.get_inventory())
+
 func _on_Level_loaded(level):
 	var tree = get_tree()
 	for seller in tree.get_nodes_in_group('seller'):
