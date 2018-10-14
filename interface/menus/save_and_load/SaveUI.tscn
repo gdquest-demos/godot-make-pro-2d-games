@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://interface/theme/default.theme" type="Theme" id=1]
+[ext_resource path="res://interface/SaveUI.gd" type="Script" id=2]
+[ext_resource path="res://interface/SaveButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/LoadButton.tscn" type="PackedScene" id=4]
+
+[node name="SaveUI" type="Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 448.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Theme" ]
+
+[node name="Row" type="HBoxContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 16
+alignment = 0
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="SaveButtons" type="VBoxContainer" parent="Row" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 200.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 1
+
+[node name="SaveButton" parent="Row/SaveButtons" index="0" instance=ExtResource( 3 )]
+
+margin_bottom = 56.0
+
+[node name="SaveButton2" parent="Row/SaveButtons" index="1" instance=ExtResource( 3 )]
+
+margin_top = 72.0
+margin_bottom = 128.0
+text = "Save ID 2"
+
+[node name="LoadButtons" type="VBoxContainer" parent="Row" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_right = 416.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+alignment = 1
+
+[node name="LoadButton" parent="Row/LoadButtons" index="0" instance=ExtResource( 4 )]
+
+margin_bottom = 56.0
+
+[node name="LoadButton3" parent="Row/LoadButtons" index="1" instance=ExtResource( 4 )]
+
+margin_top = 72.0
+margin_bottom = 128.0
+text = "Load ID 2"
+
+
