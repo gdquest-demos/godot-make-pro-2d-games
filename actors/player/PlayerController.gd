@@ -20,7 +20,7 @@ func take_damage_from(damage_source):
 		return
 	.take_damage_from(damage_source)
 	$StateMachine/Stagger.knockback_direction = (damage_source.global_position - global_position).normalized()
-	camera.start_shake()
+	camera.shake = true
 
 func move(velocity):
 	move_and_slide(velocity, Vector2(), 5, 2)

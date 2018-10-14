@@ -342,7 +342,7 @@ use_filter = true
 font_data = ExtResource( 17 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 960, 550 )
 input_pickable = false
@@ -364,7 +364,6 @@ smoothing_enabled = true
 smoothing_speed = 7.0
 _sections_unfolded = [ "Drag Margin", "Offset", "Smoothing", "Transform" ]
 amplitude = 6.0
-EASING_CURVE = 0.435275
 
 [node name="HitBox" parent="." index="1" instance=ExtResource( 3 )]
 
@@ -377,6 +376,7 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="2"]
 
+editor/display_folded = true
 script = ExtResource( 4 )
 active = false
 
