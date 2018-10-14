@@ -14,10 +14,6 @@ func _on_active_state_finished():
 	go_to_next_state()
 
 func go_to_next_state(state_override=null):
-	"""
-	Replaces _change_state from the parent class
-	StateMachine.gd to use state objects instead of strings
-	"""
 	if not active:
 		return
 	current_state.exit()
@@ -73,6 +69,8 @@ func _decide_on_next_state():
 			else:
 				sequence_cycles = 0
 				return $Stomp
+	elif phase == 4:
+		return $RoamSequence
 
 func change_phase(new_phase):
 	phase = new_phase
@@ -84,6 +82,8 @@ func change_phase(new_phase):
 			anim_player.playback_speed = 1.4
 		3:
 			anim_player.playback_speed = 1.8
+		4:
+			anim_player.playback_speed = 1.0
 	emit_signal("phase_changed", new_phase)
 
 func _on_Health_health_depleted():

@@ -50,3 +50,8 @@ func _on_Die_finished():
 	state_machine.set_active(false)
 	emit_signal('died')
 	queue_free()
+
+func _on_target_died():
+	._on_target_died()
+	state_machine.change_phase(4)
+	state_machine.go_to_next_state()
