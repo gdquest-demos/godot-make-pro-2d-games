@@ -36,6 +36,7 @@ func fall(gap_size):
 	state_machine._change_state('fall')
 	yield(state_machine.current_state, 'finished')
 	move_and_collide(-look_direction * gap_size * 1.5)
+	$Health.take_damage(2)
 
 func _on_Die_finished(string):
 	queue_free()
