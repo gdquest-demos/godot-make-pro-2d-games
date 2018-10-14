@@ -14,15 +14,13 @@
 [ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://interface/gui/lifebar/LifebarsBuilder.tscn" type="PackedScene" id=13]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
 [node name="MusicPlayer" parent="." index="0" instance=ExtResource( 2 )]
-
-autoplay = true
 
 [node name="Background" type="CanvasLayer" parent="." index="1"]
 
