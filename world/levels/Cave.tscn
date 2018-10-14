@@ -132,7 +132,7 @@ polygon = PoolVector2Array( 768, 896, 1152, 896, 1152, 1024, 768, 1024 )
 
 [node name="PlayerSpawningPoint" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 960, 1120 )
+position = Vector2( 960, 2912 )
 
 [node name="Door" parent="." index="3" instance=ExtResource( 3 )]
 

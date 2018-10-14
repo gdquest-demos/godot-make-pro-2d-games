@@ -69,7 +69,7 @@ _sections_unfolded = [ "Material" ]
 pause_mode = 1
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/TestLevel.tscn"
+LEVEL_START = "res://world/levels/Grasslands.tscn"
 
 [node name="Player" parent="LevelLoader" index="0" instance=ExtResource( 6 )]
 
@@ -129,10 +129,10 @@ _sections_unfolded = [ "Pause", "Theme" ]
 
 [node name="LifebarsBuilder" parent="Interface" index="3" instance=ExtResource( 13 )]
 
-[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
+[connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
 
 [connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]
 
-[connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
+[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
 
 
