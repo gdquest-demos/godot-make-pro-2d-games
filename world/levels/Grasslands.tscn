@@ -2,17 +2,18 @@
 
 [ext_resource path="res://world/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://world/levels/tilesets/outdoor/outdoor.tres" type="TileSet" id=2]
-[ext_resource path="res://monsters/porcupine/Porcupine.tscn" type="PackedScene" id=3]
-[ext_resource path="res://monsters/mosquito/Nest.tscn" type="PackedScene" id=4]
-[ext_resource path="res://actors/characters/seller/Seller.tscn" type="PackedScene" id=5]
-[ext_resource path="res://utils/PlayerSpawningPoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://world/Gap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://world/Gap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://monsters/porcupine/Porcupine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://monsters/mosquito/Nest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://actors/characters/seller/Seller.tscn" type="PackedScene" id=6]
+[ext_resource path="res://utils/PlayerSpawningPoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://world/Door.tscn" type="PackedScene" id=8]
 
 [node name="Grasslands" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Cell", "Collision" ]
+fog = false
 
 [node name="Ground" type="TileMap" parent="." index="0"]
 
@@ -56,75 +57,162 @@ format = 1
 tile_data = PoolIntArray( 0, 4, 6, 1, 4, 131073, 2, 4, 1, 3, 4, 1, 4, 4, 1, 5, 4, 1, 6, 4, 131073, 7, 4, 1, 8, 4, 1, 9, 4, 131073, 10, 4, 1, 11, 4, 131073, 12, 4, 1, 13, 4, 131073, 14, 4, 131073, 15, 4, 1, 16, 4, 1, 17, 4, 131073, 18, 4, 131073, 19, 4, 131073, 20, 4, 65540, 21, 4, 131073, 22, 4, 131073, 23, 4, 1, 24, 4, 131073, 25, 4, 131073, 26, 4, 1, 27, 4, 131073, 28, 4, 131073, 29, 4, 1, 30, 4, 1, 31, 4, 1, 32, 4, 1, 33, 4, 131073, 34, 4, 131073, 35, 4, 1, 36, 4, 131073, 37, 4, 131073, 38, 4, 1, 39, 4, 1, 40, 4, 131073, 41, 4, 131073, 42, 4, 131073, 43, 4, 1, 44, 4, 1, 45, 4, 131073, 46, 4, 2, 65536, 4, 65536, 65556, 4, 65536, 65582, 4, 65536, 131072, 4, 65538, 131092, 4, 65536, 131118, 4, 65538, 196608, 4, 65536, 196628, 4, 65538, 196654, 4, 65536, 262144, 4, 65536, 262164, 4, 65536, 262190, 4, 65538, 327680, 4, 65536, 327700, 4, 131072, 327701, 4, 1, 327702, 4, 7, 327726, 4, 65538, 393216, 4, 65536, 393223, 2, 0, 393238, 4, 65539, 393262, 4, 65536, 458752, 4, 65538, 458798, 4, 65536, 524288, 4, 65536, 524306, 2, 0, 524334, 4, 65536, 589824, 4, 65536, 589870, 4, 65536, 655360, 4, 65536, 655406, 4, 65538, 720896, 4, 65538, 720942, 4, 65536, 786432, 4, 65538, 786454, 4, 3, 786478, 4, 65538, 851968, 4, 65536, 851984, 2, 0, 851988, 4, 0, 851989, 4, 131073, 851990, 4, 131074, 852014, 4, 65538, 917504, 4, 65538, 917524, 4, 65538, 917550, 4, 65538, 983040, 4, 4, 983041, 4, 131073, 983042, 4, 1, 983043, 4, 1, 983044, 4, 131073, 983045, 4, 1, 983046, 4, 131073, 983047, 4, 131073, 983048, 4, 131073, 983049, 4, 131073, 983050, 4, 1, 983051, 4, 1, 983052, 4, 131073, 983053, 4, 131073, 983054, 4, 131073, 983055, 4, 1, 983056, 4, 131073, 983057, 4, 131073, 983058, 4, 1, 983059, 4, 1, 983060, 4, 65543, 983086, 4, 65536, 1048576, 4, 65538, 1048622, 4, 65536, 1114112, 4, 65536, 1114127, 5, 0, 1114128, 5, 1, 1114129, 5, 1, 1114130, 5, 2, 1114158, 4, 65536, 1179648, 4, 65536, 1179663, 5, 65536, 1179664, 5, 65537, 1179665, 5, 65537, 1179666, 5, 65539, 1179667, 5, 2, 1179694, 4, 65538, 1245184, 4, 65536, 1245198, 5, 0, 1245199, 5, 65540, 1245200, 5, 65537, 1245201, 5, 65537, 1245202, 5, 65537, 1245203, 5, 65538, 1245230, 4, 65536, 1310720, 4, 65536, 1310734, 5, 65536, 1310735, 5, 65537, 1310736, 5, 65537, 1310737, 5, 65537, 1310738, 5, 65537, 1310739, 5, 65539, 1310740, 5, 2, 1310766, 4, 65536, 1376256, 4, 65536, 1376270, 5, 65536, 1376271, 5, 65537, 1376272, 5, 65537, 1376273, 5, 65537, 1376274, 5, 65537, 1376275, 5, 3, 1376276, 5, 131074, 1376302, 4, 65536, 1441792, 4, 65536, 1441806, 5, 65536, 1441807, 5, 65537, 1441808, 5, 3, 1441809, 5, 131073, 1441810, 5, 131073, 1441811, 5, 131074, 1441838, 4, 65538, 1507328, 4, 65538, 1507342, 5, 65536, 1507343, 5, 65537, 1507344, 5, 65538, 1507374, 4, 65538, 1572864, 4, 65538, 1572878, 5, 131072, 1572879, 5, 131073, 1572880, 5, 131074, 1572910, 4, 65536, 1638400, 4, 131072, 1638401, 4, 1, 1638402, 4, 1, 1638403, 4, 1, 1638404, 4, 1, 1638405, 4, 1, 1638406, 4, 131073, 1638407, 4, 131073, 1638408, 4, 131073, 1638409, 4, 1, 1638410, 4, 131073, 1638411, 4, 1, 1638412, 4, 131073, 1638413, 4, 131073, 1638414, 4, 131073, 1638415, 4, 1, 1638416, 4, 131073, 1638417, 4, 131073, 1638418, 4, 131073, 1638419, 4, 1, 1638420, 4, 1, 1638421, 4, 131073, 1638422, 4, 131073, 1638423, 4, 131073, 1638424, 4, 131073, 1638425, 4, 131073, 1638426, 4, 131073, 1638427, 4, 131073, 1638428, 4, 1, 1638429, 4, 131073, 1638430, 4, 1, 1638431, 4, 1, 1638432, 4, 1, 1638433, 4, 1, 1638434, 4, 131073, 1638435, 4, 1, 1638436, 4, 131073, 1638437, 4, 131073, 1638438, 4, 1, 1638439, 4, 131073, 1638440, 4, 131073, 1638441, 4, 1, 1638442, 4, 1, 1638443, 4, 131073, 1638444, 4, 1, 1638445, 4, 131073, 1638446, 4, 131074 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="YSort" type="YSort" parent="." index="2"]
-
-sort_enabled = true
-
-[node name="Porcupine" parent="YSort" index="0" instance=ExtResource( 3 )]
-
-position = Vector2( 576, 768 )
-
-[node name="Porcupine2" parent="YSort" index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 2176, 656 )
-
-[node name="Porcupine3" parent="YSort" index="2" instance=ExtResource( 3 )]
-
-position = Vector2( 816, 1728 )
-
-[node name="Porcupine4" parent="YSort" index="3" instance=ExtResource( 3 )]
-
-position = Vector2( 464, 2976 )
-
-[node name="Porcupine5" parent="YSort" index="4" instance=ExtResource( 3 )]
-
-position = Vector2( 4752, 640 )
-
-[node name="Nest" parent="YSort" index="5" instance=ExtResource( 4 )]
-
-position = Vector2( 1936, 1520 )
-
-[node name="Nest2" parent="YSort" index="6" instance=ExtResource( 4 )]
-
-position = Vector2( 384, 912 )
-
-[node name="Nest3" parent="YSort" index="7" instance=ExtResource( 4 )]
-
-position = Vector2( 1088, 2576 )
-
-[node name="Seller" parent="YSort" index="8" instance=ExtResource( 5 )]
-
-position = Vector2( 3056, 1232 )
-
-[node name="PlayerSpawningPoint" parent="." index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 5440, 2896 )
-
-[node name="Gap" parent="." index="4" instance=ExtResource( 7 )]
+[node name="Gap" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 1744, 944 )
 
-[node name="Gap2" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Gap2" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 432, 1440 )
 
-[node name="Gap3" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Gap3" parent="." index="4" instance=ExtResource( 3 )]
 
 position = Vector2( 4624, 2272 )
 
-[node name="Gap4" parent="." index="7" instance=ExtResource( 7 )]
+[node name="Gap4" parent="." index="5" instance=ExtResource( 3 )]
 
 position = Vector2( 5664, 1424 )
 
-[node name="Gap5" parent="." index="8" instance=ExtResource( 7 )]
+[node name="Gap5" parent="." index="6" instance=ExtResource( 3 )]
 
 position = Vector2( 3152, 1696 )
+
+[node name="YSort" type="YSort" parent="." index="7"]
+
+editor/display_folded = true
+sort_enabled = true
+
+[node name="Porcupine" parent="YSort" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 576, 768 )
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+MAX_ROAM_SPEED = 200.0
+MAX_FOLLOW_SPEED = 400.0
+MAX_CHARGE_SPEED = 900.0
+SPOT_RANGE = 460.0
+FOLLOW_RANGE = 700.0
+BUMP_RANGE = 90.0
+CHARGE_RANGE = 340.0
+PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+ROAM_RADIUS = 140.0
+BUMP_DISTANCE = 60.0
+BUMP_DURATION = 0.2
+MAX_BUMP_HEIGHT = 50.0
+BUMP_COOLDOWN_DURATION = 0.6
+
+[node name="Porcupine2" parent="YSort" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 2176, 656 )
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+MAX_ROAM_SPEED = 200.0
+MAX_FOLLOW_SPEED = 400.0
+MAX_CHARGE_SPEED = 900.0
+SPOT_RANGE = 460.0
+FOLLOW_RANGE = 700.0
+BUMP_RANGE = 90.0
+CHARGE_RANGE = 340.0
+PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+ROAM_RADIUS = 140.0
+BUMP_DISTANCE = 60.0
+BUMP_DURATION = 0.2
+MAX_BUMP_HEIGHT = 50.0
+BUMP_COOLDOWN_DURATION = 0.6
+
+[node name="Porcupine3" parent="YSort" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 816, 1728 )
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+MAX_ROAM_SPEED = 200.0
+MAX_FOLLOW_SPEED = 400.0
+MAX_CHARGE_SPEED = 900.0
+SPOT_RANGE = 460.0
+FOLLOW_RANGE = 700.0
+BUMP_RANGE = 90.0
+CHARGE_RANGE = 340.0
+PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+ROAM_RADIUS = 140.0
+BUMP_DISTANCE = 60.0
+BUMP_DURATION = 0.2
+MAX_BUMP_HEIGHT = 50.0
+BUMP_COOLDOWN_DURATION = 0.6
+
+[node name="Porcupine4" parent="YSort" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 464, 2976 )
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+MAX_ROAM_SPEED = 200.0
+MAX_FOLLOW_SPEED = 400.0
+MAX_CHARGE_SPEED = 900.0
+SPOT_RANGE = 460.0
+FOLLOW_RANGE = 700.0
+BUMP_RANGE = 90.0
+CHARGE_RANGE = 340.0
+PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+ROAM_RADIUS = 140.0
+BUMP_DISTANCE = 60.0
+BUMP_DURATION = 0.2
+MAX_BUMP_HEIGHT = 50.0
+BUMP_COOLDOWN_DURATION = 0.6
+
+[node name="Porcupine5" parent="YSort" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 4752, 640 )
+ARRIVE_DISTANCE = 6.0
+DEFAULT_SLOW_RADIUS = 200.0
+DEFAULT_MAX_SPEED = 300.0
+MASS = 8.0
+MAX_ROAM_SPEED = 200.0
+MAX_FOLLOW_SPEED = 400.0
+MAX_CHARGE_SPEED = 900.0
+SPOT_RANGE = 460.0
+FOLLOW_RANGE = 700.0
+BUMP_RANGE = 90.0
+CHARGE_RANGE = 340.0
+PREPARE_TO_CHARGE_WAIT_TIME = 0.9
+ROAM_RADIUS = 140.0
+BUMP_DISTANCE = 60.0
+BUMP_DURATION = 0.2
+MAX_BUMP_HEIGHT = 50.0
+BUMP_COOLDOWN_DURATION = 0.6
+
+[node name="Nest" parent="YSort" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 1936, 1520 )
+
+[node name="Nest2" parent="YSort" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 384, 912 )
+
+[node name="Nest3" parent="YSort" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 1088, 2576 )
+
+[node name="Seller" parent="YSort" index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 3056, 1232 )
+
+[node name="PlayerSpawningPoint" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 5440, 2896 )
 
 [node name="Door" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 304, 432 )
 scale = Vector2( 0.8125, 0.8125 )
 map_path = "res://world/levels/Cave.tscn"
+ACTIVE_AT_START = true
 
 [node name="SecretDrop" type="Node2D" parent="." index="10"]
 
