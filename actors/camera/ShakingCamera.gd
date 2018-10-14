@@ -2,6 +2,7 @@ tool
 extends Camera2D
 
 export(float) var amplitude = 6.0
+export(float) var duration = 0.8 setget set_duration
 export(float, EASE) var DAMP_EASING = 1.0
 export(bool) var shake = false setget set_shake
 
@@ -11,8 +12,15 @@ enum STATES {IDLE, SHAKING}
 var state = IDLE
 
 func _ready():
+	self.duration = duration
 	set_process(false)
 	randomize()
+
+func set_duration(value):
+	duration = value
+	if not timer:
+		return
+	timer.wait_time = duration
 
 func set_shake(value):
 	shake = value
