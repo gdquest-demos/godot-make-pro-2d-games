@@ -363,6 +363,7 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="2"]
 
+editor/display_folded = true
 script = ExtResource( 4 )
 active = false
 
@@ -433,11 +434,11 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="5"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="WeaponPivot" type="Position2D" parent="BodyPivot" index="0"]
 
-editor/display_folded = true
 position = Vector2( 0, -62 )
 script = ExtResource( 14 )
 _sections_unfolded = [ "Transform", "Z Index" ]

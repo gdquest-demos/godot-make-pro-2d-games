@@ -39,3 +39,9 @@ func fall(gap_size):
 
 func _on_Die_finished(string):
 	queue_free()
+
+func get_health_node():
+	return $Health
+
+func get_inventory():
+	return $Inventory
