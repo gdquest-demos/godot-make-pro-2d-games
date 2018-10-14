@@ -20,6 +20,7 @@ yellow="#FFCA28"
 config/name="Make Pro 2D Games with Godot"
 run/main_scene="res://Demo.tscn"
 config/icon="res://icon.png"
+run/debug=true
 
 [autoload]
 
