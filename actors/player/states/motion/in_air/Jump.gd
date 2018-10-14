@@ -1,4 +1,4 @@
-extends "../motion.gd"
+extends "../Motion.gd"
 
 export(float) var BASE_MAX_HORIZONTAL_SPEED = 400.0
 
