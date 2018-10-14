@@ -52,7 +52,7 @@ damping = 0.0
 damping_random = 0.0
 angle = 360.0
 angle_random = 1.0
-scale = 0.25
+scale = 0.5
 scale_random = 0.0
 scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
@@ -63,5 +63,5 @@ anim_speed_random = 0.0
 anim_offset = 1.0
 anim_offset_random = 1.0
 anim_loop = false
-_sections_unfolded = [ "Emission Shape" ]
+_sections_unfolded = [ "Emission Shape", "Scale" ]
 

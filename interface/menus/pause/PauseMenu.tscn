@@ -5,9 +5,6 @@
 [ext_resource path="res://interface/menus/shared/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://interface/menus/inventory/InventoryMenu.tscn" type="PackedScene" id=4]
 
-
-
-
 [node name="PauseMenu" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )

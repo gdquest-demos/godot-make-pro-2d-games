@@ -5,6 +5,9 @@ signal last_moved(direction)
 export(float) var MAX_WALK_SPEED = 450
 export(float) var MAX_RUN_SPEED = 700
 
+const DustRun = preload("res://particles/dust_puffs/DustRun.tscn")
+const DustWalk = preload("res://particles/dust_puffs/DustWalk.tscn")
+
 func enter():
 	speed = 0.0
 	velocity = Vector2()
@@ -33,3 +36,13 @@ func update(delta):
 	if speed == MAX_RUN_SPEED and collision_info.collider.is_in_group("environment"):
 		emit_signal("last_moved", input_direction)
 		emit_signal("finished", 'bump')
+
+func spawn_dust():
+	var dust
+	match speed:
+		MAX_RUN_SPEED:
+			dust = DustRun.instance()
+		MAX_WALK_SPEED:
+			dust = DustWalk.instance()
+	owner.add_child(dust)
+	dust.start()

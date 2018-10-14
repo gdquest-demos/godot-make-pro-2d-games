@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://smoke/smoke_screen_particle.tres" type="Material" id=1]
-[ext_resource path="res://smoke/smoke.png" type="Texture" id=2]
-[ext_resource path="res://smoke/particles_player.gd" type="Script" id=3]
-
+[ext_resource path="res://particles/smoke/smoke_screen_particle.tres" type="Material" id=1]
+[ext_resource path="res://particles/smoke/smoke.png" type="Texture" id=2]
 
 [node name="EnemySmokeScreen" type="Particles2D" index="0"]
 
@@ -26,7 +24,6 @@ texture = ExtResource( 2 )
 normal_map = null
 h_frames = 1
 v_frames = 1
-script = ExtResource( 3 )
 _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
 
 [node name="SmokeDarker" type="Particles2D" parent="." index="0"]

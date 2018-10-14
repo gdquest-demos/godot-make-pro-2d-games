@@ -319,6 +319,20 @@ tracks/1/keys = {
 "method": "play_random"
 } ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("StateMachine/Move")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_dust"
+} ]
+}
 
 [sub_resource type="DynamicFont" id=9]
 
@@ -363,7 +377,6 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="2"]
 
-editor/display_folded = true
 script = ExtResource( 4 )
 active = false
 
