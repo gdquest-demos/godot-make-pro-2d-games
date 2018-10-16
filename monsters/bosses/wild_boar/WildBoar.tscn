@@ -394,13 +394,12 @@ radius = 50.0
 "monster",
 ]]
 
-position = Vector2( 580, 480 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -458,7 +457,6 @@ script = ExtResource( 8 )
 
 [node name="RoamSequence" type="Node" parent="StateMachine" index="1"]
 
-editor/display_folded = true
 script = ExtResource( 9 )
 
 [node name="Wait" type="Node" parent="StateMachine/RoamSequence" index="0"]

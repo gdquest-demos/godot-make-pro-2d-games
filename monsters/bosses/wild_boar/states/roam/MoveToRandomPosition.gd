@@ -18,8 +18,9 @@ func enter():
 func update(delta):
 	velocity = Steering.arrive_to(velocity, owner.global_position, target_position, MASS, SLOW_RADIUS, MAX_SPEED)
 	owner.move_and_slide(velocity)
-
-	if owner.global_position.distance_to(target_position) < ARRIVE_DISTANCE:
+	if owner.get_slide_count() > 0:
+		emit_signal('finished')
+	elif owner.global_position.distance_to(target_position) < ARRIVE_DISTANCE:
 		emit_signal('finished')
 
 func calculate_new_target_position():
