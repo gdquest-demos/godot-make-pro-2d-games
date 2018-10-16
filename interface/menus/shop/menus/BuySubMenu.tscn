@@ -7,7 +7,7 @@
 
 [node name="BuySubMenu" instance=ExtResource( 1 )]
 
-ACTION = "buy_from"
+ACTION = "sell_to"
 
 [node name="Sfx" type="Node" parent="." index="0"]
 

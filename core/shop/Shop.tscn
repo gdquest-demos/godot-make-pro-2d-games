@@ -7,9 +7,9 @@
 [ext_resource path="res://core/inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=5]
 [ext_resource path="res://core/shop/purse/Purse.tscn" type="PackedScene" id=6]
 
-
 [node name="Shop" type="Node"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 STOCK_INFINITE = false
 MONEY_INFINITE = false

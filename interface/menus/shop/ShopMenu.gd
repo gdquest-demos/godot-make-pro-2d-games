@@ -9,14 +9,12 @@ onready var submenu = $Column/Menu
 onready var button_buy = $Column/Buttons/BuyButton
 onready var button_sell = $Column/Buttons/SellButton
 
-# To test from ShopMenu.tscn
-#func _ready():
-#	var shop = load("res://shop/Shop.tscn").instance()
-#	var player = load("res://actors/characters/player/Player.tscn").instance()
-#	open(shop, player)
-
 func _ready():
 	hide()
+	# To test from ShopMenu.tscn
+#	var shop = load("res://core/shop/Shop.tscn").instance()
+#	var player = load("res://actors/player/Player.tscn").instance()
+#	open(shop, player)
 
 func open(shop, buyer):
 	get_tree().paused = true

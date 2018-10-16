@@ -24,10 +24,6 @@ func buy_from(actor, item, amount=1):
 func sell_to(actor, item, amount=1):
 	amount = clamp(amount, 1, MAX_TRANSACTION_COUNT)
 	var transaction_value = item.price * amount
-#	The UI should show/handle that by disabling buttons
-#	var actor_purse = actor.get_node("Purse")
-#	if not actor_purse.has_coins(transaction_value):
-#		return
 	actor.get_node("Purse").remove_coins(item.price * amount)
 	actor.get_node("Inventory").add(item, amount)
 

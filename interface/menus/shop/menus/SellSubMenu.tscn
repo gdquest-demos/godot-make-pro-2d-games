@@ -4,6 +4,6 @@
 
 [node name="SellSubMenu" instance=ExtResource( 1 )]
 
-ACTION = "sell_to"
+ACTION = "buy_from"
 
 
