@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://vfx/particles/explosions/circle.png" type="Texture" id=1]
+[ext_resource path="res://explosions/explosion.gd" type="Script" id=2]
+
+
+
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.0946746, 0.414201, 0.650888, 0.87574, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = -0.2
+max_value = 0.2
+bake_resolution = 100
+_data = [ Vector2( 0, 0.0277257 ), 0.0, 0.0, 0, 0, Vector2( 1, -0.0310864 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.790039 ), 0.0, -0.433343, 0, 0, Vector2( 0.413238, 0.811523 ), 0.775457, 3.68342, 0, 0, Vector2( 1, 1 ), 0.121391, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+
+flags = 4
+width = 2048
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 1
+emission_sphere_radius = 44.04
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 180.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 1.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 1.0
+scale_random = 0.4
+scale_curve = SubResource( 6 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 1.0
+hue_variation_curve = SubResource( 4 )
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+anim_loop = false
+_sections_unfolded = [ "Color", "Damping", "Emission Shape", "Flags", "Initial Velocity", "Scale", "Spread" ]
+
+[node name="ExplosionFlash" type="Particles2D" index="0"]
+
+z_index = 20
+emitting = false
+amount = 10
+lifetime = 0.6
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.3
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -400, -400, 800, 800 )
+local_coords = false
+draw_order = 1
+process_material = SubResource( 7 )
+texture = ExtResource( 1 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+script = ExtResource( 2 )
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+

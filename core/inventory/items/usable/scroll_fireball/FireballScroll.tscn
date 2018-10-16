@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://core/inventory/items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://core/inventory/items/usable/scroll_fireball/FireballScroll.gd" type="Script" id=2]
+[ext_resource path="res://interface/theme/icons/fire_scroll.png" type="Texture" id=3]
+[ext_resource path="res://core/inventory/items/usable/scroll_fireball/fireball/Fireball.tscn" type="PackedScene" id=4]
+
+
+[node name="FireballScroll" index="0" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+icon = ExtResource( 3 )
+display_name = "Fire scroll"
+description = "Launches a fire ball that sweeps through the air and damages a single target."
+Fireball = ExtResource( 4 )
+
+

@@ -2,7 +2,7 @@ extends Area2D
 
 signal coins_received(amount)
 
-const Coins = preload("res://inventory/items/Coins.gd")
+const Coins = preload("res://core/inventory/items/Coins.gd")
 
 #func _process(delta):
 #	for area in get_overlapping_areas():

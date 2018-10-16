@@ -1,6 +1,6 @@
 extends Position2D
 
-const Coins = preload("res://inventory/items/Coins.tscn")
+const Coins = preload("res://core/inventory/items/Coins.tscn")
 
 onready var timer = $Timer
 

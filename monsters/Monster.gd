@@ -36,7 +36,6 @@ func take_damage_from(damage_source):
 	stats.take_damage(damage_source.damage)
 
 func set_active(value):
-	print(name)
 	active = value
 	set_physics_process(value)
 	$HitBox.set_active(value)

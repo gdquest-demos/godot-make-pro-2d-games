@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://vfx/particles/rocks/rocks_particle.tres" type="Material" id=1]
+[ext_resource path="res://vfx/particles/rocks/rocks.png" type="Texture" id=2]
+[ext_resource path="res://vfx/particles/rocks/crumbs_particle.tres" type="Material" id=3]
+
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Particles2D
+
+func initialize(position, angle):
+	global_position = position
+	rotation = angle
+	yield(get_tree().create_timer(lifetime / speed_scale), \"timeout\")
+	queue_free()
+"
+
+[node name="DirectionalRock" type="Particles2D"]
+
+modulate = Color( 0.691406, 0.486124, 0.132339, 1 )
+rotation = -1.5708
+emitting = false
+amount = 20
+lifetime = 0.7
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.5
+explosiveness = 0.9
+randomness = 0.9
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+script = SubResource( 1 )
+_sections_unfolded = [ "Material", "Process Material", "Time", "Visibility" ]
+
+[node name="Pebbles2" type="Particles2D" parent="." index="0"]
+
+self_modulate = Color( 0.744278, 0.768273, 0.832031, 1 )
+show_behind_parent = true
+scale = Vector2( 1.3383, 1.50043 )
+emitting = true
+amount = 20
+lifetime = 0.7
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 3 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time", "Visibility" ]
+
+[node name="Pebbles" type="Particles2D" parent="." index="1"]
+
+show_behind_parent = true
+scale = Vector2( 1.01931, 1.27982 )
+emitting = true
+amount = 20
+lifetime = 0.7
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 3 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Time", "Visibility" ]
+
+

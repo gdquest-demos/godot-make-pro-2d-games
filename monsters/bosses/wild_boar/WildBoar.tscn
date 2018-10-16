@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://monsters/bosses/wild_boar/WildBoar.gd" type="Script" id=1]
-[ext_resource path="res://particles/dust_puffs/DustPuffsLarge.tscn" type="PackedScene" id=2]
+[ext_resource path="res://vfx/particles/dust_puffs/DustPuffsLarge.tscn" type="PackedScene" id=2]
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/front.png" type="Texture" id=3]
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/wild_boar_stomp_2.png" type="Texture" id=4]
 [ext_resource path="res://monsters/bosses/wild_boar/sprites/wild_boar_stomp_1.png" type="Texture" id=5]
@@ -18,7 +18,7 @@
 [ext_resource path="res://monsters/bosses/wild_boar/states/ReturnToCenter.gd" type="Script" id=16]
 [ext_resource path="res://monsters/bosses/wild_boar/states/stomp/Stomp.gd" type="Script" id=17]
 [ext_resource path="res://monsters/bosses/wild_boar/states/Die.gd" type="Script" id=18]
-[ext_resource path="res://particles/explosions/Explosion.tscn" type="PackedScene" id=19]
+[ext_resource path="res://vfx/particles/explosions/Explosion.tscn" type="PackedScene" id=19]
 [ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=20]
 [ext_resource path="res://actors/hit_box/HitBox.tscn" type="PackedScene" id=21]
 [ext_resource path="res://interface/gui/boss/BossLifebar.tscn" type="PackedScene" id=22]
@@ -390,7 +390,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
+[node name="WildBoar" type="KinematicBody2D" groups=[
 "monster",
 ]]
 
@@ -585,8 +585,6 @@ boss_name = "Wild Boar"
 [connection signal="health_depleted" from="Stats" to="." method="_on_Health_health_depleted"]
 
 [connection signal="health_depleted" from="Stats" to="StateMachine" method="_on_Health_health_depleted"]
-
-[connection signal="finished" from="StateMachine/Spawn" to="." method="_on_Spawn_finished"]
 
 [connection signal="charge_direction_set" from="StateMachine/ChargeSequence/Sprint" to="StateMachine/ChargeSequence/Bump" method="_on_Sprint_charge_direction_set"]
 

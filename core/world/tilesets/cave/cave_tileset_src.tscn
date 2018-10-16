@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://core/world/tilesets/cave/cave.png" type="Texture" id=1]
+
+
+
+
+[node name="Node2D" type="Node2D" index="0"]
+
+[node name="cave" type="Sprite" parent="." index="0"]
+
+position = Vector2( 322.14, 192 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 384 )
+_sections_unfolded = [ "Region" ]
+
+

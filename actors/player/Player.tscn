@@ -19,14 +19,15 @@
 [ext_resource path="res://interface/fonts/SourceCodePro-Bold.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://actors/player/states/debug/StateNameDisplayer.gd" type="Script" id=18]
 [ext_resource path="res://actors/health/Stats.tscn" type="PackedScene" id=19]
-[ext_resource path="res://shop/purse/Purse.tscn" type="PackedScene" id=20]
-[ext_resource path="res://inventory/Inventory.tscn" type="PackedScene" id=21]
-[ext_resource path="res://inventory/items/usable/potions/restore_health/MinorHealthPotion.tscn" type="PackedScene" id=22]
-[ext_resource path="res://inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=23]
+[ext_resource path="res://core/shop/purse/Purse.tscn" type="PackedScene" id=20]
+[ext_resource path="res://core/inventory/Inventory.tscn" type="PackedScene" id=21]
+[ext_resource path="res://core/inventory/items/usable/potions/restore_health/MinorHealthPotion.tscn" type="PackedScene" id=22]
+[ext_resource path="res://core/inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=23]
 [ext_resource path="res://actors/weapons/bullet/BulletSpawner.gd" type="Script" id=24]
 [ext_resource path="res://audio/sfx/step_01.wav" type="AudioStream" id=25]
 [ext_resource path="res://audio/AudioShuffleStepSounds.gd" type="Script" id=26]
 [ext_resource path="res://actors/CoinsCollector.tscn" type="PackedScene" id=27]
+
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -357,13 +358,7 @@ __meta__ = {
 
 [node name="ShakingCamera" parent="." index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
-smoothing_enabled = true
-smoothing_speed = 7.0
-_sections_unfolded = [ "Drag Margin", "Offset", "Smoothing", "Transform" ]
-amplitude = 6.0
+duration = 0.8
 
 [node name="HitBox" parent="." index="1" instance=ExtResource( 3 )]
 
@@ -566,5 +561,4 @@ script = ExtResource( 26 )
 [connection signal="coins_received" from="CoinsCollector" to="Purse" method="add_coins"]
 
 
-[editable path="ShakingCamera"]
 [editable path="HitBox"]

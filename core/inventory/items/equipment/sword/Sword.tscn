@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://core/inventory/items/equipment/Equipment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/theme/icons/sword.png" type="Texture" id=2]
+
+
+[node name="Sword" index="0" instance=ExtResource( 1 )]
+
+icon = ExtResource( 2 )
+display_name = "Sword"
+description = "An old, slightly rusted sword. Fairly dull."
+price = 25
+usable = false
+STRENGTH = 20
+
+

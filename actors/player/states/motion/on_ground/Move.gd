@@ -5,8 +5,8 @@ signal last_moved(direction)
 export(float) var MAX_WALK_SPEED = 450
 export(float) var MAX_RUN_SPEED = 700
 
-const DustRun = preload("res://particles/dust_puffs/DustRun.tscn")
-const DustWalk = preload("res://particles/dust_puffs/DustWalk.tscn")
+const DustRun = preload("res://vfx/particles/dust_puffs/DustRun.tscn")
+const DustWalk = preload("res://vfx/particles/dust_puffs/DustWalk.tscn")
 
 func enter():
 	speed = 0.0

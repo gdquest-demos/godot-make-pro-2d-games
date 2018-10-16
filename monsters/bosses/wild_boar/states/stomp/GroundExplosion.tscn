@@ -2,7 +2,8 @@
 
 [ext_resource path="res://actors/DamageSource.tscn" type="PackedScene" id=1]
 [ext_resource path="res://monsters/bosses/wild_boar/states/stomp/GroundExplosion.gd" type="Script" id=2]
-[ext_resource path="res://inventory/items/usable/scroll_fireball/fireball/particles/explosions/Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/inventory/items/usable/scroll_fireball/fireball/particles/explosions/Explosion.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="CircleShape2D" id=1]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://core/inventory/items/usable/potions/BaseHealthPotion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://interface/theme/icons/potion_health.png" type="Texture" id=2]
+
+
+[node name="StrongHealthPotion" index="0" instance=ExtResource( 1 )]
+
+icon = ExtResource( 2 )
+display_name = "Strong health potion"
+description = "Heals 50 life points"
+price = 100
+HEAL_AMOUNT = 50
+
+

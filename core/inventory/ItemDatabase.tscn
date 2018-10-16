@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://core/inventory/ItemDatabase.gd" type="Script" id=1]
+[ext_resource path="res://core/inventory/items/equipment/sword/Sword.tscn" type="PackedScene" id=2]
+[ext_resource path="res://core/inventory/items/usable/potions/restore_health/MinorHealthPotion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/inventory/items/usable/potions/restore_health/StrongHealthPotion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/inventory/items/usable/scroll_fireball/FireballScroll.tscn" type="PackedScene" id=5]
+
+
+[node name="ItemDatabase" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="Sword" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="MinorHealthPotion" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="StrongHealthPotion" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="FireballScroll" parent="." index="3" instance=ExtResource( 5 )]
+
+

@@ -25,7 +25,7 @@ run/debug=true
 [autoload]
 
 Steering="*res://utils/autoload/Steering.gd"
-ItemDatabase="*res://inventory/ItemDatabase.tscn"
+ItemDatabase="*res://core/inventory/ItemDatabase.tscn"
 
 [display]
 

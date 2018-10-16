@@ -2,15 +2,12 @@
 
 [ext_resource path="res://actors/weapons/bullet/bullet.gd" type="Script" id=1]
 
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 12.0
 
-[node name="Bullet" type="KinematicBody2D"]
+[node name="Bullet" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2

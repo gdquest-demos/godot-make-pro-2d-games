@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://core/Game.gd" type="Script" id=1]
 [ext_resource path="res://audio/MusicPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://vfx/fog_background.material" type="Material" id=3]
 [ext_resource path="res://vfx/Fog.gd" type="Script" id=4]
-[ext_resource path="res://LevelLoader.gd" type="Script" id=5]
+[ext_resource path="res://core/LevelLoader.gd" type="Script" id=5]
 [ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://vfx/fog_foreground.material" type="Material" id=7]
 [ext_resource path="res://vfx/TransitionColor.tscn" type="PackedScene" id=8]
@@ -22,8 +22,11 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="MusicPlayer" parent="." index="0" instance=ExtResource( 2 )]
 
+autoplay = true
+
 [node name="Background" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = -100
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -65,15 +68,17 @@ _sections_unfolded = [ "Material" ]
 [node name="LevelLoader" type="Node" parent="." index="2"]
 
 pause_mode = 1
+editor/display_folded = true
 script = ExtResource( 5 )
 _sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://world/levels/Grasslands.tscn"
+LEVEL_START = "res://levels/TestLevel.tscn"
 
 [node name="Player" parent="LevelLoader" index="0" instance=ExtResource( 6 )]
 
 [node name="Overlays" type="CanvasLayer" parent="." index="3"]
 
 pause_mode = 2
+editor/display_folded = true
 layer = 50
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -104,6 +109,7 @@ _sections_unfolded = [ "Material" ]
 [node name="Interface" type="CanvasLayer" parent="." index="4"]
 
 pause_mode = 2
+editor/display_folded = true
 layer = 100
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -127,10 +133,10 @@ _sections_unfolded = [ "Pause", "Theme" ]
 
 [node name="LifebarsBuilder" parent="Interface" index="3" instance=ExtResource( 13 )]
 
-[connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
-
 [connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]
 
 [connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
+
+[connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
 
 

@@ -8,7 +8,7 @@ export(float) var MAX_DISTANCE = 1200.0
 var direction = Vector2()
 var distance = 0.0
 
-const DirectionalRock = preload("res://particles/rocks/DirectionalRock.tscn")
+const DirectionalRock = preload("res://vfx/particles/rocks/DirectionalRock.tscn")
 const PlayerController = preload("res://actors/player/PlayerController.gd")
 
 func enter():

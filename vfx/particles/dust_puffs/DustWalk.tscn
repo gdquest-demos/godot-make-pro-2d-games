@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://vfx/particles/dust_puffs/dust_puffs_particle.tres" type="Material" id=1]
+[ext_resource path="res://vfx/particles/dust_puffs/puff_stylized.png" type="Texture" id=2]
+[ext_resource path="res://vfx/particles/SelfDestructingParticles.gd" type="Script" id=3]
+
+
+[node name="DustWalk" type="Particles2D" index="0"]
+
+show_behind_parent = true
+position = Vector2( 1, 0 )
+rotation = -1.5708
+emitting = false
+amount = 8
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.4
+explosiveness = 0.95
+randomness = 0.3
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -400, -400, 800, 800 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+script = ExtResource( 3 )
+_sections_unfolded = [ "Drawing", "Material", "Time", "Transform", "Visibility" ]
+
+

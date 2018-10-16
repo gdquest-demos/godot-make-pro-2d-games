@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://vfx/particles/smoke/smoke_screen_particle.tres" type="Material" id=1]
+[ext_resource path="res://vfx/particles/smoke/smoke.png" type="Texture" id=2]
+
+
+[node name="EnemySmokeScreen" type="Particles2D" index="0"]
+
+self_modulate = Color( 0.90831, 0.918911, 0.941406, 1 )
+emitting = false
+amount = 10
+lifetime = 0.9
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 1.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time" ]
+
+[node name="SmokeDarker" type="Particles2D" parent="." index="0"]
+
+self_modulate = Color( 0.632904, 0.671685, 0.726563, 1 )
+show_behind_parent = true
+scale = Vector2( 1.20092, 1.32186 )
+emitting = false
+amount = 20
+lifetime = 0.7
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Visibility" ]
+
+[node name="SmokeGrey" type="Particles2D" parent="." index="1"]
+
+self_modulate = Color( 0.789703, 0.828256, 0.882813, 1 )
+show_behind_parent = true
+scale = Vector2( 1.05668, 1.05668 )
+emitting = false
+amount = 20
+lifetime = 0.8
+one_shot = true
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.8
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = ExtResource( 1 )
+texture = ExtResource( 2 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Material", "Process Material", "Textures", "Time", "Visibility" ]
+
+
