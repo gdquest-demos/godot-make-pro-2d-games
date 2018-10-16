@@ -39,7 +39,7 @@ func _change_state(new_state):
 		ATTACK:
 			attack_input_state = WAITING
 			ready_for_next_attack = false
-			var attack = combo[attack_id]
+			var attack = combo[min(attack_id, combo.size() - 1)]
 			damage = attack['damage']
 			$AnimationPlayer.play(attack['animation'])
 			attack_id += 1
