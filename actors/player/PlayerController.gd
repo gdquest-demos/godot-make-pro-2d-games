@@ -4,6 +4,7 @@ onready var weapon = $BodyPivot/WeaponPivot/Offset/Sword
 onready var camera = $ShakingCamera
 onready var state_machine = $StateMachine
 onready var anim_player = $AnimationPlayer
+onready var body = $BodyPivot/Body
 
 func _ready():
 	anim_player.play('SETUP')
@@ -14,6 +15,9 @@ func reset(target_global_position):
 	anim_player.play('SETUP')
 	camera.offset = Vector2()
 	camera.current = true
+
+func get_body():
+	return body
 
 func take_damage_from(damage_source):
 	if state_machine.current_state == $StateMachine/Stagger:

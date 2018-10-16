@@ -11,4 +11,5 @@ func enter():
 	owner.get_node("AnimationPlayer").play("stagger")
 
 func _on_animation_finished(anim_name):
+	owner.get_body().modulate = Color('#ffffff')
 	emit_signal("finished", "previous")

@@ -28,7 +28,6 @@
 [ext_resource path="res://audio/AudioShuffleStepSounds.gd" type="Script" id=26]
 [ext_resource path="res://actors/CoinsCollector.tscn" type="PackedScene" id=27]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -371,7 +370,6 @@ shape = SubResource( 1 )
 
 [node name="StateMachine" type="Node" parent="." index="2"]
 
-editor/display_folded = true
 script = ExtResource( 4 )
 active = false
 
