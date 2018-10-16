@@ -6,7 +6,7 @@ a bit as in a behavior tree, although in this case each sub-state
 has to finish its job
 To tell the state machine when a sequence is over
 """
-extends 'state.gd'
+extends 'State.gd'
 
 var state_active = null
 
