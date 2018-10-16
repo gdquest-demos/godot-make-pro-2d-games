@@ -1,8 +1,6 @@
 tool
 extends Area2D
 
-const CoinsCollector = preload("res://actors/CoinsCollector.gd")
-
 enum COIN_AMOUNTS {SMALL=10, MID=30, HIGH=100}
 
 export(COIN_AMOUNTS) var amount = SMALL setget set_amount
@@ -31,11 +29,6 @@ func set_amount(value):
 	if not sprite:
 		return
 	sprite.texture = TEXTURES[value]
-
-func _on_area_entered(area):
-	if not area is CoinsCollector:
-		return
-	queue_free()
 
 func _ready():
 	set_process(false)

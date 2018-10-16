@@ -7,13 +7,14 @@
 custom_solver_bias = 0.0
 radius = 44.6727
 
-[node name="CoinsCollector" type="Area2D"]
+[node name="CoinsCollector" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitorable = false
 collision_layer = 128
 collision_mask = 64
 audio_bus_override = false
@@ -24,5 +25,7 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 
 

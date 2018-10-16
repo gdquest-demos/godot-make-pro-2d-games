@@ -4,14 +4,9 @@ signal coins_received(amount)
 
 const Coins = preload("res://core/inventory/items/Coins.gd")
 
-#func _process(delta):
-#	for area in get_overlapping_areas():
-#		if not area is Coins:
-#			continue
-#		area.steer_towards(global_position)
-
-func _on_Collector_area_entered(area):
+func _on_area_entered(area):
+	print(area)
 	if not area is Coins:
 		return
-	print(area)
+	area.queue_free()
 	emit_signal("coins_received", area.amount)

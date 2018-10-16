@@ -3,9 +3,6 @@
 [ext_resource path="res://core/inventory/items/Coins.gd" type="Script" id=1]
 [ext_resource path="res://core/inventory/items/coins/coin_single.png" type="Texture" id=2]
 
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -18,12 +15,13 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitoring = false
 collision_layer = 64
-collision_mask = 128
+collision_mask = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Audio Bus", "Collision" ]
 amount = 10
 MAX_START_VERTICAL_THRUST = 700.0
 MAX_HORIZONTAL_SPEED = 200.0
@@ -46,7 +44,5 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 
 
