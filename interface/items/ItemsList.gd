@@ -10,9 +10,9 @@ onready var _grid = $Grid
 func initialize():
 	_grid.initialize()
 
-func add_item_button(item, price):
+func add_item_button(item, price, purse):
 	var item_button = ItemButton.instance()
-	item_button.initialize(item, price)
+	item_button.initialize(item, price, purse)
 	_grid.add_child(item_button)
 	item_button.connect("focus_entered", self, "_on_ItemButton_focus_entered", [item_button, item])
 	item_button.connect("amount_changed", self, "_on_ItemButton_amount_changed")

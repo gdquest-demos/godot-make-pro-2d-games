@@ -5,7 +5,6 @@
 [ext_resource path="res://interface/theme/icons/purse.png" type="Texture" id=3]
 [ext_resource path="res://interface/theme/icons/coins.png" type="Texture" id=4]
 
-
 [node name="ItemButton" type="Button" index="0"]
 
 anchor_left = 0.0

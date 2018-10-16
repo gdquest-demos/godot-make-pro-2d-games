@@ -7,11 +7,10 @@
 [ext_resource path="res://interface/menus/shop/panels/InfoPanel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/menus/shop/panels/DescriptionPanel.tscn" type="PackedScene" id=6]
 
-
-[node name="ShopSubMenu" index="0" instance=ExtResource( 1 )]
+[node name="ShopSubMenu" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
-ACTION = null
+ACTION = ""
 
 [node name="Column" type="VBoxContainer" parent="." index="1"]
 

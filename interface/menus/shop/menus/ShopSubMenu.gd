@@ -11,16 +11,18 @@ func _ready():
 	assert ACTION != ""
 
 func initialize(shop, buyer, items):
+	var purse = buyer.get_purse()
+	info_panel.initialize(purse)
+
 	for item in items:
 		var price = shop.get_buy_value(item) if ACTION == "buy_from" else item.price
-		var item_button = items_list.add_item_button(item, price)
+		var item_button = items_list.add_item_button(item, price, purse)
 
 		item_button.connect("pressed", self, "_on_ItemButton_pressed", [shop, buyer, item])
 		item_button.connect("pressed", info_panel, "_on_focused_Item_amount_changed", [item])
 	items_list.connect("focused_button_changed", self, "_on_ItemList_focused_button_changed")
 	items_list.initialize()
-
-	info_panel.initialize(buyer.get_node("Purse"))
+	
 
 func _on_ItemList_focused_button_changed(item_button):
 	description_panel.display(item_button.description)

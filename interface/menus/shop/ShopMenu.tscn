@@ -6,7 +6,7 @@
 [ext_resource path="res://interface/menus/shop/menus/SellSubMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/menus/MenuTitle.tscn" type="PackedScene" id=5]
 
-[node name="ShopMenu" index="0" instance=ExtResource( 1 )]
+[node name="ShopMenu" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 BuyMenu = ExtResource( 3 )
