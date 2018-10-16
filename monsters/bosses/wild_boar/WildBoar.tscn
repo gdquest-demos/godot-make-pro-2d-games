@@ -390,7 +390,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" groups=[
+[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
 "monster",
 ]]
 
@@ -559,7 +559,6 @@ shape = SubResource( 12 )
 
 [node name="HitBox" parent="." index="7" instance=ExtResource( 21 )]
 
-position = Vector2( 0, -212 )
 collision_layer = 8
 collision_mask = 16
 
@@ -580,9 +579,9 @@ boss_name = "Wild Boar"
 
 [connection signal="health_changed" from="Stats" to="." method="_on_Health_health_changed"]
 
-[connection signal="health_depleted" from="Stats" to="." method="_on_Health_health_depleted"]
-
 [connection signal="health_depleted" from="Stats" to="StateMachine" method="_on_Health_health_depleted"]
+
+[connection signal="health_depleted" from="Stats" to="." method="_on_Health_health_depleted"]
 
 [connection signal="charge_direction_set" from="StateMachine/ChargeSequence/Sprint" to="StateMachine/ChargeSequence/Bump" method="_on_Sprint_charge_direction_set"]
 
