@@ -36,7 +36,7 @@ fog = false
 
 [node name="PlayerSpawningPoint" parent="." index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 650, 1200 )
+position = Vector2( 603.07, 1200 )
 
 [node name="Gap" parent="." index="1" instance=ExtResource( 4 )]
 

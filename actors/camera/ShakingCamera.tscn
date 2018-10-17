@@ -29,6 +29,7 @@ editor_draw_drag_margin = false
 script = ExtResource( 1 )
 _sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
 amplitude = 8.0
+duration = 0.8
 DAMP_EASING = 1.0
 shake = false
 

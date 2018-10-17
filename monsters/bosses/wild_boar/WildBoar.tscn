@@ -390,7 +390,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
+[node name="WildBoar" type="KinematicBody2D" groups=[
 "monster",
 ]]
 
@@ -482,7 +482,6 @@ ROAM_RADIUS = 150.0
 
 [node name="ChargeSequence" type="Node" parent="StateMachine" index="2"]
 
-editor/display_folded = true
 script = ExtResource( 12 )
 
 [node name="Prepare" type="Node" parent="StateMachine/ChargeSequence" index="0"]
@@ -584,6 +583,8 @@ boss_name = "Wild Boar"
 [connection signal="health_depleted" from="Stats" to="." method="_on_Health_health_depleted"]
 
 [connection signal="charge_direction_set" from="StateMachine/ChargeSequence/Sprint" to="StateMachine/ChargeSequence/Bump" method="_on_Sprint_charge_direction_set"]
+
+[connection signal="hit_wall" from="StateMachine/ChargeSequence/Sprint" to="." method="_on_Sprint_hit_wall"]
 
 [connection signal="finished" from="StateMachine/Die" to="." method="_on_Die_finished"]
 

@@ -1,5 +1,7 @@
 extends "res://monsters/Monster.gd"
 
+signal hit_wall()
+
 onready var state_machine = $StateMachine
 onready var lifebar = $BossLifebar
 onready var health_node = $Stats
@@ -54,3 +56,6 @@ func _on_target_died():
 	._on_target_died()
 	state_machine.change_phase(4)
 	state_machine.go_to_next_state()
+
+func _on_Sprint_hit_wall():
+	emit_signal('hit_wall')

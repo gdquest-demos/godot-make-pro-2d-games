@@ -1,45 +1,36 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://core/world/tilesets/cave/cave.tres" type="TileSet" id=1]
-[ext_resource path="res://core/world/PlayerSpawningPoint.tscn" type="PackedScene" id=2]
-[ext_resource path="res://core/world/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://core/world/pit.png" type="Texture" id=4]
-[ext_resource path="res://monsters/bosses/wild_boar/WildBoar.tscn" type="PackedScene" id=5]
-[ext_resource path="res://actors/CoinsFountain.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/BossShakingCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://core/world/PlayerSpawningPoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/world/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://core/world/pit.png" type="Texture" id=5]
+[ext_resource path="res://monsters/bosses/wild_boar/WildBoar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://actors/CoinsFountain.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends \"res://levels/Level.gd\"
 
+onready var camera = $BossShakingCamera
+onready var wild_boar = $YSort/WildBoar
+
+const PlayerController = preload(\"res://actors/player/PlayerController.gd\")
+
 func _ready():
-	$Camera2D.current = true
+	camera.current = true
 
 func _on_CameraTrigger_body_entered(body):
-	$Camera2D.global_position = $YSort.get_node(\"Player\").camera.global_position
-	$Camera2D.current = true
-	yield($Camera2D.move_to_room_center(), \"completed\")
-	$YSort/WildBoar.start()
+	assert body is PlayerController
+	camera.initialize(body)
+	yield(camera.move_to_room_center(), \"completed\")
+	wild_boar.start()
 
 func _on_WildBoar_died():
 	$Door.set_active(true)
 "
 
 [sub_resource type="GDScript" id=2]
-
-script/source = "extends Camera2D
-
-var start_global_position = Vector2()
-
-func _ready():
-	start_global_position = global_position
-
-func move_to_room_center():
-	$Tween.interpolate_property(self, 'global_position', global_position, start_global_position, 1.0, Tween.TRANS_QUART, Tween.EASE_IN)
-	$Tween.start()
-	yield($Tween, \"tween_completed\")
-"
-
-[sub_resource type="GDScript" id=3]
 
 script/source = "extends Area2D
 
@@ -74,41 +65,10 @@ __meta__ = {
 }
 fog = false
 
-[node name="Camera2D" type="Camera2D" parent="." index="0"]
+[node name="BossShakingCamera" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 960, 498 )
-anchor_mode = 1
-rotating = false
+position = Vector2( 960, 408 )
 current = false
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-script = SubResource( 2 )
-
-[node name="Tween" type="Tween" parent="Camera2D" index="0"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
 
 [node name="CameraTrigger" type="Area2D" parent="." index="1"]
 
@@ -122,7 +82,7 @@ monitorable = false
 collision_layer = 0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = SubResource( 3 )
+script = SubResource( 2 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CameraTrigger" index="0"]
@@ -130,11 +90,11 @@ _sections_unfolded = [ "Collision" ]
 build_mode = 0
 polygon = PoolVector2Array( 768, 896, 1152, 896, 1152, 1024, 768, 1024 )
 
-[node name="PlayerSpawningPoint" parent="." index="2" instance=ExtResource( 2 )]
+[node name="PlayerSpawningPoint" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 960, 2912 )
 
-[node name="Door" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Door" parent="." index="3" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 visible = false
@@ -144,28 +104,30 @@ ACTIVE_AT_START = false
 
 [node name="Stairs" parent="Door" index="0"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="YSort" type="YSort" parent="." index="4"]
 
 sort_enabled = true
 
-[node name="WildBoar" parent="YSort" index="0" instance=ExtResource( 5 )]
+[node name="WildBoar" parent="YSort" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 970, 528 )
 
-[node name="CoinsFountain" parent="YSort" index="1" instance=ExtResource( 6 )]
+[node name="CoinsFountain" parent="YSort" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 970, 528 )
 MAX_SPAWN_COUNT = 16
 
+[connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
+
 [connection signal="body_entered" from="CameraTrigger" to="." method="_on_CameraTrigger_body_entered"]
 
-[connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
+[connection signal="died" from="YSort/WildBoar" to="YSort/CoinsFountain" method="start"]
 
 [connection signal="died" from="YSort/WildBoar" to="." method="_on_WildBoar_died"]
 
-[connection signal="died" from="YSort/WildBoar" to="YSort/CoinsFountain" method="start"]
+[connection signal="hit_wall" from="YSort/WildBoar" to="BossShakingCamera" method="_on_WildBoar_hit_wall"]
 
 
 [editable path="Door"]

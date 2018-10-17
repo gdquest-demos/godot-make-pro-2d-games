@@ -1,6 +1,7 @@
 extends "res://utils/state/State.gd"
 
 signal charge_direction_set(direction)
+signal hit_wall()
 
 export(float) var SPEED = 1000.0
 export(float) var MAX_DISTANCE = 1200.0
@@ -29,6 +30,7 @@ func update(delta):
 		var collision = owner.get_slide_collision(0)
 		if not collision.collider is PlayerController:
 			spawn_rock_particles(collision)
+			emit_signal('hit_wall')
 		emit_signal('charge_direction_set', direction)
 		emit_signal('finished')
 	elif distance > MAX_DISTANCE:
