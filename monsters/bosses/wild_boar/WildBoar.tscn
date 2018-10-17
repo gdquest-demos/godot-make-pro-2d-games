@@ -390,7 +390,7 @@ tracks/4/keys = {
 custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" groups=[
+[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
 "monster",
 ]]
 

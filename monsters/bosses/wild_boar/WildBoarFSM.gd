@@ -28,8 +28,6 @@ func _decide_on_next_state():
 	if current_state == $Spawn:
 		return $RoamSequence
 
-	return $ChargeSequence
-
 	if phase == 1:
 		if current_state == $RoamSequence:
 			sequence_cycles += 1
