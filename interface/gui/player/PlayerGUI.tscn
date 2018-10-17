@@ -1,7 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://interface/gui/player/PlayerGUI.gd" type="Script" id=1]
-[ext_resource path="res://interface/gui/player/life_bar/LifeBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/default.theme" type="Theme" id=1]
+[ext_resource path="res://interface/gui/player/PlayerGUI.gd" type="Script" id=2]
+[ext_resource path="res://interface/gui/player/life_bar/LifeBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://core/inventory/items/coins/coin_single.png" type="Texture" id=4]
+[ext_resource path="res://interface/fonts/source_code_pro_explanations_bold.tres" type="DynamicFont" id=5]
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends Panel
+
+
+func initialize(purse):
+	purse.connect('coins_changed', self, '_on_Purse_coins_changed')
+	update_count(purse.coins)
+
+func _on_Purse_coins_changed(coins):
+	update_count(coins)
+
+func update_count(value):
+	$Label.text = str(value)
+"
 
 [sub_resource type="Animation" id=1]
 
@@ -54,32 +73,99 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="PlayerGUI" type="Control"]
+[node name="PlayerGUI" type="HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_bottom = 151.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -30.0
+margin_bottom = 73.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+custom_constants/separation = 16
+alignment = 0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Theme", "custom_constants" ]
+
+[node name="LifeBar" parent="." index="0" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 396.0
+margin_bottom = 53.0
+_sections_unfolded = [ "Rect", "Size Flags" ]
+
+[node name="CoinsCounter" type="Panel" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 412.0
+margin_right = 532.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 120, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Visibility", "custom_constants" ]
+script = SubResource( 3 )
+_sections_unfolded = [ "Rect" ]
 
-[node name="LifeBar" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Coin" type="TextureRect" parent="CoinsCounter" index="0"]
 
+anchor_left = 0.0
+anchor_top = 0.5
 anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 30.0
-margin_top = 30.0
-margin_right = 426.0
-margin_bottom = 83.0
+anchor_bottom = 0.5
+margin_left = 15.0
+margin_top = -16.5
+margin_right = 45.0
+margin_bottom = 16.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="Label" type="Label" parent="CoinsCounter" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -72.0
+margin_right = -20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+text = "120"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""

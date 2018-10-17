@@ -7,7 +7,7 @@ func _ready():
 	remove_child(shop_menu)
 
 func initialize(player):
-	$PlayerGUI.initialize(player.get_health_node())
+	$PlayerGUI.initialize(player.get_health_node(), player.get_purse())
 	$PauseMenu.initialize(player.get_inventory())
 
 func _on_Level_loaded(level):

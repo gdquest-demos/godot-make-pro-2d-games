@@ -38,7 +38,7 @@ func _on_body_entered(body):
 	queue_free()
 "
 
-[node name="Cave" type="TileMap" index="0"]
+[node name="Cave" type="TileMap"]
 
 position = Vector2( 0, 32 )
 mode = 0
