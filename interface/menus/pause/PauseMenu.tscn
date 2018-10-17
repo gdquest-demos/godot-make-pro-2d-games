@@ -1,11 +1,28 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://interface/menus/Menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/menus/pause/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://interface/menus/shared/Button.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/menus/inventory/InventoryMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/menus/save_and_load/SaveMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://interface/menus/pause/OptionsMenu.tscn" type="PackedScene" id=5]
 
-[node name="PauseMenu" instance=ExtResource( 1 )]
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends VBoxContainer
+
+var focus_active = true setget set_focus_active
+
+func _ready():
+	self.focus_active = focus_active
+
+func set_focus_active(value):
+	focus_active = true
+	var focus_mode = FOCUS_ALL if focus_active else FOCUS_NONE
+	for child in get_children():
+		child.focus_mode = focus_mode
+"
+
+[node name="PauseMenu" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
@@ -58,7 +75,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
-_sections_unfolded = [ "Margin", "Rect", "Theme" ]
+script = SubResource( 1 )
+_sections_unfolded = [ "Focus", "Margin", "Rect", "Theme" ]
 
 [node name="Label" type="Label" parent="Background/Column" index="0"]
 
@@ -66,9 +84,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 108.0
+margin_top = 68.0
 margin_right = 600.0
-margin_bottom = 131.0
+margin_bottom = 91.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -81,41 +99,53 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Theme" ]
+_sections_unfolded = [ "Focus", "Theme" ]
 
 [node name="ContinueButton" parent="Background/Column" index="1" instance=ExtResource( 3 )]
 
 margin_left = 100.0
-margin_top = 147.0
+margin_top = 107.0
 margin_right = 500.0
-margin_bottom = 211.0
+margin_bottom = 171.0
 text = "Continue"
 
 [node name="ItemsButton" parent="Background/Column" index="2" instance=ExtResource( 3 )]
 
 margin_left = 100.0
-margin_top = 227.0
+margin_top = 187.0
 margin_right = 500.0
-margin_bottom = 291.0
+margin_bottom = 251.0
 text = "Items"
 
-[node name="OptionsButton" parent="Background/Column" index="3" instance=ExtResource( 3 )]
+[node name="SaveButton" parent="Background/Column" index="3" instance=ExtResource( 3 )]
 
 margin_left = 100.0
-margin_top = 307.0
+margin_top = 267.0
 margin_right = 500.0
-margin_bottom = 371.0
+margin_bottom = 331.0
+text = "Save"
+
+[node name="OptionsButton" parent="Background/Column" index="4" instance=ExtResource( 3 )]
+
+margin_left = 100.0
+margin_top = 347.0
+margin_right = 500.0
+margin_bottom = 411.0
 text = "Options"
 
-[node name="TitleScreenButton" parent="Background/Column" index="4" instance=ExtResource( 3 )]
+[node name="TitleScreenButton" parent="Background/Column" index="5" instance=ExtResource( 3 )]
 
 margin_left = 100.0
-margin_top = 387.0
+margin_top = 427.0
 margin_right = 500.0
-margin_bottom = 451.0
+margin_bottom = 491.0
 text = "Title Screen"
 
-[node name="InventoryMenu" parent="." index="3" instance=ExtResource( 4 )]
+[node name="SaveMenu" parent="." index="3" instance=ExtResource( 4 )]
+
+visible = false
+
+[node name="OptionsMenu" parent="." index="4" instance=ExtResource( 5 )]
 
 visible = false
 

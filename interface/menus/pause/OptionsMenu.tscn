@@ -51,9 +51,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 93.0
+margin_top = 73.0
 margin_right = 780.0
-margin_bottom = 128.0
+margin_bottom = 108.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -68,7 +68,23 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Focus", "custom_fonts" ]
 
-[node name="MusicController" parent="Column" index="1" instance=ExtResource( 5 )]
+[node name="HSeparator" type="HSeparator" parent="Column" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 124.0
+margin_right = 780.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="MusicController" parent="Column" index="2" instance=ExtResource( 5 )]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -81,7 +97,7 @@ margin_bottom = 284.0
 focus_neighbour_bottom = NodePath("../SfxController")
 BUS_NAME = "Music"
 
-[node name="SfxController" parent="Column" index="2" instance=ExtResource( 5 )]
+[node name="SfxController" parent="Column" index="3" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -94,10 +110,9 @@ margin_right = 780.0
 margin_bottom = 440.0
 focus_neighbour_top = NodePath("../MusicController")
 focus_neighbour_bottom = NodePath("../InterfaceController")
-_sections_unfolded = [ "Focus" ]
 BUS_NAME = "Sounds"
 
-[node name="InterfaceController" parent="Column" index="3" instance=ExtResource( 5 )]
+[node name="InterfaceController" parent="Column" index="4" instance=ExtResource( 5 )]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -111,7 +126,7 @@ focus_neighbour_top = NodePath("../SfxController")
 focus_neighbour_bottom = NodePath("../GoBackButton")
 BUS_NAME = "Interface"
 
-[node name="GoBackButton" type="Button" parent="Column" index="4"]
+[node name="HSeparator2" type="HSeparator" parent="Column" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -119,7 +134,23 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 612.0
 margin_right = 780.0
-margin_bottom = 692.0
+margin_bottom = 616.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="GoBackButton" type="Button" parent="Column" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 632.0
+margin_right = 780.0
+margin_bottom = 712.0
 rect_min_size = Vector2( 0, 80 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

@@ -2,21 +2,34 @@ extends "res://interface/menus/Menu.gd"
 
 signal unpause()
 
-const OptionsMenu = preload("res://interface/menus/pause/OptionsMenu.tscn")
+const InventoryMenu = preload("res://interface/menus/inventory/InventoryMenu.tscn")
 
 onready var continue_button = $Background/Column/ContinueButton
 onready var items_button = $Background/Column/ItemsButton
 onready var options_button = $Background/Column/OptionsButton
+onready var save_button = $Background/Column/SaveButton
 
-onready var inventory_menu = $InventoryMenu
+onready var buttons_container = $Background/Column
+
+onready var save_menu = $SaveMenu
+onready var options_menu = $OptionsMenu
 
 func _ready():
-	options_button.connect('pressed', self, 'open_sub_menu', [OptionsMenu])
+	options_button.connect('pressed', self, 'open_sub_menu', [options_menu])
+	save_button.connect('pressed', self, 'open_sub_menu', [save_menu])
+	remove_child(save_menu)
+	remove_child(options_menu)
 
 func initialize(inventory):
-	inventory_menu.initialize(inventory)
-	items_button.connect('pressed', inventory_menu, 'open', [inventory])
+	items_button.connect('pressed', self, 'open_sub_menu', [InventoryMenu, [inventory]])
 
 func open():
 	.open()
 	continue_button.grab_focus()
+
+func open_sub_menu(menu, args=[]):
+	var last_focused_item = get_focus_owner()
+	buttons_container.hide()
+	yield(.open_sub_menu(menu, args), 'completed')
+	buttons_container.show()
+	last_focused_item.grab_focus()

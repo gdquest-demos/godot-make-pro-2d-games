@@ -12,7 +12,7 @@ onready var sound_open = $MenuSfx/Open
 func _ready():
 	set_process_input(false)
 
-func open():
+func open(args=[]):
 	emit_signal("open")
 	set_process_input(true)
 	show()
@@ -36,7 +36,7 @@ func initialize(args=[]):
 	return
 
 func open_sub_menu(menu, args=[]):
-	var sub_menu = menu.instance()
+	var sub_menu = menu.instance() if menu is PackedScene else menu
 	if SUB_MENU_PATH:
 		get_node(SUB_MENU_PATH).add_child(sub_menu)
 	else:
@@ -44,6 +44,6 @@ func open_sub_menu(menu, args=[]):
 	sub_menu.initialize(args)
 
 	set_process_input(false)
-	sub_menu.open()
+	sub_menu.open(args)
 	yield(sub_menu, "closed")
 	set_process_input(true)
