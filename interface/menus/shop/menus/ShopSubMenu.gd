@@ -35,11 +35,11 @@ func close():
 	queue_free()
 
 func _on_ItemButton_pressed(shop, buyer, item):
-	var focused_item = get_focus_owner()
 	var price = shop.get_buy_value(item) if ACTION == "buy_from" else item.price
-	var coins = buyer.get_purse().coins
-	
-	var max_amount = floor(coins / price)
+	var coins = buyer.get_purse().coins if ACTION == "buy_from" else shop.get_purse().coins
+	var max_amount = min(item.amount, floor(coins / price))
+
+	var focused_item = get_focus_owner()
 	amount_popup.initialize(1, max_amount)
 	var amount = yield(amount_popup.open(), "completed")
 	focused_item.grab_focus()

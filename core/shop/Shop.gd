@@ -35,3 +35,6 @@ func sell_to(actor, item, amount=1):
 
 func get_buy_value(item):
 	return round(item.price * BUY_MULTIPLIER)
+
+func get_purse():
+	return purse
