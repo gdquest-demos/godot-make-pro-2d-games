@@ -1,12 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://core/world/tilesets/cave/cave.tres" type="TileSet" id=1]
-[ext_resource path="res://levels/BossShakingCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://monsters/BossShakingCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://core/world/PlayerSpawningPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://core/world/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://core/world/pit.png" type="Texture" id=5]
 [ext_resource path="res://monsters/bosses/wild_boar/WildBoar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/CoinsFountain.tscn" type="PackedScene" id=7]
+
 
 [sub_resource type="GDScript" id=1]
 
