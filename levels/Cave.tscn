@@ -38,7 +38,7 @@ func _on_body_entered(body):
 	queue_free()
 "
 
-[node name="Cave" type="TileMap"]
+[node name="Cave" type="TileMap" index="0"]
 
 position = Vector2( 0, 32 )
 mode = 0
@@ -63,7 +63,7 @@ _sections_unfolded = [ "Cell", "Collision", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
-fog = false
+fog = true
 
 [node name="BossShakingCamera" parent="." index="0" instance=ExtResource( 2 )]
 
