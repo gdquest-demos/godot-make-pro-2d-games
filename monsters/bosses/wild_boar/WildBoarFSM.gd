@@ -1,5 +1,7 @@
 extends "res://utils/state/StateMachine.gd"
 
+signal phase_changed(number)
+
 var sequence_cycles = 0
 export(int, 1, 3) var phase = 1
 
