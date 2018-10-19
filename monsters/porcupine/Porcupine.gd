@@ -68,12 +68,14 @@ func _change_state(new_state):
 			timer.wait_time = PREPARE_TO_CHARGE_WAIT_TIME
 			timer.start()
 		CHARGE:
+			if not target:
+				return
 			charge_direction = (target.position - position).normalized()
 			charge_distance = 0.0
 			dust_puffs.emitting = true
 		BUMP:
 			anim_player.stop()
-			var bump_direction = (position - target.position).normalized()
+			var bump_direction = - velocity.normalized()
 			tween.interpolate_property(self, 'position', position, position + BUMP_DISTANCE * bump_direction, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			tween.interpolate_method(self, '_animate_bump_height', 0, 1, BUMP_DURATION, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			tween.start()
