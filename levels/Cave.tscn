@@ -8,7 +8,6 @@
 [ext_resource path="res://monsters/bosses/wild_boar/WildBoar.tscn" type="PackedScene" id=6]
 [ext_resource path="res://actors/CoinsFountain.tscn" type="PackedScene" id=7]
 
-
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends \"res://levels/Level.gd\"
@@ -100,7 +99,7 @@ position = Vector2( 960, 2912 )
 editor/display_folded = true
 visible = false
 position = Vector2( 1570, 208 )
-map_path = "res://world/levels/Grasslands.tscn"
+map_path = "res://levels/Grasslands.tscn"
 ACTIVE_AT_START = false
 
 [node name="Stairs" parent="Door" index="0"]
@@ -120,13 +119,13 @@ position = Vector2( 970, 528 )
 position = Vector2( 970, 528 )
 MAX_SPAWN_COUNT = 16
 
-[connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
-
 [connection signal="body_entered" from="CameraTrigger" to="." method="_on_CameraTrigger_body_entered"]
 
-[connection signal="died" from="YSort/WildBoar" to="YSort/CoinsFountain" method="start"]
+[connection signal="body_entered" from="CameraTrigger" to="CameraTrigger" method="_on_body_entered"]
 
 [connection signal="died" from="YSort/WildBoar" to="." method="_on_WildBoar_died"]
+
+[connection signal="died" from="YSort/WildBoar" to="YSort/CoinsFountain" method="start"]
 
 [connection signal="hit_wall" from="YSort/WildBoar" to="BossShakingCamera" method="_on_WildBoar_hit_wall"]
 
