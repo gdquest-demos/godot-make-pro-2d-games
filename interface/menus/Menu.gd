@@ -47,3 +47,4 @@ func open_sub_menu(menu, args=[]):
 	sub_menu.open(args)
 	yield(sub_menu, "closed")
 	set_process_input(true)
+	remove_child(sub_menu)
