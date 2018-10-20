@@ -357,8 +357,6 @@ __meta__ = {
 
 [node name="ShakingCamera" parent="." index="0" instance=ExtResource( 2 )]
 
-duration = 0.8
-
 [node name="HitBox" parent="." index="1" instance=ExtResource( 3 )]
 
 editor/display_folded = true

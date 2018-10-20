@@ -44,7 +44,7 @@ func fall(gap_size):
 	$Health.take_damage(2)
 
 func _on_Die_finished(string):
-	queue_free()
+	set_dead(true)
 
 func get_health_node():
 	return $Health
