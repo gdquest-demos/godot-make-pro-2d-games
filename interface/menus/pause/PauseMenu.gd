@@ -3,6 +3,7 @@ extends "res://interface/menus/Menu.gd"
 signal unpause()
 
 const InventoryMenu = preload("res://interface/menus/inventory/InventoryMenu.tscn")
+const PlayerController = preload("res://actors/player/PlayerController.gd")
 
 onready var continue_button = $Background/Column/ContinueButton
 onready var items_button = $Background/Column/ItemsButton
@@ -20,8 +21,14 @@ func _ready():
 	remove_child(save_menu)
 	remove_child(options_menu)
 
-func initialize(inventory):
+func initialize(actor):
+	assert actor is PlayerController
+	var inventory = actor.get_inventory()
 	items_button.connect('pressed', self, 'open_sub_menu', [InventoryMenu, [inventory]])
+	actor.connect('died', self, '_on_Player_died')
+
+func _on_Player_died():
+	items_button.disabled = true
 
 func open():
 	.open()

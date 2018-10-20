@@ -8,7 +8,7 @@ func _ready():
 
 func initialize(player):
 	$PlayerGUI.initialize(player.get_health_node(), player.get_purse())
-	$PauseMenu.initialize(player.get_inventory())
+	$PauseMenu.initialize(player)
 
 func _on_Level_loaded(level):
 	var tree = get_tree()
