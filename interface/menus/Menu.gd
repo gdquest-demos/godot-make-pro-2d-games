@@ -13,16 +13,16 @@ func _ready():
 	set_process_input(false)
 
 func open(args=[]):
-	emit_signal("open")
 	set_process_input(true)
 	show()
 	sound_open.play()
+	emit_signal("open")
 
 func close():
-	emit_signal("closed")
+	sound_confirm.play()
 	set_process_input(false)
 	hide()
-	sound_confirm.play()
+	emit_signal("closed")
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):

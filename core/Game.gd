@@ -25,7 +25,7 @@ func change_level(scene_path):
 func _on_Door_player_entered(target_map):
 	change_level(target_map)
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		pause()
 		tree.set_input_as_handled()
@@ -36,4 +36,10 @@ func pause():
 	tree.paused = true
 	pause_menu.open()
 	yield(pause_menu, "closed")
+	tree.paused = false
+
+func _on_ShopMenu_open():
+	tree.paused = true
+
+func _on_ShopMenu_closed():
 	tree.paused = false
