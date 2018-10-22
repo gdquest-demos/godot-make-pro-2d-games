@@ -1,30 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://interface/default.theme" type="Theme" id=1]
-[ext_resource path="res://interface/theme/fonts/source_code_pro_26.tres" type="DynamicFont" id=2]
-
-[sub_resource type="GDScript" id=1]
-
-script/source = "tool
-extends Panel
-
-onready var audio_bus_label = $Row/Label
-onready var amount_label = $Row/Amount
-onready var slider = $Row/HSlider
-
-export(String, \"Music\", \"World\", \"Interface\") var BUS_NAME = \"Music\"
-var audio_bus_index
-
-func _ready():
-	audio_bus_index = AudioServer.get_bus_index(BUS_NAME)
-	audio_bus_label.text = BUS_NAME
-	var volume_db = AudioServer.get_bus_volume_db(audio_bus_index)
-	slider.value = round(min(db2linear(volume_db) * 100.0, 100.0))
-
-func change_volume(value):
-	var volume = max(linear2db(value / slider.max_value), -80.0)
-	AudioServer.set_bus_volume_db(audio_bus_index, volume)
-"
+[ext_resource path="res://interface/menus/pause/SoundController.gd" type="Script" id=2]
+[ext_resource path="res://interface/theme/fonts/source_code_pro_26.tres" type="DynamicFont" id=3]
 
 [sub_resource type="GDScript" id=2]
 
@@ -54,9 +32,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = ExtResource( 1 )
-script = SubResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Focus", "Rect", "Theme" ]
-BUS_NAME = "Music"
 
 [node name="Row" type="HBoxContainer" parent="." index="0"]
 
@@ -92,7 +69,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 5
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Music"
 valign = 1
 percent_visible = 1.0
@@ -121,7 +98,7 @@ min_value = 0.0
 max_value = 100.0
 step = 10.0
 page = 0.0
-value = 13.0
+value = 58.0
 exp_edit = false
 rounded = false
 editable = true
@@ -146,7 +123,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "100"
 align = 1
 valign = 2

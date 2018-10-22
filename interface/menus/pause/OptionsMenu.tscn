@@ -6,7 +6,7 @@
 [ext_resource path="res://interface/theme/fonts/default_font_comfortaa.tres" type="DynamicFont" id=4]
 [ext_resource path="res://interface/menus/pause/SoundController.tscn" type="PackedScene" id=5]
 
-[node name="OptionsMenu" type="Panel" index="0"]
+[node name="OptionsMenu" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -94,7 +94,6 @@ margin_left = 0.0
 margin_top = 144.0
 margin_right = 780.0
 margin_bottom = 284.0
-focus_neighbour_bottom = NodePath("../SfxController")
 
 [node name="SfxController" parent="Column" index="3" instance=ExtResource( 5 )]
 
@@ -107,9 +106,6 @@ margin_left = 0.0
 margin_top = 300.0
 margin_right = 780.0
 margin_bottom = 440.0
-focus_neighbour_top = NodePath("../MusicController")
-focus_neighbour_bottom = NodePath("../InterfaceController")
-BUS_NAME = "Sounds"
 
 [node name="InterfaceController" parent="Column" index="4" instance=ExtResource( 5 )]
 
@@ -121,9 +117,6 @@ margin_left = 0.0
 margin_top = 456.0
 margin_right = 780.0
 margin_bottom = 596.0
-focus_neighbour_top = NodePath("../SfxController")
-focus_neighbour_bottom = NodePath("../GoBackButton")
-BUS_NAME = "Interface"
 
 [node name="HSeparator2" type="HSeparator" parent="Column" index="5"]
 
