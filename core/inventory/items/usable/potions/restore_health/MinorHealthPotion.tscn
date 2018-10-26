@@ -11,5 +11,4 @@ icon = ExtResource( 2 )
 display_name = "Minor health potion"
 description = "Heals 10 life points"
 amount = 1
-
-
+HEAL_AMOUNT = 10
