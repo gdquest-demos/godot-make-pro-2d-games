@@ -18,6 +18,10 @@ func _change_state(state_name):
 	if current_state == states_map['die']:
 		set_active(false)
 		return
+	# Reset the player's jump height if transitioning away from jump to a state
+	# that would stop jump's update method
+	if current_state == states_map['jump'] and state_name in ['fall']:
+		current_state.height = 0
 	if not active:
 		return
 	if state_name in ['stagger', 'jump', 'attack']:

@@ -18,7 +18,7 @@ var horizontal_speed = 0.0
 var horizontal_velocity = Vector2()
 
 var vertical_speed = 0.0
-var height = 0.0
+var height = 0.0 setget set_height
 
 func initialize(speed, velocity):
 	horizontal_speed = speed
@@ -40,6 +40,7 @@ func update(delta):
 
 	move_horizontally(delta, input_direction)
 	animate_jump_height(delta)
+
 	if height <= 0.0:
 		emit_signal("finished", "previous")
 
@@ -57,9 +58,10 @@ func move_horizontally(delta, direction):
 	owner.move_and_slide(horizontal_velocity)
 	owner.emit_signal("position_changed", owner.position)
 
+func set_height(new_height):
+	height = new_height
+	owner.get_node("BodyPivot").position.y = -height
+
 func animate_jump_height(delta):
 	vertical_speed -= GRAVITY * delta
-	height += vertical_speed * delta
-	height = max(0.0, height)
-
-	owner.get_node("BodyPivot").position.y = -height
+	set_height(max(0.0, height + vertical_speed * delta))
