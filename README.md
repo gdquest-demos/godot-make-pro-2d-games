@@ -27,6 +27,11 @@ If you have requests for tutorials from elements of that game demo, please feel 
 
 This is our first open game on GDQuest. We are looking to build more Free games and game creation tools in the future. Be sure to [subscribe to our YouTube channel](http://youtube.com/c/gdquest) to know when that happens ☺
 
+## Dependencies ##
+
+- Godot 3.0.6 (earlier minor releases might work)
+  - __Note__: This project currently does not work in Godot 3.1. This may change once 3.1 is officially released.
+
 ## Features ##
 
 Here's a list of the gameplay features and a few of the systems you will find in the demo
