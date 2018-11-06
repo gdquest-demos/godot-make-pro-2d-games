@@ -129,9 +129,9 @@ _sections_unfolded = [ "Pause", "Theme" ]
 
 [node name="LifebarsBuilder" parent="Interface" index="3" instance=ExtResource( 13 )]
 
-[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
-
 [connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]
+
+[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
 
 [connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
 
