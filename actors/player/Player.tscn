@@ -342,7 +342,7 @@ use_filter = true
 font_data = ExtResource( 17 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 960, 550 )
 input_pickable = false
@@ -359,7 +359,6 @@ __meta__ = {
 
 [node name="HitBox" parent="." index="1" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 monitorable = true
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
@@ -438,7 +437,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="BodyPivot" type="Position2D" parent="." index="5"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="WeaponPivot" type="Position2D" parent="BodyPivot" index="0"]
@@ -502,8 +500,6 @@ MAXIMUM = 1000000
 
 [node name="Inventory" parent="." index="9" instance=ExtResource( 21 )]
 
-editor/display_folded = true
-
 [node name="MinorHealthPotion" parent="Inventory" index="0" instance=ExtResource( 22 )]
 
 amount = 4
@@ -512,7 +508,6 @@ amount = 4
 
 [node name="BulletSpawn" type="Node2D" parent="." index="10"]
 
-editor/display_folded = true
 position = Vector2( 1.17401, -61.266 )
 script = ExtResource( 24 )
 _sections_unfolded = [ "Transform" ]
