@@ -2,13 +2,10 @@
 extends "res://utils/state/State.gd"
 
 func handle_input(event):
-	if event.is_action_pressed('move_left'):
-		get_tree().set_input_as_handled()
-	if event.is_action_pressed('move_right'):
-		get_tree().set_input_as_handled()
-	if event.is_action_pressed('move_up'):
-		get_tree().set_input_as_handled()
-	if event.is_action_pressed('move_down'):
+	if event.is_action_pressed("discrete_move_left") or Input.is_action_pressed("joy_move_left") \
+	or event.is_action_pressed("discrete_move_right") or Input.is_action_pressed("joy_move_right") \
+	or event.is_action_pressed("discrete_move_up") or Input.is_action_pressed("joy_move_up") \
+	or event.is_action_pressed("discrete_move_down") or Input.is_action_pressed("joy_move_down"):
 		get_tree().set_input_as_handled()
 
 func get_input_direction():
