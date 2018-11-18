@@ -2,8 +2,14 @@
 extends "res://utils/state/State.gd"
 
 func handle_input(event):
-	if event.is_action_pressed("simulate_damage"):
-		emit_signal("finished", "stagger")
+	if event.is_action_pressed('move_left'):
+		get_tree().set_input_as_handled()
+	if event.is_action_pressed('move_right'):
+		get_tree().set_input_as_handled()
+	if event.is_action_pressed('move_up'):
+		get_tree().set_input_as_handled()
+	if event.is_action_pressed('move_down'):
+		get_tree().set_input_as_handled()
 
 func get_input_direction():
 	var input_direction = Vector2()

@@ -30,7 +30,7 @@ func _change_state(state_name):
 		$Jump.initialize($Move.speed, $Move.velocity)
 	._change_state(state_name)
 
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action_pressed('attack'):
 		if current_state in [$Attack, $Stagger]:
 			return
