@@ -18,12 +18,15 @@ func add_item_button(item, price, purse):
 	item_button.connect("amount_changed", self, "_on_ItemButton_amount_changed")
 	return item_button
 
-func _input(event):
+func _gui_input(event):
+	if not get_focus_owner() == self:
+		return
 	if event.is_action_pressed('ui_left') or \
 		event.is_action_pressed('ui_right') or \
 		event.is_action_pressed('ui_up') or \
 		event.is_action_pressed('ui_down'):
 		$MenuSfx/Navigate.play()
+		accept_event()
 
 func get_item_buttons():
 	return _grid.get_children()
