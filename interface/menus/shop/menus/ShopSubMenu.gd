@@ -36,7 +36,7 @@ func close():
 
 func _on_ItemButton_pressed(shop, buyer, item):
 	var price = shop.get_buy_value(item) if ACTION == "buy_from" else item.price
-	var coins = buyer.get_purse().coins if ACTION == "buy_from" else shop.get_purse().coins
+	var coins = shop.get_purse().coins if ACTION == "buy_from" else buyer.get_purse().coins
 	var max_amount = min(item.amount, floor(coins / price))
 
 	var focused_item = get_focus_owner()
