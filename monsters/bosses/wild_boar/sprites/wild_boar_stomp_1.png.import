@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/wild_boar_stomp_1.png-d07b8919e74a2c01fc887ee3913e97cc.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
@@ -14,6 +17,7 @@ dest_files=[ "res://.import/wild_boar_stomp_1.png-d07b8919e74a2c01fc887ee3913e97
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -23,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

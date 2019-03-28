@@ -8,8 +8,8 @@ export(bool) var shake = false setget set_shake
 
 onready var timer = $Timer
 
-enum STATES {IDLE, SHAKING}
-var state = IDLE
+enum States {IDLE, SHAKING}
+var state = States.IDLE
 
 func _ready():
 	self.duration = duration
@@ -25,16 +25,16 @@ func set_duration(value):
 func set_shake(value):
 	shake = value
 	if shake:
-		_change_state(SHAKING)
+		_change_state(States.SHAKING)
 	else:
-		_change_state(IDLE)
+		_change_state(States.IDLE)
 
 func _change_state(new_state):
 	match new_state:
-		IDLE:
+		States.IDLE:
 			offset = Vector2()
 			set_process(false)
-		SHAKING:
+		States.SHAKING:
 			set_process(true)
 			timer.start()
 	state = new_state

@@ -14,129 +14,67 @@
 [ext_resource path="res://interface/menus/pause/PauseMenu.tscn" type="PackedScene" id=12]
 [ext_resource path="res://interface/gui/lifebar/LifebarsBuilder.tscn" type="PackedScene" id=13]
 
-[node name="Game" type="Node" index="0"]
-
+[node name="Game" type="Node"]
 pause_mode = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
 
-[node name="MusicPlayer" parent="." index="0" instance=ExtResource( 2 )]
+[node name="MusicPlayer" parent="." instance=ExtResource( 2 )]
 
-[node name="Background" type="CanvasLayer" parent="." index="1"]
-
+[node name="Background" type="CanvasLayer" parent="."]
 editor/display_folded = true
 layer = -100
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="ColorRect" type="ColorRect" parent="Background" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="ColorRect" type="ColorRect" parent="Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0.0625, 0.0549316, 0.0549316, 1 )
 
-[node name="BackgroundFog" type="ColorRect" parent="Background" index="1"]
-
+[node name="BackgroundFog" type="ColorRect" parent="Background"]
 visible = false
 material = ExtResource( 3 )
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material" ]
 
-[node name="LevelLoader" type="Node" parent="." index="2"]
-
+[node name="LevelLoader" type="Node" parent="."]
 pause_mode = 1
 script = ExtResource( 5 )
-_sections_unfolded = [ "Pause" ]
-LEVEL_START = "res://levels/TestLevel.tscn"
+LEVEL_START = "res://levels/Grasslands.tscn"
 
-[node name="Player" parent="LevelLoader" index="0" instance=ExtResource( 6 )]
+[node name="Player" parent="LevelLoader" instance=ExtResource( 6 )]
 
-[node name="Overlays" type="CanvasLayer" parent="." index="3"]
-
+[node name="Overlays" type="CanvasLayer" parent="."]
 pause_mode = 2
 editor/display_folded = true
 layer = 50
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-_sections_unfolded = [ "Pause" ]
 
-[node name="ForegroundFog" type="ColorRect" parent="Overlays" index="0"]
-
+[node name="ForegroundFog" type="ColorRect" parent="Overlays"]
 visible = false
 material = ExtResource( 7 )
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
 script = ExtResource( 4 )
-_sections_unfolded = [ "Material" ]
 
-[node name="TransitionColor" parent="Overlays" index="1" instance=ExtResource( 8 )]
+[node name="TransitionColor" parent="Overlays" instance=ExtResource( 8 )]
 
-[node name="Interface" type="CanvasLayer" parent="." index="4"]
-
+[node name="Interface" type="CanvasLayer" parent="."]
 pause_mode = 2
 layer = 100
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 9 )
-_sections_unfolded = [ "Pause" ]
 
-[node name="PlayerGUI" parent="Interface" index="0" instance=ExtResource( 10 )]
+[node name="PlayerGUI" parent="Interface" instance=ExtResource( 10 )]
 
-[node name="ShopMenu" parent="Interface" index="1" instance=ExtResource( 11 )]
-
+[node name="ShopMenu" parent="Interface" instance=ExtResource( 11 )]
 pause_mode = 2
 visible = false
 _sections_unfolded = [ "Pause", "Theme" ]
 
-[node name="PauseMenu" parent="Interface" index="2" instance=ExtResource( 12 )]
-
+[node name="PauseMenu" parent="Interface" instance=ExtResource( 12 )]
 visible = false
 _sections_unfolded = [ "Pause", "Theme" ]
 
-[node name="LifebarsBuilder" parent="Interface" index="3" instance=ExtResource( 13 )]
-
-[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
-
-[connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]
+[node name="LifebarsBuilder" parent="Interface" instance=ExtResource( 13 )]
 
 [connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
-
-[connection signal="closed" from="Interface/ShopMenu" to="." method="_on_ShopMenu_closed"]
-
-[connection signal="open" from="Interface/ShopMenu" to="." method="_on_ShopMenu_open"]
-
-
+[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
+[connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]

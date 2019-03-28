@@ -1,9 +1,9 @@
 tool
 extends Area2D
 
-enum COIN_AMOUNTS {SMALL=10, MID=30, HIGH=100}
+enum CoinAmounts {SMALL=10, MID=30, HIGH=100}
 
-export(COIN_AMOUNTS) var amount = SMALL setget set_amount
+export(CoinAmounts) var amount = CoinAmounts.SMALL setget set_amount
 export(float) var MAX_START_VERTICAL_THRUST = 400.0
 export(float) var MAX_HORIZONTAL_SPEED = 200.0
 export(float) var GRAVITY = 2000.0
@@ -18,10 +18,10 @@ var speed_horizontal = 0.0
 var speed_vertical = 0.0
 var height = 0.0 setget set_height
 
-const TEXTURES = {
-	SMALL: preload("res://core/inventory/items/coins/coin_single.png"),
-	MID: preload("res://core/inventory/items/coins/coins_three.png"),
-	HIGH: preload("res://core/inventory/items/coins/coins_stack.png"),
+var TEXTURES = {
+	CoinAmounts.SMALL: preload("res://core/inventory/items/coins/coin_single.png"),
+	CoinAmounts.MID: preload("res://core/inventory/items/coins/coins_three.png"),
+	CoinAmounts.HIGH: preload("res://core/inventory/items/coins/coins_stack.png"),
 }
 
 func set_amount(value):
@@ -64,7 +64,7 @@ func set_height(value):
 		$coins.position.y = -height
 
 func set_random_amount():
-	var amounts = [SMALL, MID, HIGH]
+	var amounts = [CoinAmounts.SMALL, CoinAmounts.MID, CoinAmounts.HIGH]
 	self.amount = amounts[randi() % amounts.size()]
 
 # TODO: won't work as currently velocity is re-calculated on every process tick
