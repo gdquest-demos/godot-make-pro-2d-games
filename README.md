@@ -29,8 +29,7 @@ This is our first open game on GDQuest. We are looking to build more Free games 
 
 ## Dependencies ##
 
-- Godot 3.0.6 (earlier minor releases might work)
-  - __Note__: This project currently does not work in Godot 3.1. This may change once 3.1 is officially released.
+The project runs in **Godot 3.1**.
 
 ## Features ##
 
