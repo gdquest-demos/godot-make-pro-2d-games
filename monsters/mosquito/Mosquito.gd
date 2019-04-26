@@ -1,6 +1,6 @@
 extends '../Monster.gd'
 
-enum STATES { IDLE, RETURN, SPOT, FOLLOW, DIE}
+enum { IDLE, RETURN, SPOT, FOLLOW, DIE}
 
 export(float) var FOLLOW_RANGE = 300.0
 export(float) var MAX_FLY_SPEED = 360.0
