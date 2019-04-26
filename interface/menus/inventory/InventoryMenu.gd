@@ -1,12 +1,15 @@
-extends "res://interface/menus/Menu.gd"
+extends Menu
 
 onready var items_list = $Column/ItemsMenu
 
-func initialize(args=[]):
-	var inventory = args[0]
-	items_list.initialize(inventory)
-	
-func open(inventory):
+"""args: {inventory}"""
+func initialize(args={}):
+	items_list.initialize(args['inventory'])
+
+"""args: {inventory}"""
+func open(args={}):
+	assert args.size() == 1
+	var inventory = args['inventory']
 	.open()
 
 func close():

@@ -1,17 +1,23 @@
-extends "res://interface/menus/Menu.gd"
+extends Menu
 
 signal amount_confirmed(value)
 
-onready var slider = $VBoxContainer/Slider/HSlider
-onready var label = $VBoxContainer/Slider/Amount
+onready var popup = $Popup
+onready var slider = $Popup/VBoxContainer/Slider/HSlider
+onready var label = $Popup/VBoxContainer/Slider/Amount
 
-func initialize(value, max_value):
+
+"""args: {value, max_value}"""
+func initialize(args={}):
+	assert args.size() == 2
+	var value = args['value']
+	var max_value = args['max_value']
 	label.initialize(value, max_value)
 	slider.initialize(value, max_value)
 	slider.grab_focus()
 
-func open():
-	popup_centered()
+func open(args={}):
+	popup.popup_centered()
 	.open()
 	var amount = yield(self, "amount_confirmed")
 	close()
@@ -20,7 +26,7 @@ func open():
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		emit_signal("amount_confirmed", 0)
-		get_tree().set_input_as_handled()
+		accept_event()
 	elif event.is_action_pressed("ui_accept"):
 		emit_signal("amount_confirmed", slider.value)
-		get_tree().set_input_as_handled()
+		accept_event()

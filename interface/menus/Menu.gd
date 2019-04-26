@@ -1,4 +1,5 @@
 extends Control
+class_name Menu
 
 signal open()
 signal closed()
@@ -12,7 +13,7 @@ onready var sound_open = $MenuSfx/Open
 func _ready():
 	set_process_input(false)
 
-func open(args=[]):
+func open(args={}):
 	set_process_input(true)
 	show()
 	sound_open.play()
@@ -24,18 +25,18 @@ func close():
 	hide()
 	emit_signal("closed")
 
-func _input(event):
+func _gui_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().set_input_as_handled()
+		accept_event()
 		close()
 
 # You can streamline opening sub menus with these methods
 # The main drawback is you lose the initialize method's signature
-# Instead you have to group the arguments in an array
-func initialize(args=[]):
+# Instead you have to group the arguments in a dictionary
+func initialize(args={}):
 	return
 
-func open_sub_menu(menu, args=[]):
+func open_sub_menu(menu, args={}):
 	var sub_menu = menu.instance() if menu is PackedScene else menu
 	if SUB_MENU_PATH:
 		get_node(SUB_MENU_PATH).add_child(sub_menu)

@@ -1,12 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://interface/default.theme" type="Theme" id=1]
-[ext_resource path="res://interface/menus/shop/popups/AmountPopup.gd" type="Script" id=2]
-[ext_resource path="res://interface/menus/MenuSfx.tscn" type="PackedScene" id=3]
+[ext_resource path="res://interface/menus/shop/popups/AmountPopup.gd" type="Script" id=1]
+[ext_resource path="res://interface/menus/MenuSfx.tscn" type="PackedScene" id=2]
+[ext_resource path="res://interface/default.theme" type="Theme" id=3]
 [ext_resource path="res://interface/menus/shop/popups/HSlider.gd" type="Script" id=4]
 
 [sub_resource type="GDScript" id=1]
-
 resource_local_to_scene = true
 script/source = "extends Label
 
@@ -22,111 +21,54 @@ func _on_HSlider_value_changed(value):
 func update_text(value):
 	text = \"%s/%s\" % [value, _max_value]
 "
-_sections_unfolded = [ "Resource" ]
 
-[node name="AmountPopup" type="PopupPanel"]
+[node name="AmountPopup" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="MenuSfx" parent="." instance=ExtResource( 2 )]
+
+[node name="Popup" type="PopupPanel" parent="."]
+visible = true
 margin_right = 300.0
 margin_bottom = 300.0
 rect_min_size = Vector2( 300, 120 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-theme = ExtResource( 1 )
+theme = ExtResource( 3 )
 popup_exclusive = true
-script = ExtResource( 2 )
-_sections_unfolded = [ "Pause", "Popup", "Rect", "Theme" ]
-SUB_MENU_PATH = null
 
-[node name="MenuSfx" parent="." index="0" instance=ExtResource( 3 )]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Popup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = -2.0
 
-[node name="Title" type="Label" parent="VBoxContainer" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 300.0
+[node name="Title" type="Label" parent="Popup/VBoxContainer"]
+margin_right = 296.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 0, 60 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Amount"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Slider" type="Control" parent="VBoxContainer" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Slider" type="Control" parent="Popup/VBoxContainer"]
 margin_top = 76.0
-margin_right = 300.0
+margin_right = 296.0
 margin_bottom = 216.0
 rect_min_size = Vector2( 0, 140 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="Amount" type="Label" parent="VBoxContainer/Slider" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Amount" type="Label" parent="Popup/VBoxContainer/Slider"]
 anchor_right = 1.0
-anchor_bottom = 0.0
 margin_top = 34.0
 margin_bottom = 57.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "6/8"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 script = SubResource( 1 )
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/Slider" index="1"]
-
-anchor_left = 0.0
+[node name="HSlider" type="HSlider" parent="Popup/VBoxContainer/Slider"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -134,53 +76,17 @@ margin_left = 20.0
 margin_top = -7.0
 margin_right = -20.0
 margin_bottom = 9.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
-min_value = 0.0
 max_value = 8.0
-step = 1.0
-page = 0.0
 value = 6.0
-exp_edit = false
-rounded = false
-editable = true
-tick_count = 0
-ticks_on_borders = false
-focus_mode = 2
 script = ExtResource( 4 )
 
-[node name="OkButton" type="Button" parent="VBoxContainer" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
+[node name="OkButton" type="Button" parent="Popup/VBoxContainer"]
+margin_left = 18.0
 margin_top = 232.0
-margin_right = 280.0
+margin_right = 278.0
 margin_bottom = 272.0
 rect_min_size = Vector2( 260, 40 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "OK"
-flat = false
-align = 1
-_sections_unfolded = [ "Margin", "Rect", "Size Flags" ]
 
-[connection signal="value_changed" from="VBoxContainer/Slider/HSlider" to="VBoxContainer/Slider/Amount" method="_on_HSlider_value_changed"]
-
-
+[connection signal="value_changed" from="Popup/VBoxContainer/Slider/HSlider" to="Popup/VBoxContainer/Slider/Amount" method="_on_HSlider_value_changed"]

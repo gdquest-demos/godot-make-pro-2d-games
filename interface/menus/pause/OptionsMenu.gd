@@ -1,10 +1,10 @@
-extends "res://interface/menus/Menu.gd"
+extends Menu
 
 const SoundController = preload("res://interface/menus/pause/SoundController.gd")
 
 onready var first_slider = $Column/MusicController/Row/HSlider
 
-func open(args):
+func open(args={}):
 	.open()
 	first_slider.grab_focus()
 	set_focus_neighbors()

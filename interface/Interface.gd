@@ -8,7 +8,7 @@ func _ready():
 
 func initialize(player):
 	$PlayerGUI.initialize(player.get_health_node(), player.get_purse())
-	$PauseMenu.initialize(player)
+	$PauseMenu.initialize({'actor': player})
 
 func _on_Level_loaded(level):
 	var tree = get_tree()
@@ -21,4 +21,4 @@ func _on_Level_loaded(level):
 
 func shop_open(seller_shop, buyer):
 	add_child(shop_menu)
-	shop_menu.open(seller_shop, buyer)
+	shop_menu.open({'shop': seller_shop, 'buyer': buyer})

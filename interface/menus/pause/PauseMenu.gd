@@ -1,4 +1,4 @@
-extends "res://interface/menus/Menu.gd"
+extends Menu
 
 signal unpause()
 
@@ -21,20 +21,22 @@ func _ready():
 	remove_child(save_menu)
 	remove_child(options_menu)
 
-func initialize(actor):
+"""args: {actor}"""
+func initialize(args={}):
+	var actor = args['actor']
 	assert actor is PlayerController
 	var inventory = actor.get_inventory()
-	items_button.connect('pressed', self, 'open_sub_menu', [InventoryMenu, [inventory]])
+	items_button.connect('pressed', self, 'open_sub_menu', [InventoryMenu, {'inventory':inventory}])
 	actor.connect('died', self, '_on_Player_died')
 
 func _on_Player_died():
 	items_button.disabled = true
 
-func open():
+func open(args={}):
 	.open()
 	continue_button.grab_focus()
 
-func open_sub_menu(menu, args=[]):
+func open_sub_menu(menu, args={}):
 	var last_focused_item = get_focus_owner()
 	buttons_container.hide()
 	yield(.open_sub_menu(menu, args), 'completed')
