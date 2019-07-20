@@ -37,7 +37,8 @@ func _unhandled_input(event):
 		_change_state('attack')
 		get_tree().set_input_as_handled()
 		return
-	current_state.handle_input(event)
+	if current_state:
+		current_state.handle_input(event)
 
 func _on_Health_damage_taken(new_health):
 	_change_state('stagger')

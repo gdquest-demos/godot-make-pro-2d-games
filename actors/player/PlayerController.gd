@@ -45,6 +45,8 @@ func fall(gap_size):
 
 func _on_Die_finished(string):
 	set_dead(true)
+	get_tree().change_scene("res://Demo.tscn")
+	
 
 func get_health_node():
 	return $Health
