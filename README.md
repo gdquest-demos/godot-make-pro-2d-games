@@ -67,3 +67,11 @@ Here's a list of the gameplay features and a few of the systems you will find in
 - Modular hit box and damage source system to create ranged and melee weapons
 - Stats node to manage the player and the monsters' health
 - Gaps the player can fall into
+
+### Contributing
+
+You can find our contributor's guides here:
+
+- [Contributor's guide](https://www.gdquest.com/open-source/guidelines/contributing-to-gdquest-projects/)
+- [GDScript best practices](https://www.gdquest.com/open-source/guidelines/godot-gdscript/)
+- [Kind communication guidelines](https://www.gdquest.com/open-source/guidelines/kind-communication-guidelines/)
