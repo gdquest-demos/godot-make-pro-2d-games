@@ -10,7 +10,7 @@ onready var inventory = $Inventory
 onready var purse = $Purse
 
 func _ready():
-	assert inventory != null
+	assert(inventory != null)
 
 func buy_from(actor, item, amount=1):
 	amount = clamp(amount, 1, MAX_TRANSACTION_COUNT)

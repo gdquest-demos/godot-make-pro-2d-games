@@ -9,7 +9,7 @@ onready var label = $Popup/VBoxContainer/Slider/Amount
 
 """args: {value, max_value}"""
 func initialize(args={}):
-	assert args.size() == 2
+	assert(args.size() == 2)
 	var value = args['value']
 	var max_value = args['max_value']
 	label.initialize(value, max_value)

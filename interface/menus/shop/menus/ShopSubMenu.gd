@@ -8,11 +8,11 @@ onready var info_panel = $Column/Row/InfoPanel
 onready var amount_popup = items_list.get_node("AmountPopup")
 
 func _ready():
-	assert ACTION != ""
+	assert(ACTION != "")
 
 """Args: {shop, buyer, items}"""
 func initialize(args={}):
-	assert args.size() == 3
+	assert(args.size() == 3)
 	# Extract the nodes from the args dict to preserve legacy code below
 	var shop = args['shop']
 	var items = args['items']

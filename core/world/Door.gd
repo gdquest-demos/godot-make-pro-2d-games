@@ -9,7 +9,7 @@ export(bool) var ACTIVE_AT_START = true
 
 func _ready():
 	set_active(ACTIVE_AT_START)
-	assert map_path != ""
+	assert(map_path != "")
 
 func _on_body_entered(body):
 	if not body is PlayerController:

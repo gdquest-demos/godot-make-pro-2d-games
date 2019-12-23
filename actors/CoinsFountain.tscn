@@ -10,7 +10,7 @@ export(float) var MINIMUM_WAIT_TIME = 0.05
 export(float) var MAXIMUM_WAIT_TIME = 0.1
 
 func _init():
-	assert MINIMUM_WAIT_TIME <= MAXIMUM_WAIT_TIME
+	assert(MINIMUM_WAIT_TIME <= MAXIMUM_WAIT_TIME)
 
 func randomize_wait_time():
 	wait_time = rand_range(MINIMUM_WAIT_TIME, MAXIMUM_WAIT_TIME)"

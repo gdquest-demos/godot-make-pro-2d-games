@@ -15,7 +15,7 @@ func _ready():
 
 """args: {shop, buyer}"""
 func open(args={}):
-	assert args.size() == 2
+	assert(args.size() == 2)
 	var shop = args['shop']
 	var buyer = args['buyer']
 	
@@ -40,7 +40,7 @@ func close():
 
 """args: shop, buyer, inventory"""
 func open_submenu(Menu, args={}):
-	assert args.size() == 3
+	assert(args.size() == 3)
 	var shop = args['shop']
 	var buyer = args['buyer']
 	var inventory = args['inventory']

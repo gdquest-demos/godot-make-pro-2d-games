@@ -24,7 +24,7 @@ func _ready():
 """args: {actor}"""
 func initialize(args={}):
 	var actor = args['actor']
-	assert actor is PlayerController
+	assert(actor is PlayerController)
 	var inventory = actor.get_inventory()
 	items_button.connect('pressed', self, 'open_sub_menu', [InventoryMenu, {'inventory':inventory}])
 	actor.connect('died', self, '_on_Player_died')

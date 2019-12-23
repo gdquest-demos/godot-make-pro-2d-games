@@ -24,5 +24,5 @@ func calculate_random_offset():
 
 func _on_animation_finished(anim_name):
 	$ExplodeTimer.stop()
-	assert anim_name == 'die'
+	assert(anim_name == 'die')
 	get_tree().create_timer(0.6).connect("timeout", self, 'emit_signal', ['finished'])

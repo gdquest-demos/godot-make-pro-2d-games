@@ -21,7 +21,7 @@ func _ready():
 	camera.current = true
 
 func _on_CameraTrigger_body_entered(body):
-	assert body is PlayerController
+	assert(body is PlayerController)
 	camera.initialize(body)
 	yield(camera.move_to_room_center(), \"completed\")
 	wild_boar.start()

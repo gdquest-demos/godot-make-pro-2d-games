@@ -8,7 +8,7 @@ func initialize(args={}):
 
 """args: {inventory}"""
 func open(args={}):
-	assert args.size() == 1
+	assert(args.size() == 1)
 	var inventory = args['inventory']
 	.open()
 

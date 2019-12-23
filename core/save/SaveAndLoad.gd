@@ -16,8 +16,8 @@ func save_game(id):
 	# So we are guaranteed to get the parent first
 	for node in get_tree().get_nodes_in_group("save"):
 		var node_save_data = node.get_save_data()
-		assert node_save_data["filename"] != ""
-		assert node_save_data["parent"] != ""
+		assert(node_save_data["filename"] != "")
+		assert(node_save_data["parent"] != "")
 		save_data["data"].append(node_save_data)
 
 	var directory = Directory.new()
