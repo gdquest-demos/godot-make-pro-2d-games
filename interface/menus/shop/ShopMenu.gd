@@ -18,7 +18,7 @@ func open(args={}):
 	assert(args.size() == 2)
 	var shop = args['shop']
 	var buyer = args['buyer']
-	
+
 	button_buy.connect("pressed", self, "open_submenu",
 		[BuyMenu, {
 			'shop':shop,
@@ -44,9 +44,9 @@ func open_submenu(Menu, args={}):
 	var shop = args['shop']
 	var buyer = args['buyer']
 	var inventory = args['inventory']
-	
+
 	var pressed_button = get_focus_owner()
-	
+
 	var active_menu = Menu.instance()
 	submenu.add_child(active_menu)
 	active_menu.initialize({'shop':shop, 'buyer':buyer, 'items':inventory.get_items()})

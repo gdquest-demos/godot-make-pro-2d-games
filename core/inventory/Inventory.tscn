@@ -2,9 +2,5 @@
 
 [ext_resource path="res://core/inventory/Inventory.gd" type="Script" id=1]
 
-
 [node name="Inventory" type="Node"]
-
 script = ExtResource( 1 )
-
-

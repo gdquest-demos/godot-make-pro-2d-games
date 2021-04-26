@@ -14,7 +14,7 @@ func _ready():
 func change_level(scene_path):
 	tree.paused = true
 	yield(transition.fade_to_color(), "completed")
-	
+
 	level_loader.change_level(scene_path)
 	for door in level_loader.get_doors():
 		door.connect("player_entered", self, "_on_Door_player_entered")

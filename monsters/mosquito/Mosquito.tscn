@@ -8,106 +8,61 @@
 [ext_resource path="res://monsters/mosquito/mosquito.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 38.4768
 
 [sub_resource type="CircleShape2D" id=2]
-
-custom_solver_bias = 0.0
 radius = 24.9469
 
 [node name="Mosquito" type="KinematicBody2D" groups=[
 "character",
 ]]
-
 position = Vector2( -1.98642, 0.817726 )
-input_pickable = false
 collision_layer = 2
-collision_mask = 1
-collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Z Index" ]
-ARRIVE_DISTANCE = 6.0
-DEFAULT_SLOW_RADIUS = 200.0
-DEFAULT_MAX_SPEED = 300.0
-MASS = 8.0
-FOLLOW_RANGE = 300.0
-MAX_FLY_SPEED = 360.0
 
-[node name="Stats" parent="." index="0" instance=ExtResource( 2 )]
-
+[node name="Stats" parent="." instance=ExtResource( 2 )]
 max_health = 1
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
-
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -3.01358, 49.1823 )
-build_mode = 0
 polygon = PoolVector2Array( -18.0136, -69.4669, -18.0136, -29.4669, 31.9864, -29.4669, 31.9864, -69.4669 )
 disabled = true
-_sections_unfolded = [ "Transform" ]
 
-[node name="HitBox" parent="." index="2" instance=ExtResource( 3 )]
-
-editor/display_folded = true
+[node name="HitBox" parent="." instance=ExtResource( 3 )]
 collision_layer = 8
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-
 position = Vector2( 6, -2.42273 )
 shape = SubResource( 1 )
 
-[node name="DamageSource" parent="." index="3" instance=ExtResource( 4 )]
-
-editor/display_folded = true
+[node name="DamageSource" parent="." instance=ExtResource( 4 )]
 monitoring = true
-_sections_unfolded = [ "Audio Bus", "Collision" ]
 damage = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource"]
 position = Vector2( 6, 0 )
 shape = SubResource( 2 )
 
-[node name="BodyPivot" type="Position2D" parent="." index="4"]
-
-editor/display_folded = true
+[node name="BodyPivot" type="Position2D" parent="."]
 z_index = 2
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="exclamation-mark" type="Sprite" parent="BodyPivot" index="0"]
-
+[node name="exclamation-mark" type="Sprite" parent="BodyPivot"]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 74.8139, -90 )
 rotation = 0.253141
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Visibility" ]
 
-[node name="Sprite" type="Sprite" parent="BodyPivot" index="1"]
-
+[node name="Sprite" type="Sprite" parent="BodyPivot"]
 position = Vector2( 1.40846, -1.88954 )
 texture = ExtResource( 6 )
 offset = Vector2( 15.695, 0.889542 )
 
-[node name="Timer" type="Timer" parent="." index="5"]
+[node name="Timer" type="Timer" parent="."]
 
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
-
-[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
-
+[node name="RayCast2D" type="RayCast2D" parent="."]
 visible = false
-enabled = false
-exclude_parent = true
-cast_to = Vector2( 0, 50 )
-collision_mask = 1
-
 [connection signal="damage_taken" from="Stats" to="." method="_on_Stats_damage_taken"]
-
 [connection signal="area_entered" from="DamageSource" to="." method="_on_DamageSource_area_entered"]
-
 
 [editable path="HitBox"]

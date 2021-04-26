@@ -1,29 +1,9 @@
 [gd_scene format=2]
 
 [node name="Button" type="Button"]
-
-editor/display_folded = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 400.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 400, 64 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Button"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "Theme" ]
-
-

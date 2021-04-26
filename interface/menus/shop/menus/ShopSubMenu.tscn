@@ -7,65 +7,36 @@
 [ext_resource path="res://interface/menus/shop/panels/InfoPanel.tscn" type="PackedScene" id=5]
 [ext_resource path="res://interface/menus/shop/panels/DescriptionPanel.tscn" type="PackedScene" id=6]
 
-[node name="ShopSubMenu" index="0" instance=ExtResource( 1 )]
-
+[node name="ShopSubMenu" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-ACTION = ""
+SUB_MENU_PATH = NodePath("")
 
 [node name="Column" type="VBoxContainer" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 3
 theme = ExtResource( 3 )
-alignment = 0
-_sections_unfolded = [ "Rect", "Theme" ]
 
 [node name="Row" type="HBoxContainer" parent="Column" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 1920.0
 margin_bottom = 964.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 0
-_sections_unfolded = [ "Size Flags" ]
 
 [node name="ShopItemsList" parent="Column/Row" index="0" instance=ExtResource( 4 )]
-
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1504.0
 margin_bottom = 964.0
 
 [node name="InfoPanel" parent="Column/Row" index="1" instance=ExtResource( 5 )]
-
 margin_left = 1520.0
 margin_right = 1920.0
 margin_bottom = 964.0
 
 [node name="DescriptionPanel" parent="Column" index="1" instance=ExtResource( 6 )]
-
 margin_top = 980.0
 margin_right = 1920.0
 margin_bottom = 1080.0
-
 [connection signal="focused_button_changed" from="Column/Row/ShopItemsList" to="Column/Row/InfoPanel" method="_on_ItemsList_focused_button_changed"]
-
 [connection signal="item_amount_changed" from="Column/Row/ShopItemsList" to="Column/Row/InfoPanel" method="_on_ItemsList_item_amount_changed"]
-
-

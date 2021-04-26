@@ -1,157 +1,56 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://interface/menus/Menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://interface/menus/shop/ShopMenu.gd" type="Script" id=2]
-[ext_resource path="res://interface/menus/shop/menus/BuySubMenu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://interface/menus/shop/menus/SellSubMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://interface/menus/MenuTitle.tscn" type="PackedScene" id=5]
 
 [node name="ShopMenu" instance=ExtResource( 1 )]
-
 script = ExtResource( 2 )
-BuyMenu = ExtResource( 3 )
-SellMenu = ExtResource( 4 )
+SUB_MENU_PATH = NodePath("")
 
 [node name="DarkOverlay" type="ColorRect" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 0.313726 )
 
 [node name="Column" type="VBoxContainer" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
-_sections_unfolded = [ "custom_constants" ]
 
 [node name="TitlePanel" parent="Column" index="0" instance=ExtResource( 5 )]
-
 title = "Terrence's shop"
 
 [node name="Buttons" type="HBoxContainer" parent="Column" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 96.0
 margin_right = 1920.0
 margin_bottom = 166.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 
 [node name="BuyButton" type="Button" parent="Column/Buttons" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 629.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 0, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Buy"
-flat = false
-align = 1
 
 [node name="SellButton" type="Button" parent="Column/Buttons" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 645.0
 margin_right = 1274.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 0, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Sell"
-flat = false
-align = 1
 
 [node name="QuitButton" type="Button" parent="Column/Buttons" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 1290.0
 margin_right = 1920.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 0, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 text = "Quit"
-flat = false
-align = 1
 
 [node name="Menu" type="Control" parent="Column" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 182.0
 margin_right = 1920.0
 margin_bottom = 1080.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 3
-
 [connection signal="pressed" from="Column/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
-
-

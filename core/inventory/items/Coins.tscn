@@ -4,45 +4,23 @@
 [ext_resource path="res://core/inventory/items/coins/coin_single.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 25.1241
 
-[node name="Coins" type="Area2D" index="0"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+[node name="Coins" type="Area2D"]
 monitoring = false
 collision_layer = 64
 collision_mask = 0
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Audio Bus", "Collision" ]
-amount = 10
 MAX_START_VERTICAL_THRUST = 700.0
-MAX_HORIZONTAL_SPEED = 200.0
 GRAVITY = 1000.0
 STOP_THRESHOLD_VERTICAL_SPEED = 3.0
 DAMPING_FACTOR = 0.6
 
-[node name="coins" type="Sprite" parent="." index="0"]
-
+[node name="coins" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="." index="2"]
-
-process_mode = 1
-wait_time = 1.0
+[node name="Timer" type="Timer" parent="."]
 one_shot = true
-autostart = false
-
-

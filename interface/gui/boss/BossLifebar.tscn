@@ -6,11 +6,7 @@
 [ext_resource path="res://interface/gui/boss/boss_bar_fill.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "appear"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Label:self_modulate")
 tracks/0/interp = 1
@@ -61,11 +57,8 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "disappear"
 length = 0.8
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Label:self_modulate")
 tracks/0/interp = 1
@@ -92,7 +85,6 @@ tracks/1/keys = {
 }
 
 [node name="BossLifebar" type="VBoxContainer"]
-
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -102,81 +94,30 @@ margin_left = -780.0
 margin_top = -133.0
 margin_right = 780.0
 margin_bottom = -40.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
 script = ExtResource( 1 )
 boss_name = ""
 
-[node name="Label" type="Label" parent="." index="0"]
-
+[node name="Label" type="Label" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 1560.0
 margin_bottom = 23.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 theme = ExtResource( 2 )
 align = 1
 valign = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Theme", "Visibility", "custom_fonts" ]
 
-[node name="Bar" type="TextureProgress" parent="." index="1"]
-
+[node name="Bar" type="TextureProgress" parent="."]
 modulate = Color( 1, 0.0195313, 0.272308, 1 )
-self_modulate = Color( 1, 1, 1, 5.96046e-008 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+self_modulate = Color( 1, 1, 1, 5.96046e-08 )
 margin_left = 156.0
 margin_top = 27.0
 margin_right = 1404.0
 margin_bottom = 93.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
 value = 100.0
-exp_edit = false
-rounded = false
 texture_under = ExtResource( 3 )
-texture_over = null
 texture_progress = ExtResource( 4 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
-_sections_unfolded = [ "Size Flags", "Textures", "Visibility" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/appear = SubResource( 1 )
 anims/disappear = SubResource( 2 )
-blend_times = [  ]
-
-

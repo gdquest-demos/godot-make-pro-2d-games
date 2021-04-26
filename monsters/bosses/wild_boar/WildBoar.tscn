@@ -24,11 +24,8 @@
 [ext_resource path="res://interface/gui/boss/BossLifebar.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "SETUP"
 length = 0.05
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:position")
 tracks/0/interp = 1
@@ -39,7 +36,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 3.57628e-007, 17.6051 ) ]
+"values": [ Vector2( 3.57628e-07, 17.6051 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
@@ -103,10 +100,8 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "bump"
 length = 1.4
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:position")
@@ -118,13 +113,11 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3, 0.55, 0.7, 0.85, 0.95, 1.05, 1.1, 1.15 ),
 "transitions": PoolRealArray( 0.225072, 1.67946, 0.367583, 1, 0.367583, 1, 0.367583, 1, 0.367583 ),
 "update": 0,
-"values": [ Vector2( 3.57628e-007, 17.6051 ), Vector2( 0, -37.6635 ), Vector2( 3.57628e-007, 17.6051 ), Vector2( 0, -6.75531 ), Vector2( 3.57628e-007, 17.6051 ), Vector2( 0, 8.69879 ), Vector2( 3.57628e-007, 17.6051 ), Vector2( 0, 17.8458 ), Vector2( 3.57628e-007, 17.6051 ) ]
+"values": [ Vector2( 3.57628e-07, 17.6051 ), Vector2( 0, -37.6635 ), Vector2( 3.57628e-07, 17.6051 ), Vector2( 0, -6.75531 ), Vector2( 3.57628e-07, 17.6051 ), Vector2( 0, 8.69879 ), Vector2( 3.57628e-07, 17.6051 ), Vector2( 0, 17.8458 ), Vector2( 3.57628e-07, 17.6051 ) ]
 }
 
 [sub_resource type="Animation" id=3]
-
 length = 3.0
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:modulate")
@@ -152,10 +145,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 length = 0.01
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:position")
 tracks/0/interp = 1
@@ -166,11 +156,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 3.57628e-007, 17.6051 ) ]
+"values": [ Vector2( 3.57628e-07, 17.6051 ) ]
 }
 
 [sub_resource type="Animation" id=5]
-
 resource_name = "move"
 length = 0.3
 loop = true
@@ -185,15 +174,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 0.367583, 1.73627 ),
 "update": 0,
-"values": [ Vector2( 3.57628e-007, 17.6051 ), Vector2( 0, 0.113144 ) ]
+"values": [ Vector2( 3.57628e-07, 17.6051 ), Vector2( 0, 0.113144 ) ]
 }
 
 [sub_resource type="Animation" id=6]
-
 resource_name = "prepare"
 length = 1.3
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:scale")
 tracks/0/interp = 1
@@ -208,10 +194,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-
 resource_name = "spawn"
 length = 3.1
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:position")
@@ -251,9 +235,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-
 length = 0.9
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:position")
@@ -265,7 +247,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 3.57628e-007, 17.6051 ) ]
+"values": [ Vector2( 3.57628e-07, 17.6051 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
@@ -281,7 +263,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-
 length = 0.1
 loop = true
 step = 0.05
@@ -299,9 +280,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-
 length = 0.3
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:modulate")
@@ -317,10 +296,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-
 resource_name = "stomp"
 length = 3.0
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Body:position")
@@ -332,7 +309,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.3, 1, 1.1, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3.57628e-007, 17.6051 ), Vector2( 0, 23.1995 ), Vector2( 3.57628e-007, 17.6051 ), Vector2( 3.57628e-007, 17.6051 ), Vector2( 0.260636, 30.418 ), Vector2( 3.57628e-007, 17.6051 ) ]
+"values": [ Vector2( 3.57628e-07, 17.6051 ), Vector2( 0, 23.1995 ), Vector2( 3.57628e-07, 17.6051 ), Vector2( 3.57628e-07, 17.6051 ), Vector2( 0.260636, 30.418 ), Vector2( 3.57628e-07, 17.6051 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Body:rotation_degrees")
@@ -386,39 +363,22 @@ tracks/4/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=12]
-
-custom_solver_bias = 0.0
 radius = 50.0
 
-[node name="WildBoar" type="KinematicBody2D" index="0" groups=[
+[node name="WildBoar" type="KinematicBody2D" groups=[
 "monster",
 ]]
-
-input_pickable = false
-collision_layer = 1
 collision_mask = 2
-collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
-ARRIVE_DISTANCE = 6.0
-DEFAULT_SLOW_RADIUS = 200.0
-DEFAULT_MAX_SPEED = 300.0
 MASS = 1.4
 
-[node name="DustPuffsLarge" parent="." index="0" instance=ExtResource( 2 )]
-
+[node name="DustPuffsLarge" parent="." instance=ExtResource( 2 )]
 emitting = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SETUP = SubResource( 1 )
 anims/bump = SubResource( 2 )
 anims/die = SubResource( 3 )
@@ -430,164 +390,94 @@ anims/spot = SubResource( 8 )
 anims/sprint = SubResource( 9 )
 anims/stagger = SubResource( 10 )
 anims/stomp = SubResource( 11 )
-blend_times = [  ]
 
-[node name="Tween" type="Tween" parent="." index="2"]
+[node name="Tween" type="Tween" parent="."]
 
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Stats" parent="." index="3" instance=ExtResource( 6 )]
-
+[node name="Stats" parent="." instance=ExtResource( 6 )]
 max_health = 120
 
-[node name="StateMachine" type="Node" parent="." index="4"]
-
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 7 )
-active = false
-phase = 1
 
-[node name="Spawn" type="Node" parent="StateMachine" index="0"]
-
+[node name="Spawn" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
 
-[node name="RoamSequence" type="Node" parent="StateMachine" index="1"]
-
+[node name="RoamSequence" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
 
-[node name="Wait" type="Node" parent="StateMachine/RoamSequence" index="0"]
-
-editor/display_folded = true
+[node name="Wait" type="Node" parent="StateMachine/RoamSequence"]
 script = ExtResource( 10 )
 
-[node name="Timer" type="Timer" parent="StateMachine/RoamSequence/Wait" index="0"]
-
-process_mode = 1
-wait_time = 1.0
+[node name="Timer" type="Timer" parent="StateMachine/RoamSequence/Wait"]
 one_shot = true
-autostart = false
 
-[node name="MoveTo" type="Node" parent="StateMachine/RoamSequence" index="1"]
-
+[node name="MoveTo" type="Node" parent="StateMachine/RoamSequence"]
 script = ExtResource( 11 )
-ARRIVE_DISTANCE = 6.0
-SLOW_RADIUS = 200.0
-MASS = 4.0
-MAX_SPEED = 300.0
-ROAM_RADIUS = 150.0
 
-[node name="ChargeSequence" type="Node" parent="StateMachine" index="2"]
-
+[node name="ChargeSequence" type="Node" parent="StateMachine"]
 script = ExtResource( 12 )
 
-[node name="Prepare" type="Node" parent="StateMachine/ChargeSequence" index="0"]
-
+[node name="Prepare" type="Node" parent="StateMachine/ChargeSequence"]
 script = ExtResource( 13 )
 
-[node name="Sprint" type="Node" parent="StateMachine/ChargeSequence" index="1"]
-
+[node name="Sprint" type="Node" parent="StateMachine/ChargeSequence"]
 script = ExtResource( 14 )
-SPEED = 1000.0
-MAX_DISTANCE = 1200.0
 
-[node name="Bump" type="Node" parent="StateMachine/ChargeSequence" index="2"]
-
+[node name="Bump" type="Node" parent="StateMachine/ChargeSequence"]
 script = ExtResource( 15 )
 SPEED = 100.0
 
-[node name="ReturnToCenter" type="Node" parent="StateMachine/ChargeSequence" index="3"]
-
+[node name="ReturnToCenter" type="Node" parent="StateMachine/ChargeSequence"]
 script = ExtResource( 16 )
-MASS = 4.0
-SLOW_RADIUS = 200.0
-MAX_SPEED = 300.0
-ARRIVE_DISTANCE = 6.0
 
-[node name="Stomp" type="Node" parent="StateMachine" index="3"]
-
-editor/display_folded = true
+[node name="Stomp" type="Node" parent="StateMachine"]
 script = ExtResource( 17 )
 
-[node name="ExplodeTimer" type="Timer" parent="StateMachine/Stomp" index="0"]
-
-process_mode = 1
+[node name="ExplodeTimer" type="Timer" parent="StateMachine/Stomp"]
 wait_time = 0.2
-one_shot = false
-autostart = false
 
-[node name="Die" type="Node" parent="StateMachine" index="4"]
-
-editor/display_folded = true
+[node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource( 18 )
 MAX_RADIUS = 180.0
 Explosion = ExtResource( 19 )
 
-[node name="ExplodeTimer" type="Timer" parent="StateMachine/Die" index="0"]
-
-process_mode = 1
+[node name="ExplodeTimer" type="Timer" parent="StateMachine/Die"]
 wait_time = 0.15
-one_shot = false
-autostart = false
 
-[node name="Pivot" type="Position2D" parent="." index="5"]
+[node name="Pivot" type="Position2D" parent="."]
 
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="Body" type="Sprite" parent="Pivot" index="0"]
-
+[node name="Body" type="Sprite" parent="Pivot"]
 position = Vector2( -477.666, -688.279 )
 rotation = 0.0058149
 texture = ExtResource( 3 )
 offset = Vector2( -1.98642, -55.6066 )
-_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
-[node name="DamageSource" parent="." index="6" instance=ExtResource( 20 )]
-
+[node name="DamageSource" parent="." instance=ExtResource( 20 )]
 position = Vector2( 0, -27.075 )
 monitorable = false
 damage = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageSource"]
 position = Vector2( 0, -17.075 )
 shape = SubResource( 12 )
 
-[node name="HitBox" parent="." index="7" instance=ExtResource( 21 )]
-
+[node name="HitBox" parent="." instance=ExtResource( 21 )]
 collision_layer = 8
 collision_mask = 16
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="8"]
-
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 21.5742 )
-build_mode = 0
 polygon = PoolVector2Array( -36, -96, 36, -96, 36, -24, -36, -24 )
-_sections_unfolded = [ "Visibility" ]
 
-[node name="BossLifebar" parent="." index="9" instance=ExtResource( 22 )]
-
+[node name="BossLifebar" parent="." instance=ExtResource( 22 )]
 margin_top = -153.0
 margin_bottom = -60.0
 boss_name = "Wild Boar"
-
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
-
 [connection signal="health_changed" from="Stats" to="." method="_on_Health_health_changed"]
-
 [connection signal="health_depleted" from="Stats" to="StateMachine" method="_on_Health_health_depleted"]
-
 [connection signal="health_depleted" from="Stats" to="." method="_on_Health_health_depleted"]
-
 [connection signal="charge_direction_set" from="StateMachine/ChargeSequence/Sprint" to="StateMachine/ChargeSequence/Bump" method="_on_Sprint_charge_direction_set"]
-
 [connection signal="hit_wall" from="StateMachine/ChargeSequence/Sprint" to="." method="_on_Sprint_hit_wall"]
-
 [connection signal="finished" from="StateMachine/Die" to="." method="_on_Die_finished"]
-
 [connection signal="timeout" from="StateMachine/Die/ExplodeTimer" to="StateMachine/Die" method="_on_ExplodeTimer_timeout"]
-
-

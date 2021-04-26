@@ -3,13 +3,9 @@
 [ext_resource path="res://vfx/transition.material" type="Material" id=1]
 [ext_resource path="res://vfx/TransitionColor.gd" type="Script" id=2]
 
-
 [sub_resource type="Animation" id=1]
-
 resource_name = "_SETUP"
 length = 0.01
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
 tracks/0/interp = 1
@@ -23,12 +19,9 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-
+[sub_resource type="Animation" id=2]
 resource_name = "to_color"
 length = 0.7
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
 tracks/0/interp = 1
@@ -54,12 +47,8 @@ tracks/1/keys = {
 "values": [ 0.941, 0.161 ]
 }
 
-[sub_resource type="Animation" id=2]
-
-resource_name = "to_transparent"
+[sub_resource type="Animation" id=3]
 length = 0.7
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:material:shader_param/cutoff")
 tracks/0/interp = 1
@@ -86,33 +75,12 @@ tracks/1/keys = {
 }
 
 [node name="TransitionColor" type="ColorRect"]
-
 material = ExtResource( 1 )
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Material" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/_SETUP = SubResource( 1 )
-anims/to_color = SubResource( 3 )
-anims/to_transparent = SubResource( 2 )
-blend_times = [  ]
-_sections_unfolded = [ "Playback Options" ]
-
-
+anims/to_color = SubResource( 2 )
+anims/to_transparent = SubResource( 3 )

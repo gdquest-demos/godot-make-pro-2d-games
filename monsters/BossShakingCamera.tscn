@@ -3,20 +3,8 @@
 [ext_resource path="res://actors/camera/ShakingCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://monsters/BossShakingCamera.gd" type="Script" id=2]
 
-
 [node name="BossShakingCamera" instance=ExtResource( 1 )]
-
 script = ExtResource( 2 )
 amplitude = 10.0
-AMPLITUDE_HIT_WALL = 30.0
 
 [node name="Tween" type="Tween" parent="." index="1"]
-
-repeat = false
-playback_process_mode = 1
-playback_speed = 1.0
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-

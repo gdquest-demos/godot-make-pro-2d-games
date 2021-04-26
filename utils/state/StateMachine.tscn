@@ -2,9 +2,5 @@
 
 [ext_resource path="res://utils/state/StateMachine.gd" type="Script" id=1]
 
-[node name="StateMachine" type="Node" index="0"]
-
+[node name="StateMachine" type="Node"]
 script = ExtResource( 1 )
-START_STATE = null
-
-

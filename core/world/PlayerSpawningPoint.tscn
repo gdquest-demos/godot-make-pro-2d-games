@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="GDScript" id=1]
-
 script/source = "tool
 extends Position2D
 
@@ -26,11 +25,7 @@ func _draw():
 	draw_polyline(points, LINE_COLOR, 4.0)
 "
 
-[node name="PlayerSpawningPoint" type="Position2D" index="0"]
-
+[node name="PlayerSpawningPoint" type="Position2D"]
 script = SubResource( 1 )
-RADIUS = 100.0
 EDGES = 16
 LINE_COLOR = Color( 0.921875, 0.154846, 0.766072, 1 )
-
-

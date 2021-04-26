@@ -35,4 +35,3 @@ scale_curve = SubResource( 4 )
 color_ramp = SubResource( 2 )
 anim_offset = 1.0
 anim_offset_random = 1.0
-
