@@ -9,13 +9,13 @@ func initialize(item, price, purse):
 	$Name.text = item.display_name
 	$Price.text = str(price)
 	$Icon.texture = item.icon
-	
+
 	description = item.description
 	amount = item.amount
 
 	if purse.coins < price:
 		disabled = true
-	
+
 	item.connect("amount_changed", self, "_on_Item_amount_changed")
 	item.connect("depleted", self, "_on_Item_depleted")
 	purse.connect("coins_changed", self, "_on_Purse_coins_changed", [price])

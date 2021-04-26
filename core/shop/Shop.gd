@@ -18,7 +18,7 @@ func buy_from(actor, item, amount=1):
 
 	actor.get_node("Inventory").trash(item, amount)
 	actor.get_node("Purse").add_coins(transaction_value)
-	
+
 	if not STOCK_INFINITE:
 		inventory.add(item, amount)
 	if not MONEY_INFINITE:

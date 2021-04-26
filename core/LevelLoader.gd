@@ -18,11 +18,11 @@ func change_level(scene_path):
 		map.queue_free()
 	map = load(scene_path).instance()
 	add_child(map)
-	
+
 	map.get_ysort_node().add_child(player)
 	var spawn = map.get_node("PlayerSpawningPoint")
 	player.reset(spawn.global_position)
-	
+
 	for monster in get_tree().get_nodes_in_group("monster"):
 		monster.initialize(player)
 	map.initialize()

@@ -12,115 +12,50 @@
 [ext_resource path="res://core/inventory/items/Coins.tscn" type="PackedScene" id=10]
 
 [node name="TestLevel" type="TileMap"]
-
-mode = 0
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 128 )
-cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
 collision_use_kinematic = true
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65536, 2, 1, 0, 3, 1, 2, 4, 0, 65536, 5, 0, 65536, 6, 0, 65536, 7, 0, 65536, 8, 0, 65536, 9, 0, 65536, 10, 0, 65536, 11, 0, 65536, 12, 0, 65536, 13, 0, 65536, 14, 0, 65536, 15, 0, 65536, 16, 0, 65536, 17, 0, 65536, 18, 0, 65536, 19, 0, 65536, 20, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 1, 65536, 65539, 1, 65538, 65540, 5, 0, 65541, 5, 2, 65542, 0, 65536, 65543, 5, 0, 65544, 5, 1, 65545, 5, 2, 65546, 0, 65536, 65547, 0, 65536, 65548, 0, 65536, 65549, 0, 65536, 65550, 0, 65536, 65551, 0, 65536, 65552, 0, 65536, 65553, 0, 65536, 65554, 0, 65536, 65555, 0, 65536, 65556, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 1, 65536, 131075, 1, 65538, 131076, 5, 65536, 131077, 5, 65539, 131078, 5, 1, 131079, 5, 65540, 131080, 5, 3, 131081, 5, 131074, 131082, 0, 65536, 131083, 0, 65536, 131084, 1, 0, 131085, 1, 1, 131086, 1, 2, 131087, 0, 65536, 131088, 0, 65536, 131089, 0, 65536, 131090, 0, 65536, 131091, 0, 65536, 131092, 0, 65536, 196608, 0, 65536, 196609, 0, 65536, 196610, 1, 65536, 196611, 1, 65538, 196612, 5, 65536, 196613, 5, 65537, 196614, 5, 65537, 196615, 5, 65537, 196616, 5, 65538, 196617, 0, 65536, 196618, 1, 0, 196619, 1, 1, 196620, 1, 65540, 196621, 1, 65537, 196622, 1, 65539, 196623, 1, 1, 196624, 1, 1, 196625, 1, 1, 196626, 1, 2, 196627, 0, 65536, 196628, 0, 65536, 262144, 0, 65536, 262145, 0, 65536, 262146, 1, 65536, 262147, 1, 65538, 262148, 5, 131072, 262149, 5, 131073, 262150, 5, 4, 262151, 5, 65537, 262152, 5, 65539, 262153, 5, 2, 262154, 1, 65536, 262155, 1, 65537, 262156, 1, 65537, 262157, 1, 65537, 262158, 1, 65537, 262159, 1, 65537, 262160, 1, 65537, 262161, 1, 65537, 262162, 1, 65538, 262163, 0, 65536, 262164, 0, 65536, 327680, 0, 65536, 327681, 0, 65536, 327682, 1, 65536, 327683, 1, 65539, 327684, 1, 2, 327685, 0, 65536, 327686, 5, 131072, 327687, 5, 131073, 327688, 5, 131073, 327689, 5, 131074, 327690, 1, 65536, 327691, 1, 65537, 327692, 1, 65537, 327693, 1, 65537, 327694, 1, 65537, 327695, 1, 65537, 327696, 1, 65537, 327697, 1, 65537, 327698, 1, 65538, 327699, 0, 65536, 327700, 0, 65536, 393216, 0, 65536, 393217, 0, 65536, 393218, 1, 131072, 393219, 1, 4, 393220, 1, 65539, 393221, 1, 2, 393222, 0, 65536, 393223, 0, 65536, 393224, 0, 65536, 393225, 0, 65536, 393226, 1, 65536, 393227, 1, 65537, 393228, 1, 65537, 393229, 1, 65537, 393230, 1, 65537, 393231, 1, 65537, 393232, 1, 65537, 393233, 1, 65537, 393234, 1, 65538, 393235, 0, 65536, 393236, 0, 65536, 458752, 0, 65536, 458753, 0, 65536, 458754, 0, 65536, 458755, 1, 131072, 458756, 1, 4, 458757, 1, 65539, 458758, 1, 1, 458759, 1, 1, 458760, 1, 1, 458761, 1, 1, 458762, 1, 65540, 458763, 1, 65537, 458764, 1, 65537, 458765, 1, 65537, 458766, 1, 3, 458767, 1, 131073, 458768, 1, 131073, 458769, 1, 4, 458770, 1, 65538, 458771, 0, 65536, 458772, 0, 65536, 524288, 0, 65536, 524289, 0, 65536, 524290, 0, 65536, 524291, 0, 65536, 524292, 1, 131072, 524293, 1, 131073, 524294, 1, 131073, 524295, 1, 131073, 524296, 1, 131073, 524297, 1, 4, 524298, 1, 3, 524299, 1, 131073, 524300, 1, 131073, 524301, 1, 131073, 524302, 1, 131074, 524303, 0, 65536, 524304, 0, 65536, 524305, 1, 131072, 524306, 1, 131074, 524307, 0, 65536, 524308, 0, 65536, 589824, 0, 65536, 589825, 0, 65536, 589826, 0, 65536, 589827, 0, 65536, 589828, 0, 65536, 589829, 0, 65536, 589830, 0, 65536, 589831, 0, 65536, 589832, 0, 65536, 589833, 1, 65536, 589834, 1, 65538, 589835, 0, 65536, 589836, 0, 65536, 589837, 0, 65536, 589838, 0, 65536, 589839, 0, 65536, 589840, 0, 65536, 589841, 0, 65536, 589842, 0, 65536, 589843, 0, 65536, 589844, 0, 65536, 655360, 0, 65536, 655361, 0, 65536, 655362, 0, 65536, 655363, 0, 65536, 655364, 0, 2, 655365, 0, 65536, 655366, 0, 65536, 655367, 0, 65536, 655368, 0, 65536, 655369, 1, 65536, 655370, 1, 65538, 655371, 0, 65536, 655372, 0, 65536, 655373, 0, 65536, 655374, 0, 65536, 655375, 0, 65536, 655376, 0, 1, 655377, 0, 65536, 655378, 0, 65536, 655379, 0, 65536, 655380, 0, 65536, 720896, 0, 65536, 720897, 0, 65536, 720898, 0, 65536, 720899, 0, 65536, 720900, 0, 65536, 720901, 0, 65536, 720902, 0, 65536, 720903, 0, 65536, 720904, 0, 65536, 720905, 1, 131072, 720906, 1, 131074, 720907, 0, 65536, 720908, 0, 65536, 720909, 0, 65536, 720910, 0, 65536, 720911, 0, 65536, 720912, 0, 65536, 720913, 0, 65536, 720914, 0, 65536, 720915, 0, 65536, 720916, 0, 65536 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Cell", "Collision" ]
-fog = false
 
-[node name="PlayerSpawningPoint" parent="." index="0" instance=ExtResource( 3 )]
-
+[node name="PlayerSpawningPoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 603.07, 1200 )
 
-[node name="Gap" parent="." index="1" instance=ExtResource( 4 )]
-
+[node name="Gap" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1658, 902 )
 
-[node name="Door" parent="." index="2" instance=ExtResource( 5 )]
-
+[node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2006, 722 )
 scale = Vector2( 0.8125, 0.8125 )
 map_path = "res://levels/Cave.tscn"
-ACTIVE_AT_START = true
 
-[node name="YSort" type="YSort" parent="." index="3"]
+[node name="YSort" type="YSort" parent="."]
 
-sort_enabled = true
-
-[node name="Seller" parent="YSort" index="0" instance=ExtResource( 6 )]
-
+[node name="Seller" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 466, 1213 )
 
-[node name="Nest" parent="YSort" index="1" instance=ExtResource( 7 )]
-
+[node name="Nest" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 1635, 455 )
 
-[node name="Porcupine" parent="YSort" index="2" instance=ExtResource( 8 )]
-
+[node name="Porcupine" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2086.01, 1288.82 )
-ARRIVE_DISTANCE = 6.0
-DEFAULT_SLOW_RADIUS = 200.0
-DEFAULT_MAX_SPEED = 300.0
-MASS = 8.0
-MAX_ROAM_SPEED = 200.0
-MAX_FOLLOW_SPEED = 400.0
-MAX_CHARGE_SPEED = 900.0
-SPOT_RANGE = 460.0
-FOLLOW_RANGE = 700.0
-BUMP_RANGE = 90.0
-CHARGE_RANGE = 340.0
-PREPARE_TO_CHARGE_WAIT_TIME = 0.9
-ROAM_RADIUS = 140.0
-BUMP_DISTANCE = 60.0
-BUMP_DURATION = 0.2
-MAX_BUMP_HEIGHT = 50.0
-BUMP_COOLDOWN_DURATION = 0.6
 
-[node name="Porcupine2" parent="YSort" index="3" instance=ExtResource( 8 )]
-
+[node name="Porcupine2" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 2546.01, 728.82 )
-ARRIVE_DISTANCE = 6.0
-DEFAULT_SLOW_RADIUS = 200.0
-DEFAULT_MAX_SPEED = 300.0
-MASS = 8.0
-MAX_ROAM_SPEED = 200.0
-MAX_FOLLOW_SPEED = 400.0
-MAX_CHARGE_SPEED = 900.0
-SPOT_RANGE = 460.0
-FOLLOW_RANGE = 700.0
-BUMP_RANGE = 90.0
-CHARGE_RANGE = 340.0
-PREPARE_TO_CHARGE_WAIT_TIME = 0.9
-ROAM_RADIUS = 140.0
-BUMP_DISTANCE = 60.0
-BUMP_DURATION = 0.2
-MAX_BUMP_HEIGHT = 50.0
-BUMP_COOLDOWN_DURATION = 0.6
 
-[node name="Rock" parent="YSort" index="4" instance=ExtResource( 9 )]
-
+[node name="Rock" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 1162, 801 )
 
-[node name="Coins" parent="YSort" index="5" instance=ExtResource( 10 )]
-
+[node name="Coins" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 472.412, 993.695 )
 
-[node name="Coins2" parent="YSort" index="6" instance=ExtResource( 10 )]
-
+[node name="Coins2" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 781.924, 811.246 )
 
-[node name="Coins3" parent="YSort" index="7" instance=ExtResource( 10 )]
-
+[node name="Coins3" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1153.34, 1179.4 )
 
-[node name="Coins4" parent="YSort" index="8" instance=ExtResource( 10 )]
-
+[node name="Coins4" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 1062.11, 1485.65 )
-
-

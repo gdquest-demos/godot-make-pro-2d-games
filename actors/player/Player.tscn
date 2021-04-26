@@ -29,16 +29,11 @@
 [ext_resource path="res://actors/CoinsCollector.tscn" type="PackedScene" id=27]
 
 [sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 31.3139
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "SETUP"
 length = 0.01
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Body:position")
 tracks/0/interp = 1
@@ -125,10 +120,8 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 resource_name = "bump"
 length = 0.2
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Body:position")
@@ -144,10 +137,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 resource_name = "die"
 length = 0.6
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Body:modulate")
@@ -199,9 +190,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-
 length = 1.1
-loop = false
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Body:position")
@@ -253,7 +242,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-
 length = 0.01
 loop = true
 step = 0.05
@@ -271,10 +259,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-
 length = 0.6
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("BodyPivot/Body:modulate")
 tracks/0/interp = 1
@@ -289,7 +274,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-
 length = 0.3
 loop = true
 step = 0.05
@@ -335,90 +319,54 @@ tracks/2/keys = {
 }
 
 [sub_resource type="DynamicFont" id=9]
-
 size = 20
-use_mipmaps = false
 use_filter = true
 font_data = ExtResource( 17 )
-_sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
-
+[node name="Player" type="KinematicBody2D"]
 position = Vector2( 960, 550 )
-input_pickable = false
-collision_layer = 1
 collision_mask = 3
-collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Visibility" ]
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="ShakingCamera" parent="." index="0" instance=ExtResource( 2 )]
+[node name="ShakingCamera" parent="." instance=ExtResource( 2 )]
 
-[node name="HitBox" parent="." index="1" instance=ExtResource( 3 )]
-
+[node name="HitBox" parent="." instance=ExtResource( 3 )]
 monitorable = true
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
-
 shape = SubResource( 1 )
 
-[node name="StateMachine" type="Node" parent="." index="2"]
-
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
-active = false
 
-[node name="Idle" type="Node" parent="StateMachine" index="0"]
-
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
 
-[node name="Move" type="Node" parent="StateMachine" index="1"]
-
+[node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 6 )
-MAX_WALK_SPEED = 450
-MAX_RUN_SPEED = 700
 
-[node name="Bump" type="Node" parent="StateMachine" index="2"]
-
+[node name="Bump" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
-SPEED = 240.0
 
-[node name="Fall" type="Node" parent="StateMachine" index="3"]
-
+[node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource( 8 )
 
-[node name="Jump" type="Node" parent="StateMachine" index="4"]
-
+[node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
-BASE_MAX_HORIZONTAL_SPEED = 400.0
-AIR_ACCELERATION = 1000.0
-AIR_DECCELERATION = 2000.0
-AIR_STEERING_POWER = 50.0
-JUMP_HEIGHT = 120.0
-JUMP_DURATION = 0.8
-GRAVITY = 1600.0
 
-[node name="Stagger" type="Node" parent="StateMachine" index="5"]
-
+[node name="Stagger" type="Node" parent="StateMachine"]
 script = ExtResource( 10 )
 
-[node name="Attack" type="Node" parent="StateMachine" index="6"]
-
+[node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource( 11 )
 
-[node name="Die" type="Node" parent="StateMachine" index="7"]
-
+[node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource( 12 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/SETUP = SubResource( 2 )
 anims/bump = SubResource( 3 )
 anims/die = SubResource( 4 )
@@ -426,130 +374,79 @@ anims/fall = SubResource( 5 )
 anims/idle = SubResource( 6 )
 anims/stagger = SubResource( 7 )
 anims/walk = SubResource( 8 )
-blend_times = [  ]
 
-[node name="Shadow" type="Sprite" parent="." index="4"]
-
+[node name="Shadow" type="Sprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.361098 )
 position = Vector2( 0.362319, -4 )
 texture = ExtResource( 13 )
-_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="BodyPivot" type="Position2D" parent="." index="5"]
+[node name="BodyPivot" type="Position2D" parent="."]
 
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
-
-[node name="WeaponPivot" type="Position2D" parent="BodyPivot" index="0"]
-
+[node name="WeaponPivot" type="Position2D" parent="BodyPivot"]
 position = Vector2( 0, -62 )
 script = ExtResource( 14 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Offset" type="Position2D" parent="BodyPivot/WeaponPivot" index="0"]
-
+[node name="Offset" type="Position2D" parent="BodyPivot/WeaponPivot"]
 position = Vector2( 110, 0 )
 
-[node name="Sword" parent="BodyPivot/WeaponPivot/Offset" index="0" instance=ExtResource( 15 )]
+[node name="Sword" parent="BodyPivot/WeaponPivot/Offset" instance=ExtResource( 15 )]
 
-[node name="Body" type="Sprite" parent="BodyPivot" index="1"]
-
+[node name="Body" type="Sprite" parent="BodyPivot"]
 position = Vector2( 0, -58.8242 )
 texture = ExtResource( 16 )
-_sections_unfolded = [ "Visibility" ]
 
-[node name="StateNameDisplayer" type="Label" parent="BodyPivot" index="2"]
-
-editor/display_folded = true
+[node name="StateNameDisplayer" type="Label" parent="BodyPivot"]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -109.0
 margin_top = -172.0
 margin_right = 110.0
 margin_bottom = -138.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 9 )
 text = "Test"
 align = 1
 valign = 1
 uppercase = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 script = ExtResource( 18 )
-_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="6"]
-
-build_mode = 0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -20, 0, -20, -20, 20, -20, 20, 0 )
 
-[node name="Health" parent="." index="7" instance=ExtResource( 19 )]
+[node name="Health" parent="." instance=ExtResource( 19 )]
 
-[node name="Purse" parent="." index="8" instance=ExtResource( 20 )]
-
+[node name="Purse" parent="." instance=ExtResource( 20 )]
 coins = 32
-MAXIMUM = 1000000
 
-[node name="Inventory" parent="." index="9" instance=ExtResource( 21 )]
+[node name="Inventory" parent="." instance=ExtResource( 21 )]
 
-[node name="MinorHealthPotion" parent="Inventory" index="0" instance=ExtResource( 22 )]
-
+[node name="MinorHealthPotion" parent="Inventory" instance=ExtResource( 22 )]
 amount = 4
 
-[node name="StrongHealthPotion" parent="Inventory" index="1" instance=ExtResource( 23 )]
+[node name="StrongHealthPotion" parent="Inventory" instance=ExtResource( 23 )]
 
-[node name="BulletSpawn" type="Node2D" parent="." index="10"]
-
+[node name="BulletSpawn" type="Node2D" parent="."]
 position = Vector2( 1.17401, -61.266 )
 script = ExtResource( 24 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CooldownTimer" type="Timer" parent="BulletSpawn" index="0"]
-
-process_mode = 1
+[node name="CooldownTimer" type="Timer" parent="BulletSpawn"]
 wait_time = 0.2
 one_shot = true
-autostart = false
 
-[node name="Sfx" type="Node" parent="." index="11"]
+[node name="Sfx" type="Node" parent="."]
 
-[node name="Steps" type="AudioStreamPlayer" parent="Sfx" index="0"]
-
+[node name="Steps" type="AudioStreamPlayer" parent="Sfx"]
 stream = ExtResource( 25 )
 volume_db = -16.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 script = ExtResource( 26 )
 
-[node name="CoinsCollector" parent="." index="12" instance=ExtResource( 27 )]
-
+[node name="CoinsCollector" parent="." instance=ExtResource( 27 )]
 [connection signal="direction_changed" from="." to="BodyPivot/WeaponPivot" method="_on_Player_direction_changed"]
-
 [connection signal="state_changed" from="StateMachine" to="BodyPivot/StateNameDisplayer" method="_on_StateMachine_state_changed"]
-
 [connection signal="last_moved" from="StateMachine/Move" to="StateMachine/Bump" method="_on_Move_last_moved"]
-
 [connection signal="finished" from="StateMachine/Die" to="." method="_on_Die_finished"]
-
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine" method="_on_animation_finished"]
-
 [connection signal="combo_finished" from="BodyPivot/WeaponPivot/Offset/Sword" to="StateMachine/Attack" method="_on_Sword_combo_finished"]
-
 [connection signal="damage_taken" from="Health" to="StateMachine" method="_on_Health_damage_taken"]
-
 [connection signal="health_depleted" from="Health" to="StateMachine" method="_on_Health_health_depleted"]
-
 [connection signal="coins_received" from="CoinsCollector" to="Purse" method="add_coins"]
-
 
 [editable path="HitBox"]

@@ -4,58 +4,37 @@
 [ext_resource path="res://monsters/mosquito/nest.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 40.0
 
 [sub_resource type="GDScript" id=2]
-
 script/source = "extends Timer
 
 func _ready():
 	wait_time = randf() *1.5 + 2.0
 "
 
-[node name="Nest" type="Node2D" index="0" groups=[
+[node name="Nest" type="Node2D" groups=[
 "monster",
 ]]
-
 position = Vector2( 468, 202 )
 script = ExtResource( 1 )
-MAX_MOSQUITO_COUNT = 2
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 10 )
 texture = ExtResource( 2 )
 
-[node name="SpawnArea" type="Area2D" parent="." index="1"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
+[node name="SpawnArea" type="Area2D" parent="."]
 monitoring = false
 monitorable = false
-audio_bus_override = false
-audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea" index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnArea"]
 position = Vector2( 0, -6.43921 )
 shape = SubResource( 1 )
 
-[node name="SpawnTimer" type="Timer" parent="." index="2"]
-
-process_mode = 1
+[node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
-one_shot = false
 autostart = true
 script = SubResource( 2 )
 
-[node name="Mosquitos" type="Node" parent="." index="3"]
-
+[node name="Mosquitos" type="Node" parent="."]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
-
-

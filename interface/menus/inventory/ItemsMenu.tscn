@@ -7,168 +7,63 @@
 [ext_resource path="res://interface/menus/inventory/user_select/UserSelectMenu.tscn" type="PackedScene" id=5]
 
 [node name="ItemsMenu" type="Control"]
-
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Size Flags" ]
 ItemButton = ExtResource( 3 )
 
-[node name="Column" type="VBoxContainer" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Column" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 custom_constants/separation = 0
-alignment = 0
 
-[node name="ItemsList" type="Panel" parent="Column" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="ItemsList" type="Panel" parent="Column"]
 margin_right = 1920.0
 margin_bottom = 980.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
 size_flags_vertical = 3
 
-[node name="Margin" type="MarginContainer" parent="Column/ItemsList" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Margin" type="MarginContainer" parent="Column/ItemsList"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Grid" type="GridContainer" parent="Column/ItemsList/Margin" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Grid" type="GridContainer" parent="Column/ItemsList/Margin"]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 1904.0
 margin_bottom = 964.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 2
 script = ExtResource( 4 )
-_sections_unfolded = [ "custom_constants" ]
 
-[node name="Placeholder" type="Button" parent="Column/ItemsList/Margin/Grid" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1888.0
+[node name="Placeholder" type="Button" parent="Column/ItemsList/Margin/Grid"]
+margin_right = 944.0
 margin_bottom = 27.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 1
 disabled = true
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 flat = true
-align = 1
-_sections_unfolded = [ "Size Flags" ]
 
-[node name="DescriptionPanel" type="Panel" parent="Column" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="DescriptionPanel" type="Panel" parent="Column"]
 margin_top = 980.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 rect_min_size = Vector2( 0, 100 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
 
-[node name="Margin" type="MarginContainer" parent="Column/DescriptionPanel" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Margin" type="MarginContainer" parent="Column/DescriptionPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="Label" type="Label" parent="Column/DescriptionPanel/Margin" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Label" type="Label" parent="Column/DescriptionPanel/Margin"]
 margin_left = 16.0
 margin_top = 25.0
 margin_right = 1904.0
 margin_bottom = 74.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 text = "Item descripton here.
 "
 autowrap = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
-[node name="UserSelectMenu" parent="." index="1" instance=ExtResource( 5 )]
-
+[node name="UserSelectMenu" parent="." instance=ExtResource( 5 )]
 visible = false
-
-

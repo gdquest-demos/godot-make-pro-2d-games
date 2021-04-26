@@ -17,7 +17,7 @@ func initialize(args={}):
 	var shop = args['shop']
 	var items = args['items']
 	var buyer = args['buyer']
-	
+
 	var purse = buyer.get_purse()
 	info_panel.initialize(purse)
 

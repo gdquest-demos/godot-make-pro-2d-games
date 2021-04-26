@@ -70,7 +70,7 @@ func set_random_amount():
 # TODO: won't work as currently velocity is re-calculated on every process tick
 #func steer_towards(target_global_position):
 #	velocity = Steering.follow(
-#		velocity, 
-#		global_position, 
-#		target_global_position, 
+#		velocity,
+#		global_position,
+#		target_global_position,
 #		MAX_HORIZONTAL_SPEED)

@@ -6,36 +6,19 @@
 [ext_resource path="res://audio/sfx/menu_popup_open.wav" type="AudioStream" id=4]
 
 [node name="BuySubMenu" instance=ExtResource( 1 )]
-
+SUB_MENU_PATH = NodePath("")
 ACTION = "sell_to"
 
 [node name="Sfx" type="Node" parent="." index="0"]
 
 [node name="Confirm" type="AudioStreamPlayer" parent="Sfx" index="0"]
-
 stream = ExtResource( 2 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
 bus = "Interface"
 
 [node name="Navigate" type="AudioStreamPlayer" parent="Sfx" index="1"]
-
 stream = ExtResource( 3 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
 bus = "Interface"
 
 [node name="Open" type="AudioStreamPlayer" parent="Sfx" index="2"]
-
 stream = ExtResource( 4 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
 bus = "Interface"
-
-

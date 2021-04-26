@@ -88,5 +88,4 @@ margin_bottom = 272.0
 rect_min_size = Vector2( 260, 40 )
 size_flags_horizontal = 4
 text = "OK"
-
 [connection signal="value_changed" from="Popup/VBoxContainer/Slider/HSlider" to="Popup/VBoxContainer/Slider/Amount" method="_on_HSlider_value_changed"]

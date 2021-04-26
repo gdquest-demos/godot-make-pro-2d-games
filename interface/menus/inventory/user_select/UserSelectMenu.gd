@@ -24,7 +24,7 @@ func _input(event):
 func _on_SelectButton_pressed(actor):
 	close(actor)
 
-# TODO: Temporarily bypassing the menu, 
+# TODO: Temporarily bypassing the menu,
 # see https://github.com/GDquest/make-pro-2d-games-with-godot/issues/66
 func open():
 	close()

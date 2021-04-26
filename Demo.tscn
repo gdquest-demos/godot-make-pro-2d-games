@@ -21,7 +21,6 @@ script = ExtResource( 1 )
 [node name="MusicPlayer" parent="." instance=ExtResource( 2 )]
 
 [node name="Background" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
@@ -45,7 +44,6 @@ LEVEL_START = "res://levels/Grasslands.tscn"
 
 [node name="Overlays" type="CanvasLayer" parent="."]
 pause_mode = 2
-editor/display_folded = true
 layer = 50
 
 [node name="ForegroundFog" type="ColorRect" parent="Overlays"]
@@ -67,14 +65,13 @@ script = ExtResource( 9 )
 [node name="ShopMenu" parent="Interface" instance=ExtResource( 11 )]
 pause_mode = 2
 visible = false
-_sections_unfolded = [ "Pause", "Theme" ]
+SUB_MENU_PATH = NodePath("")
 
 [node name="PauseMenu" parent="Interface" instance=ExtResource( 12 )]
 visible = false
-_sections_unfolded = [ "Pause", "Theme" ]
+SUB_MENU_PATH = NodePath("")
 
 [node name="LifebarsBuilder" parent="Interface" instance=ExtResource( 13 )]
-
-[connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]
-[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
 [connection signal="loaded" from="LevelLoader" to="Overlays/ForegroundFog" method="_on_LevelLoader_loaded"]
+[connection signal="loaded" from="LevelLoader" to="Background/BackgroundFog" method="_on_LevelLoader_loaded"]
+[connection signal="loaded" from="LevelLoader" to="Interface" method="_on_Level_loaded"]

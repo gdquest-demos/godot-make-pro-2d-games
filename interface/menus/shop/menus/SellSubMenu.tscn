@@ -3,7 +3,5 @@
 [ext_resource path="res://interface/menus/shop/menus/ShopSubMenu.tscn" type="PackedScene" id=1]
 
 [node name="SellSubMenu" instance=ExtResource( 1 )]
-
+SUB_MENU_PATH = NodePath("")
 ACTION = "buy_from"
-
-

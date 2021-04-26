@@ -23,7 +23,7 @@ func arrive_to(velocity,
 
 	return velocity + steering
 
-func follow(velocity, 
+func follow(velocity,
 			position,
 			target_position,
 			max_speed,

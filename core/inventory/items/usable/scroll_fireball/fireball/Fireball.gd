@@ -15,7 +15,7 @@ func _on_area_entered(area):
 
 func explode():
 	set_active(false)
-	
+
 	var explosion_node = Explosion.instance()
 	add_child(explosion_node)
 	get_tree().create_timer(explosion_node.lifetime * 2.0).connect("timeout", self, "queue_free")

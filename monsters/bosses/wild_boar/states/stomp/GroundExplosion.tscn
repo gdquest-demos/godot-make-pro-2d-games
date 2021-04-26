@@ -4,18 +4,12 @@
 [ext_resource path="res://monsters/bosses/wild_boar/states/stomp/GroundExplosion.gd" type="Script" id=2]
 [ext_resource path="res://core/inventory/items/usable/scroll_fireball/fireball/particles/explosions/Explosion.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 45.1559
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "explode"
 length = 0.5
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
@@ -56,24 +50,13 @@ tracks/2/keys = {
 }
 
 [node name="GroundExplosion" instance=ExtResource( 1 )]
-
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Explosion" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
 anims/explode = SubResource( 2 )
-blend_times = [  ]
-
-

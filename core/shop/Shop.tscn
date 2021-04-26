@@ -8,26 +8,15 @@
 [ext_resource path="res://core/shop/purse/Purse.tscn" type="PackedScene" id=6]
 
 [node name="Shop" type="Node"]
-
-editor/display_folded = true
 script = ExtResource( 1 )
-STOCK_INFINITE = false
-MONEY_INFINITE = false
-MAX_TRANSACTION_COUNT = 100
-BUY_MULTIPLIER = 0.25
 
-[node name="Inventory" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Inventory" parent="." instance=ExtResource( 2 )]
 
-[node name="Sword" parent="Inventory" index="0" instance=ExtResource( 3 )]
-
+[node name="Sword" parent="Inventory" instance=ExtResource( 3 )]
 amount = 6
 
-[node name="FireballScroll" parent="Inventory" index="1" instance=ExtResource( 4 )]
+[node name="FireballScroll" parent="Inventory" instance=ExtResource( 4 )]
 
-[node name="StrongHealthPotion" parent="Inventory" index="2" instance=ExtResource( 5 )]
+[node name="StrongHealthPotion" parent="Inventory" instance=ExtResource( 5 )]
 
-[node name="Purse" parent="." index="1" instance=ExtResource( 6 )]
-
-MAXIMUM = 1000000
-
-
+[node name="Purse" parent="." instance=ExtResource( 6 )]
